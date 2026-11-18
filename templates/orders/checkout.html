@@ -1,0 +1,231 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Checkout | POCKET - Fashion that fits your pocket{% endblock %}
+
+{% block content %}
+<div class="bg-slate-50 border-b border-slate-200 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-2xl sm:text-3xl font-black text-navy-900 tracking-tight">Checkout</h1>
+        <p class="text-xs text-slate-500 mt-1">Review your delivery address and order summary to place your order</p>
+    </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <form action="{% url 'orders:checkout' %}" method="POST" id="checkout-form">
+        {% csrf_token %}
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- LEFT COLUMN: Address Selection & Details (7 cols) -->
+            <div class="lg:col-span-7 space-y-6">
+                
+                <!-- MANDATORY COD POLICY NOTICE -->
+                <div class="p-4 rounded-2xl bg-orange-50 border border-orange-200 flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center flex-shrink-0 font-bold text-sm">!</div>
+                    <div class="text-xs text-orange-950">
+                        <strong class="block text-sm font-extrabold text-orange-900 mb-0.5">Online Payment Required</strong>
+                        Cash on Delivery is not available. Please pay online to confirm your order. After placing this order, you will scan our official UPI QR code and submit the 12-digit transaction UTR number.
+                    </div>
+                </div>
+
+                <!-- Delivery Address Section -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+                    <h2 class="text-lg font-black text-navy-900 pb-3 border-b border-slate-100 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <span>1. Delivery Address</span>
+                    </h2>
+
+                    {% if user_addresses %}
+                    <!-- Select from Saved Addresses -->
+                    <div class="space-y-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">Choose from saved addresses:</span>
+                        <div class="space-y-3">
+                            {% for addr in user_addresses %}
+                            <label class="block cursor-pointer">
+                                <input type="radio" name="address_id" value="{{ addr.id }}" class="peer sr-only address-radio" {% if addr.is_default or forloop.first %}checked{% endif %} onchange="toggleNewAddressFields(false)">
+                                <div class="p-4 rounded-2xl border border-slate-200 peer-checked:border-orange-500 peer-checked:ring-2 peer-checked:ring-orange-200 bg-white hover:bg-slate-50 transition">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <strong class="text-xs font-extrabold text-navy-900">{{ addr.full_name }}</strong>
+                                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">{{ addr.get_address_type_display }}</span>
+                                    </div>
+                                    <p class="text-xs text-slate-600 leading-relaxed">
+                                        {{ addr.address_line_1 }}{% if addr.address_line_2 %}, {{ addr.address_line_2 }}{% endif %}{% if addr.landmark %}, Near {{ addr.landmark }}{% endif %}<br>
+                                        {{ addr.city }}, {{ addr.state }} - <strong>{{ addr.pincode }}</strong>
+                                    </p>
+                                    <p class="text-xs text-slate-500 font-semibold mt-1">Mobile: {{ addr.phone_number }}</p>
+                                </div>
+                            </label>
+                            {% endfor %}
+
+                            <!-- Option to enter new address -->
+                            <label class="block cursor-pointer">
+                                <input type="radio" name="address_id" value="" class="peer sr-only address-radio" onchange="toggleNewAddressFields(true)">
+                                <div class="p-4 rounded-2xl border border-dashed border-slate-300 peer-checked:border-orange-500 peer-checked:ring-2 peer-checked:ring-orange-200 hover:border-slate-400 transition text-center">
+                                    <span class="text-xs font-bold text-navy-900">+ Deliver to a different / new address</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- New Address Form Fields (Shown if no saved address or user chooses new) -->
+                    <div id="new-address-section" class="{% if user_addresses %}hidden{% endif %} space-y-4 pt-2 border-t border-slate-100">
+                        <p class="text-xs font-bold text-slate-700">Enter New Delivery Address:</p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-navy-900 mb-1">Full Name *</label>
+                                <input type="text" name="full_name" value="{{ request.user.get_full_name }}" placeholder="Recipient Name" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-navy-900 mb-1">10-Digit Mobile Number *</label>
+                                <input type="tel" name="phone_number" value="{{ request.user.phone_number }}" placeholder="Mobile for delivery updates" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-navy-900 mb-1">Alternate Phone (Optional)</label>
+                                <input type="tel" name="alternate_phone" placeholder="Optional backup phone" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-navy-900 mb-1">6-Digit PIN Code *</label>
+                                <input type="text" name="pincode" placeholder="e.g. 110001" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 mb-1">House No., Building Name, Street *</label>
+                            <input type="text" name="address_line_1" placeholder="Flat / House / Floor / Building" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 mb-1">Area, Colony, Sector</label>
+                            <input type="text" name="address_line_2" placeholder="Colony / Sector / Area" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-navy-900 mb-1">Landmark (Optional)</label>
+                                <input type="text" name="landmark" placeholder="Near Hospital / Park" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-navy-900 mb-1">City / Town *</label>
+                                <input type="text" name="city" placeholder="City" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-navy-900 mb-1">State *</label>
+                                <input type="text" name="state" placeholder="State" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-navy-900">
+                                <input type="checkbox" name="save_address" checked class="rounded border-slate-300 text-orange-500 focus:ring-orange-500">
+                                <span>Save this address to my profile for future orders</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Customer Delivery Notes -->
+                    <div class="pt-4 border-t border-slate-100">
+                        <label class="block text-xs font-bold text-navy-900 mb-1">Delivery Instructions / Notes (Optional)</label>
+                        <input type="text" name="customer_notes" placeholder="e.g. Please leave with security if unavailable" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: Order Summary & Place Order Button (5 cols) -->
+            <div class="lg:col-span-5 space-y-6">
+                
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xl space-y-6">
+                    <h2 class="text-lg font-black text-navy-900 pb-3 border-b border-slate-100 flex items-center justify-between">
+                        <span>2. Order Summary</span>
+                        <span class="text-xs font-bold text-slate-500">({{ cart.total_items_count }} items)</span>
+                    </h2>
+
+                    <!-- Items Preview -->
+                    <div class="divide-y divide-slate-100 max-h-72 overflow-y-auto pr-1">
+                        {% for item in cart_items %}
+                        <div class="py-3 flex items-center justify-between gap-3 text-xs">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-14 rounded-xl bg-slate-100 overflow-hidden border border-slate-200 flex-shrink-0">
+                                    {% if item.product.primary_image %}
+                                    <img src="{{ item.product.primary_image.image.url }}" alt="{{ item.product.name }}" class="w-full h-full object-cover">
+                                    {% else %}
+                                    <img src="{% static 'images/pocket_logo.jpg' %}" alt="{{ item.product.name }}" class="w-full h-full object-contain p-1 bg-navy-900">
+                                    {% endif %}
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-navy-900 line-clamp-1">{{ item.product.name }}</h4>
+                                    {% if item.variant %}
+                                    <p class="text-[10px] text-slate-400">
+                                        {% if item.variant.size %}Size: {{ item.variant.size }}{% endif %}
+                                        {% if item.variant.color %}| {{ item.variant.color }}{% endif %}
+                                    </p>
+                                    {% endif %}
+                                    <p class="text-[11px] text-slate-500 mt-0.5">Qty: {{ item.quantity }} &times; ₹{{ item.unit_price }}</p>
+                                </div>
+                            </div>
+                            <span class="font-black text-navy-900">₹{{ item.total_price }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Price Calculations -->
+                    <div class="space-y-2.5 text-xs pt-3 border-t border-slate-100">
+                        <div class="flex justify-between text-slate-600">
+                            <span>Subtotal:</span>
+                            <span class="font-bold text-navy-900">₹{{ cart.subtotal }}</span>
+                        </div>
+                        <div class="flex justify-between text-slate-600">
+                            <span>Shipping Charges:</span>
+                            {% if cart.shipping_charge == 0 %}
+                            <span class="font-extrabold text-emerald-600">FREE</span>
+                            {% else %}
+                            <span class="font-bold text-navy-900">₹{{ cart.shipping_charge }}</span>
+                            {% endif %}
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-200 flex justify-between text-base font-black text-navy-900">
+                            <span>Total Payable Amount:</span>
+                            <span>₹{{ cart.grand_total }}</span>
+                        </div>
+                    </div>
+
+                    <!-- Place Order CTA -->
+                    <div class="pt-2">
+                        <button type="submit" class="w-full py-4 bg-orange-500 hover:bg-orange-600 text-white font-extrabold text-sm rounded-2xl transition shadow-lg shadow-orange-500/25 flex items-center justify-center gap-2">
+                            <span>Place Order & Pay Online</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+                    </div>
+
+                    <div class="text-center text-[11px] text-slate-400">
+                        <p class="font-medium">By placing this order you agree to POCKET's Terms & Shipping policies.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<script>
+    function toggleNewAddressFields(show) {
+        const sec = document.getElementById('new-address-section');
+        if (sec) {
+            if (show) {
+                sec.classList.remove('hidden');
+            } else {
+                sec.classList.add('hidden');
+            }
+        }
+    }
+</script>
+{% endblock %}

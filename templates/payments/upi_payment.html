@@ -1,0 +1,142 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Pay for Order #{{ order.order_number }} | POCKET UPI Payment{% endblock %}
+
+{% block content %}
+<div class="bg-navy-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
+        <span class="inline-block px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-xs font-black uppercase tracking-wider border border-orange-500/30">
+            Step 2: Complete UPI Payment
+        </span>
+        <h1 class="text-2xl sm:text-3xl font-black tracking-tight">Order #{{ order.order_number }}</h1>
+        <p class="text-xs text-slate-300">Scan QR Code or pay directly to the verified POCKET UPI ID</p>
+    </div>
+</div>
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        
+        <!-- LEFT: QR Code & UPI Details (6 cols) -->
+        <div class="md:col-span-6 space-y-6">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xl text-center space-y-5">
+                
+                <!-- Amount Banner -->
+                <div class="p-4 rounded-2xl bg-orange-50 border border-orange-200">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">Exact Amount to Pay:</span>
+                    <span class="text-3xl sm:text-4xl font-black text-navy-900 mt-1 block">₹{{ order.total_amount }}</span>
+                </div>
+
+                <!-- UPI QR Code Display -->
+                <div class="relative w-64 h-64 mx-auto p-4 bg-white rounded-3xl border-2 border-dashed border-orange-300 shadow-inner flex flex-col items-center justify-center">
+                    {% if config.qr_code_image %}
+                    <img src="{{ config.qr_code_image.url }}" alt="UPI QR Code" class="w-full h-full object-contain rounded-xl">
+                    {% else %}
+                    <!-- Render dynamic QR Code using Google Charts API or SVG generator -->
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data={{ upi_uri|urlencode }}" alt="Scan UPI QR" class="w-full h-full object-contain rounded-xl" onerror="this.onerror=null; this.src='{% static 'images/pocket_logo.jpg' %}';">
+                    {% endif %}
+                </div>
+
+                <!-- Open UPI App on Mobile Button -->
+                <div class="pt-1">
+                    <a href="{{ upi_uri }}" class="w-full py-3 px-4 bg-navy-900 hover:bg-navy-950 text-white font-extrabold text-xs rounded-2xl transition shadow-md flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                        <span>Pay via UPI App (GPay / PhonePe / Paytm)</span>
+                    </a>
+                </div>
+
+                <!-- Configured UPI ID & Copy Box -->
+                <div class="pt-4 border-t border-slate-100 text-left space-y-2">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-slate-500 font-semibold">UPI ID:</span>
+                        <button type="button" onclick="copyUPIId('{{ config.upi_id }}')" class="text-orange-600 font-extrabold hover:underline flex items-center gap-1">
+                            <span id="copy-btn-text">Copy UPI ID</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        </button>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 font-mono font-bold text-xs text-navy-900 flex justify-between items-center">
+                        <span id="upi-id-value">{{ config.upi_id }}</span>
+                    </div>
+
+                    <div class="flex items-center justify-between text-xs pt-1">
+                        <span class="text-slate-500 font-semibold">Account Name:</span>
+                        <strong class="text-navy-900">{{ config.account_display_name }}</strong>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RIGHT: Payment Verification Submission Form (6 cols) -->
+        <div class="md:col-span-6 space-y-6">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xl space-y-6">
+                <div>
+                    <h2 class="text-lg font-black text-navy-900 tracking-tight">Submit Payment Details</h2>
+                    <p class="text-xs text-slate-500 mt-1">After completing the UPI transfer, enter the 12-digit transaction reference number below.</p>
+                </div>
+
+                <!-- Instructions box -->
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-1.5 leading-relaxed">
+                    <span class="font-extrabold text-navy-900 block mb-1">Payment Instructions:</span>
+                    {{ config.payment_instructions|linebreaks }}
+                </div>
+
+                <!-- UTR Submission Form -->
+                <form action="{% url 'payments:submit_payment' order.order_number %}" method="POST" enctype="multipart/form-data" class="space-y-4">
+                    {% csrf_token %}
+
+                    <div>
+                        <label class="block text-xs font-black text-navy-900 mb-1">
+                            12-Digit UTR / Bank Reference Number *
+                        </label>
+                        <input type="text" name="utr_number" required placeholder="e.g. 432109876543" class="w-full text-xs font-mono font-bold p-3.5 rounded-xl border-2 border-slate-300 focus:border-orange-500 focus:outline-none uppercase tracking-wider">
+                        <span class="text-[11px] text-slate-500 mt-1 block">Found in Google Pay, PhonePe, Paytm, or your bank SMS.</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 mb-1">Payer Name (Optional)</label>
+                            <input type="text" name="payer_name" placeholder="Name on bank account" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-1 focus:ring-orange-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 mb-1">Your UPI ID (Optional)</label>
+                            <input type="text" name="payer_upi_id" placeholder="yourname@okhdfcbank" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-1 focus:ring-orange-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-navy-900 mb-1">Payment Screenshot (Optional)</label>
+                        <input type="file" name="payment_screenshot" accept="image/*" class="w-full text-xs p-2 rounded-xl border border-slate-300 bg-slate-50 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-navy-900 file:text-white hover:file:bg-orange-500">
+                        <span class="text-[10px] text-slate-400 mt-1 block">Uploading a screenshot helps our team verify faster.</span>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" class="w-full py-4 bg-orange-500 hover:bg-orange-600 text-white font-black text-xs rounded-2xl transition shadow-lg shadow-orange-500/25 flex items-center justify-center gap-2">
+                            <span>Submit Payment for Verification</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Integrity Alert -->
+                <div class="pt-3 border-t border-slate-100 flex items-start gap-2 text-[11px] text-slate-500">
+                    <svg class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    <p>Every transaction is matched against official bank statements before goods are dispatched from our fulfillment hub.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function copyUPIId(upiId) {
+        navigator.clipboard.writeText(upiId).then(() => {
+            const btn = document.getElementById('copy-btn-text');
+            btn.innerText = 'Copied!';
+            setTimeout(() => btn.innerText = 'Copy UPI ID', 2500);
+        });
+    }
+</script>
+{% endblock %}

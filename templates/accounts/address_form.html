@@ -1,0 +1,97 @@
+{% extends 'base/base.html' %}
+{% block title %}{{ title }} | POCKET{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl space-y-6">
+        <div>
+            <a href="{% url 'accounts:address_list' %}" class="text-xs font-bold text-orange-600 hover:underline mb-2 inline-block">&larr; Back to Addresses</a>
+            <h1 class="text-2xl font-black text-navy-900 tracking-tight">{{ title }}</h1>
+            <p class="text-xs text-slate-500 mt-1">Please provide accurate delivery details for swift order fulfillment</p>
+        </div>
+
+        <form method="POST" class="space-y-4">
+            {% csrf_token %}
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-navy-900 mb-1">Full Recipient Name *</label>
+                    <input type="text" name="full_name" value="{{ address.full_name|default:'' }}" required placeholder="e.g. Rahul Sharma" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-navy-900 mb-1">10-Digit Mobile Number *</label>
+                    <input type="tel" name="phone_number" value="{{ address.phone_number|default:'' }}" required placeholder="e.g. 9876543210" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-navy-900 mb-1">Alternate Phone (Optional)</label>
+                    <input type="tel" name="alternate_phone" value="{{ address.alternate_phone|default:'' }}" placeholder="Optional second number" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-navy-900 mb-1">PIN Code *</label>
+                    <input type="text" name="pincode" value="{{ address.pincode|default:'' }}" required placeholder="e.g. 110001" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-navy-900 mb-1">Flat, House no., Building, Company, Apartment *</label>
+                <input type="text" name="address_line_1" value="{{ address.address_line_1|default:'' }}" required placeholder="e.g. Flat 302, Green Valley Apartments" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-navy-900 mb-1">Area, Street, Sector, Village</label>
+                <input type="text" name="address_line_2" value="{{ address.address_line_2|default:'' }}" placeholder="e.g. Sector 14, MG Road" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-navy-900 mb-1">Landmark (Optional)</label>
+                    <input type="text" name="landmark" value="{{ address.landmark|default:'' }}" placeholder="Near City Mall" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-navy-900 mb-1">Town / City *</label>
+                    <input type="text" name="city" value="{{ address.city|default:'' }}" required placeholder="e.g. Jaipur" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-navy-900 mb-1">State *</label>
+                    <input type="text" name="state" value="{{ address.state|default:'' }}" required placeholder="e.g. Rajasthan" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                </div>
+            </div>
+
+            <!-- Address Type Radio -->
+            <div>
+                <label class="block text-xs font-bold text-navy-900 mb-2">Address Type</label>
+                <div class="flex gap-4">
+                    <label class="flex items-center gap-2 cursor-pointer text-xs font-medium text-slate-700">
+                        <input type="radio" name="address_type" value="HOME" {% if not address or address.address_type == 'HOME' %}checked{% endif %} class="text-orange-500 focus:ring-orange-500">
+                        <span>Home (All day delivery)</span>
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer text-xs font-medium text-slate-700">
+                        <input type="radio" name="address_type" value="WORK" {% if address and address.address_type == 'WORK' %}checked{% endif %} class="text-orange-500 focus:ring-orange-500">
+                        <span>Work (10 AM - 5 PM)</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Default Checkbox -->
+            <div class="pt-2">
+                <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-navy-900">
+                    <input type="checkbox" name="is_default" {% if address and address.is_default %}checked{% endif %} class="rounded border-slate-300 text-orange-500 focus:ring-orange-500">
+                    <span>Make this my default delivery address</span>
+                </label>
+            </div>
+
+            <div class="pt-4 flex items-center gap-3">
+                <button type="submit" class="px-8 py-3 bg-navy-900 hover:bg-orange-600 text-white font-extrabold text-xs rounded-xl transition shadow-lg">
+                    Save Delivery Address
+                </button>
+                <a href="{% url 'accounts:address_list' %}" class="px-6 py-3 border border-slate-200 text-slate-600 font-bold text-xs rounded-xl hover:bg-slate-50 transition">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends 'admin_dashboard/base_admin.html' %}
+{% load static %}
+
+{% block title %}Product Catalog | POCKET Admin{% endblock %}
+
+{% block admin_content %}
+<div class="space-y-6">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+            <h1 class="text-2xl font-black text-navy-900 tracking-tight">Products Catalog</h1>
+            <p class="text-xs text-slate-500 mt-1">Manage selling prices, internal supplier costs, stock, and status</p>
+        </div>
+        <a href="{% url 'admin_dashboard:product_create' %}" class="inline-flex items-center gap-2 px-5 py-2.5 bg-orange-500 hover:bg-orange-600 text-white font-extrabold text-xs rounded-xl shadow-md transition self-start sm:self-auto">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            <span>Add New Product</span>
+        </a>
+    </div>
+
+    <!-- Filters & Search Bar -->
+    <div class="bg-white p-4 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <form method="GET" class="flex flex-1 items-center gap-3 w-full sm:w-auto">
+            <input type="text" name="q" value="{{ query|default:'' }}" placeholder="Search by name, category, or SKU..." class="w-full sm:w-80 text-xs p-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-1 focus:ring-orange-500">
+            <select name="category" onchange="this.form.submit()" class="text-xs p-2.5 rounded-xl border border-slate-300 bg-white">
+                <option value="">All Categories</option>
+                {% for c in categories %}
+                <option value="{{ c.id }}" {% if cat_id == c.id|stringformat:'i' %}selected{% endif %}>{{ c.name }}</option>
+                {% endfor %}
+            </select>
+            <select name="status" onchange="this.form.submit()" class="text-xs p-2.5 rounded-xl border border-slate-300 bg-white">
+                <option value="">All Statuses</option>
+                <option value="active" {% if status_filter == 'active' %}selected{% endif %}>Active Only</option>
+                <option value="inactive" {% if status_filter == 'inactive' %}selected{% endif %}>Inactive Only</option>
+                <option value="low_stock" {% if status_filter == 'low_stock' %}selected{% endif %}>Low Stock (&le; 5)</option>
+            </select>
+            <button type="submit" class="px-4 py-2.5 bg-navy-900 text-white font-bold text-xs rounded-xl">Filter</button>
+        </form>
+    </div>
+
+    <!-- Product Table -->
+    <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-slate-100 text-xs">
+                <thead>
+                    <tr class="bg-slate-50 text-slate-400 font-extrabold uppercase tracking-wider text-[10px]">
+                        <th class="py-3 px-4 text-left">Photo</th>
+                        <th class="py-3 px-4 text-left">Product Title</th>
+                        <th class="py-3 px-4 text-left">Category</th>
+                        <th class="py-3 px-4 text-left">Selling Price</th>
+                        <th class="py-3 px-4 text-left bg-orange-50 text-orange-950">Supplier Cost (Private)</th>
+                        <th class="py-3 px-4 text-left bg-emerald-50 text-emerald-950">Unit Margin</th>
+                        <th class="py-3 px-4 text-left">Stock</th>
+                        <th class="py-3 px-4 text-left">Status</th>
+                        <th class="py-3 px-4 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    {% for p in page_obj %}
+                    <tr class="hover:bg-slate-50/70 transition">
+                        <td class="py-3 px-4">
+                            <div class="w-12 h-14 rounded-xl bg-slate-100 overflow-hidden border border-slate-200 flex-shrink-0">
+                                {% if p.primary_image %}
+                                <img src="{{ p.primary_image.image.url }}" alt="{{ p.name }}" class="w-full h-full object-cover">
+                                {% else %}
+                                <img src="{% static 'images/pocket_logo.jpg' %}" alt="{{ p.name }}" class="w-full h-full object-contain p-1 bg-navy-900">
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td class="py-3 px-4">
+                            <span class="font-bold text-navy-900 block line-clamp-1 max-w-xs">{{ p.name }}</span>
+                            <span class="text-[10px] text-slate-400 font-mono">Slug: {{ p.slug }}</span>
+                        </td>
+                        <td class="py-3 px-4 text-slate-600 font-medium">
+                            {{ p.category.name|default:'Uncategorized' }}
+                        </td>
+                        <td class="py-3 px-4 font-black text-navy-900">
+                            ₹{{ p.selling_price }}
+                        </td>
+                        <td class="py-3 px-4 font-bold text-orange-900 bg-orange-50/60 font-mono">
+                            ₹{{ p.source_cost }}
+                        </td>
+                        <td class="py-3 px-4 font-extrabold text-emerald-700 bg-emerald-50/60 font-mono">
+                            +₹{{ p.internal_unit_margin }}
+                        </td>
+                        <td class="py-3 px-4">
+                            <span class="font-extrabold {% if p.stock_quantity <= 5 %}text-red-600 font-black{% else %}text-slate-700{% endif %}">
+                                {{ p.stock_quantity }}
+                            </span>
+                        </td>
+                        <td class="py-3 px-4">
+                            <form action="{% url 'admin_dashboard:product_toggle' p.id %}" method="POST" class="inline">
+                                {% csrf_token %}
+                                <button type="submit" class="px-2.5 py-1 rounded-full text-[10px] font-extrabold {% if p.is_active %}bg-emerald-100 text-emerald-800{% else %}bg-slate-200 text-slate-700{% endif %}" title="Click to toggle status">
+                                    {{ p.is_active|yesno:"Active,Inactive" }}
+                                </button>
+                            </form>
+                        </td>
+                        <td class="py-3 px-4 text-right space-x-2">
+                            <a href="{% url 'admin_dashboard:product_edit' p.id %}" class="px-3 py-1 bg-navy-900 hover:bg-orange-600 text-white font-bold rounded-lg transition">
+                                Edit
+                            </a>
+                            <a href="{% url 'admin_dashboard:product_delete' p.id %}" class="px-2.5 py-1 bg-red-50 text-red-600 hover:bg-red-600 hover:text-white font-bold rounded-lg transition">
+                                Del
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="9" class="text-center py-8 text-slate-400">No products match your criteria.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

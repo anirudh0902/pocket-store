@@ -1,0 +1,264 @@
+{% extends 'admin_dashboard/base_admin.html' %}
+{% load static %}
+
+{% block title %}Order #{{ order.order_number }} | POCKET Admin{% endblock %}
+
+{% block admin_content %}
+<div class="space-y-6">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+            <a href="{% url 'admin_dashboard:order_list' %}" class="text-xs font-bold text-orange-600 hover:underline">&larr; Back to All Orders</a>
+            <h1 class="text-2xl font-black text-navy-900 tracking-tight mt-1">Order #{{ order.order_number }}</h1>
+            <p class="text-xs text-slate-500 mt-0.5">Placed on {{ order.created_at|date:"l, d F Y, h:i A" }} by {{ order.user.get_full_name|default:order.user.username }} ({{ order.user.email }})</p>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <span class="px-4 py-1.5 rounded-full text-xs font-extrabold {% if order.status == 'DELIVERED' %}bg-emerald-100 text-emerald-800{% elif order.status == 'SHIPPED' %}bg-blue-100 text-blue-800{% elif order.status == 'PAYMENT_VERIFIED' %}bg-indigo-100 text-indigo-800{% elif order.status == 'CANCELLED' %}bg-red-100 text-red-800{% else %}bg-amber-100 text-amber-800{% endif %}">
+                {{ order.get_status_display }}
+            </span>
+            <span class="px-3 py-1.5 rounded-full text-xs font-bold {% if order.payment_status == 'VERIFIED' %}bg-emerald-50 text-emerald-700 border border-emerald-200{% elif order.payment_status == 'SUBMITTED' %}bg-amber-50 text-amber-700 border border-amber-200{% else %}bg-slate-100 text-slate-600{% endif %}">
+                Payment: {{ order.get_payment_status_display }}
+            </span>
+        </div>
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- LEFT 7 COLS: Ordered Items & Fulfillment Workflow -->
+        <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Ordered Items & Cost Snapshot Table -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-4">
+                <h2 class="text-base font-black text-navy-900 pb-2 border-b border-slate-100">Ordered Products ({{ order.items.count }})</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-slate-100 text-xs">
+                        <thead>
+                            <tr class="bg-slate-50 text-slate-400 font-extrabold uppercase tracking-wider text-[10px]">
+                                <th class="py-2.5 px-3 text-left">Product</th>
+                                <th class="py-2.5 px-3 text-left">Customer Price</th>
+                                <th class="py-2.5 px-3 text-left text-orange-950 bg-orange-50/60">Supplier Cost (Private)</th>
+                                <th class="py-2.5 px-3 text-left">Qty</th>
+                                <th class="py-2.5 px-3 text-right">Total Price</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            {% for item in order.items.all %}
+                            <tr>
+                                <td class="py-3 px-3">
+                                    <span class="font-bold text-navy-900 block">{{ item.product_name }}</span>
+                                    {% if item.variant_details %}
+                                    <span class="text-[11px] text-slate-500">{{ item.variant_details }}</span>
+                                    {% endif %}
+                                </td>
+                                <td class="py-3 px-3 font-semibold text-slate-800">
+                                    ₹{{ item.unit_price }}
+                                </td>
+                                <td class="py-3 px-3 font-mono font-bold text-orange-900 bg-orange-50/40">
+                                    ₹{{ item.supplier_unit_cost }}
+                                </td>
+                                <td class="py-3 px-3 font-bold text-navy-900">
+                                    {{ item.quantity }}
+                                </td>
+                                <td class="py-3 px-3 font-black text-navy-900 text-right">
+                                    ₹{{ item.total_price }}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SUPPLIER PROCUREMENT & FULFILLMENT BOX (INTERNAL) -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-4">
+                <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+                    <div>
+                        <h2 class="text-base font-black text-navy-900">Fulfillment Supplier Ordering (Internal)</h2>
+                        <p class="text-[11px] text-rose-600 font-bold">Strictly private administrative information</p>
+                    </div>
+                    {% if order.payment_status != 'VERIFIED' %}
+                    <span class="text-[11px] font-bold text-red-600 bg-red-50 px-2.5 py-1 rounded-full border border-red-200">
+                        Payment must be verified before supplier purchase!
+                    </span>
+                    {% endif %}
+                </div>
+
+                <form action="{% url 'admin_dashboard:order_supplier_fulfillment' order.order_number %}" method="POST" class="space-y-4">
+                    {% csrf_token %}
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 mb-1">Assigned Sourcing Supplier</label>
+                            <select name="supplier_id" {% if order.payment_status != 'VERIFIED' %}disabled{% endif %} class="w-full text-xs p-2.5 rounded-xl border border-slate-300 bg-white">
+                                <option value="">Select Supplier</option>
+                                {% for s in suppliers %}
+                                <option value="{{ s.id }}" {% if order.supplier and order.supplier.id == s.id %}selected{% endif %}>{{ s.name }} ({{ s.get_platform_display }})</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 mb-1">Supplier Order Reference / ID</label>
+                            <input type="text" name="supplier_order_reference" value="{{ order.supplier_order_reference }}" placeholder="e.g. MSH-94829384" {% if order.payment_status != 'VERIFIED' %}disabled{% endif %} class="w-full text-xs p-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-1 focus:ring-orange-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-navy-900 mb-1">Internal Fulfillment Notes</label>
+                        <input type="text" name="internal_notes" value="{{ order.internal_notes }}" placeholder="Notes regarding packaging, supplier dispatch SLA, etc." class="w-full text-xs p-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-1 focus:ring-orange-500">
+                    </div>
+
+                    {% if order.payment_status == 'VERIFIED' %}
+                    <button type="submit" class="px-6 py-2.5 bg-navy-900 hover:bg-orange-500 text-white font-extrabold text-xs rounded-xl shadow-sm transition">
+                        Record Supplier Order Placed
+                    </button>
+                    {% else %}
+                    <p class="text-xs text-slate-400 italic">Please verify customer UPI payment in the Payments section to enable supplier placement.</p>
+                    {% endif %}
+                </form>
+            </div>
+
+            <!-- LOGISTICS & DISPATCH SHIPPING BOX -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-4">
+                <h2 class="text-base font-black text-navy-900 pb-2 border-b border-slate-100">Logistics & Courier Tracking</h2>
+                <form action="{% url 'admin_dashboard:order_shipping_dispatch' order.order_number %}" method="POST" class="space-y-4">
+                    {% csrf_token %}
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 mb-1">Courier Partner *</label>
+                            <input type="text" name="courier_partner" value="{{ order.shipping_details.courier_partner|default:'' }}" required placeholder="e.g. Delhivery, BlueDart, DTDC, XpressBees" class="w-full text-xs p-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-1 focus:ring-orange-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 mb-1">AWB / Tracking Number *</label>
+                            <input type="text" name="tracking_number" value="{{ order.shipping_details.tracking_number|default:'' }}" required placeholder="e.g. 1409283948293" class="w-full text-xs p-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-1 focus:ring-orange-500 font-mono font-bold">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-navy-900 mb-1">Courier Tracking URL (Optional)</label>
+                        <input type="url" name="tracking_url" value="{{ order.shipping_details.tracking_url|default:'' }}" placeholder="https://www.delhivery.com/track/package/..." class="w-full text-xs p-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-1 focus:ring-orange-500">
+                    </div>
+
+                    <button type="submit" class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs rounded-xl shadow-sm transition">
+                        Save Shipping Details & Mark as SHIPPED
+                    </button>
+                </form>
+            </div>
+
+            <!-- STATUS HISTORY AUDIT LOG -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-4">
+                <h2 class="text-base font-black text-navy-900 pb-2 border-b border-slate-100">Status History Audit Log</h2>
+                <div class="space-y-3">
+                    {% for h in status_history %}
+                    <div class="p-3 rounded-2xl bg-slate-50 border border-slate-100 text-xs flex items-start justify-between">
+                        <div>
+                            <span class="font-bold text-navy-900 block text-sm">{{ h.get_status_display }}</span>
+                            <p class="text-slate-600 mt-0.5">{{ h.comment }}</p>
+                            <span class="text-[10px] text-slate-400 mt-1 block">Changed by: {{ h.changed_by.username|default:'System' }}</span>
+                        </div>
+                        <span class="text-[11px] text-slate-400 font-medium whitespace-nowrap">{{ h.created_at|date:"d M, h:i A" }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT 5 COLS: Financial Snapshot, Expense Editor & Address -->
+        <div class="lg:col-span-5 space-y-6">
+            
+            <!-- ORDER STATUS TRANSITION BOX -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-4">
+                <h2 class="text-sm font-black uppercase tracking-wider text-navy-900 pb-2 border-b border-slate-100">Update Order Status</h2>
+                <form action="{% url 'admin_dashboard:order_update_status' order.order_number %}" method="POST" class="space-y-3">
+                    {% csrf_token %}
+                    <div>
+                        <label class="block text-xs font-bold text-navy-900 mb-1">Transition Status To:</label>
+                        <select name="status" class="w-full text-xs p-2.5 rounded-xl border border-slate-300 bg-white font-bold text-navy-900">
+                            {% for code, label in status_choices %}
+                            <option value="{{ code }}" {% if order.status == code %}selected{% endif %}>{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-navy-900 mb-1">Status Reason / Customer Comment:</label>
+                        <input type="text" name="comment" placeholder="Reason for status change..." class="w-full text-xs p-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-1 focus:ring-orange-500">
+                    </div>
+
+                    <button type="submit" class="w-full py-2.5 bg-navy-900 hover:bg-orange-500 text-white font-extrabold text-xs rounded-xl transition shadow-sm">
+                        Update Status & Notify Customer
+                    </button>
+                </form>
+            </div>
+
+            <!-- PROFIT & EXPENSES SNAPSHOT (CRITICAL BUSINESS SECTION) -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-4">
+                <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+                    <h2 class="text-sm font-black uppercase tracking-wider text-navy-900">Net Profit Calculation</h2>
+                    <span class="text-xs font-black text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+                        Net Profit: ₹{{ order.estimated_profit }}
+                    </span>
+                </div>
+
+                <div class="text-[11px] text-slate-500 space-y-1">
+                    <p class="font-bold text-navy-900">Official Specification Formula:</p>
+                    <p class="font-mono bg-slate-50 p-2 rounded-lg border border-slate-200">
+                        Profit = Selling Price (₹{{ order.total_amount }}) - Supplier Cost (₹{{ order.total_supplier_cost }}) - Shipping - Packaging - Other Expenses
+                    </p>
+                </div>
+
+                <!-- Expense Editor Form -->
+                <form action="{% url 'admin_dashboard:order_update_expenses' order.order_number %}" method="POST" class="space-y-3 pt-2">
+                    {% csrf_token %}
+                    <div class="grid grid-cols-2 gap-3 text-xs">
+                        <div>
+                            <label class="block text-slate-600 font-semibold mb-1">Actual Shipping (₹)</label>
+                            <input type="number" step="0.01" name="actual_shipping_expense" value="{{ order.actual_shipping_expense }}" class="w-full p-2 rounded-xl border border-slate-300 font-bold">
+                        </div>
+                        <div>
+                            <label class="block text-slate-600 font-semibold mb-1">Packaging Cost (₹)</label>
+                            <input type="number" step="0.01" name="packaging_expense" value="{{ order.packaging_expense }}" class="w-full p-2 rounded-xl border border-slate-300 font-bold">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 text-xs">
+                        <div>
+                            <label class="block text-slate-600 font-semibold mb-1">Payment Fees (₹)</label>
+                            <input type="number" step="0.01" name="payment_gateway_charges" value="{{ order.payment_gateway_charges }}" class="w-full p-2 rounded-xl border border-slate-300 font-bold">
+                        </div>
+                        <div>
+                            <label class="block text-slate-600 font-semibold mb-1">Other Overheads (₹)</label>
+                            <input type="number" step="0.01" name="other_expenses" value="{{ order.other_expenses }}" class="w-full p-2 rounded-xl border border-slate-300 font-bold">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full py-2 bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs rounded-xl transition">
+                        Recalculate & Save Profit Snapshot
+                    </button>
+                </form>
+            </div>
+
+            <!-- CUSTOMER DELIVERY ADDRESS SNAPSHOT -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-2">
+                <h2 class="text-sm font-black uppercase tracking-wider text-navy-900 pb-2 border-b border-slate-100">Delivery Address Snapshot</h2>
+                <div class="text-xs text-slate-700 leading-relaxed">
+                    <strong class="text-navy-900 font-bold text-sm block">{{ order.shipping_address_snapshot.full_name }}</strong>
+                    <span>{{ order.shipping_address_snapshot.address_line_1 }}</span><br>
+                    {% if order.shipping_address_snapshot.address_line_2 %}<span>{{ order.shipping_address_snapshot.address_line_2 }}</span><br>{% endif %}
+                    {% if order.shipping_address_snapshot.landmark %}<span>Near {{ order.shipping_address_snapshot.landmark }}</span><br>{% endif %}
+                    <span class="font-bold text-navy-900">{{ order.shipping_address_snapshot.city }}, {{ order.shipping_address_snapshot.state }} - {{ order.shipping_address_snapshot.pincode }}</span><br>
+                    <span class="text-slate-500 font-semibold mt-1 block">Phone: {{ order.shipping_address_snapshot.phone_number }}</span>
+                    {% if order.customer_notes %}
+                    <p class="mt-2 p-2 bg-orange-50 rounded-lg text-orange-900 text-[11px] font-medium">Customer Note: {{ order.customer_notes }}</p>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

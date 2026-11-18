@@ -1,0 +1,74 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}My Wishlist | POCKET{% endblock %}
+
+{% block content %}
+<div class="bg-slate-50 border-b border-slate-200 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-black text-navy-900 tracking-tight">Saved Wishlist</h1>
+        <p class="text-xs text-slate-500 mt-1">Keep track of your favorite styles and easily move them to cart</p>
+    </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    {% if items %}
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        {% for item in items %}
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between group hover:border-orange-300 transition">
+            <div class="relative w-full aspect-[4/5] bg-slate-100 overflow-hidden">
+                <a href="{{ item.product.get_absolute_url }}" class="block w-full h-full">
+                    {% if item.product.primary_image %}
+                    <img src="{{ item.product.primary_image.image.url }}" alt="{{ item.product.name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    {% else %}
+                    <img src="{% static 'images/pocket_logo.jpg' %}" alt="{{ item.product.name }}" class="w-full h-full object-contain p-4 bg-navy-900">
+                    {% endif %}
+                </a>
+                
+                <!-- Remove Wishlist Button -->
+                <form action="{% url 'orders:wishlist_toggle' item.product.id %}" method="POST" class="absolute top-2.5 right-2.5 z-10">
+                    {% csrf_token %}
+                    <button type="submit" class="w-8 h-8 rounded-full bg-white/90 hover:bg-white text-red-500 shadow-md flex items-center justify-center transition" title="Remove from wishlist">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </form>
+            </div>
+
+            <div class="p-4 space-y-3">
+                <h3 class="font-bold text-xs sm:text-sm text-navy-900 line-clamp-2 hover:text-orange-600 transition">
+                    <a href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a>
+                </h3>
+
+                <div class="flex items-baseline gap-2">
+                    <span class="text-sm font-black text-navy-900">₹{{ item.product.selling_price }}</span>
+                    {% if item.product.has_discount %}
+                    <span class="text-xs text-slate-400 line-through">₹{{ item.product.original_price }}</span>
+                    {% endif %}
+                </div>
+
+                <form action="{% url 'orders:wishlist_move_to_cart' item.id %}" method="POST" class="pt-1">
+                    {% csrf_token %}
+                    <button type="submit" class="w-full py-2 bg-navy-900 hover:bg-orange-500 text-white font-bold text-xs rounded-xl transition shadow-sm flex items-center justify-center gap-1.5">
+                        <svg class="w-3.5 h-3.5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                        <span>Move to Cart</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <!-- Empty Wishlist State -->
+    <div class="text-center py-20 bg-white rounded-3xl border border-slate-200 max-w-lg mx-auto p-8 shadow-sm">
+        <div class="w-16 h-16 rounded-full bg-slate-100 text-slate-400 mx-auto flex items-center justify-center mb-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        </div>
+        <h2 class="text-xl font-bold text-navy-900">Your wishlist is empty</h2>
+        <p class="text-xs text-slate-500 mt-2 max-w-xs mx-auto">Found something you like? Click the heart icon on any product to save it here for later.</p>
+        <a href="{% url 'products:product_list' %}" class="mt-6 inline-block px-8 py-3 bg-navy-900 hover:bg-orange-600 text-white rounded-full font-extrabold text-xs transition shadow-md">
+            Explore Fashion Products
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

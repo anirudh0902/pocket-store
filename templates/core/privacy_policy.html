@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% block title %}Privacy Policy | POCKET{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-sm space-y-6 text-sm text-slate-700 leading-relaxed">
+        <h1 class="text-3xl font-black text-navy-900 tracking-tight">Privacy Policy</h1>
+        <p class="text-xs text-slate-400">Last Updated: November 2026</p>
+
+        <section class="space-y-3">
+            <h2 class="text-base font-bold text-navy-900">1. Information We Collect</h2>
+            <p>At POCKET, we respect your privacy and are committed to protecting your personal data. We collect customer name, delivery address, phone number, and email strictly for the purposes of processing orders, dispatching shipments, and providing customer support.</p>
+        </section>
+
+        <section class="space-y-3">
+            <h2 class="text-base font-bold text-navy-900">2. Payment Information Security</h2>
+            <p>POCKET uses a secure manual UPI verification model. We do NOT collect or store sensitive banking credentials, card numbers, or UPI PINs. When you make a UPI transaction, only the 12-digit transaction UTR/reference number is recorded for bank verification purposes.</p>
+        </section>
+
+        <section class="space-y-3">
+            <h2 class="text-base font-bold text-navy-900">3. How Your Information is Shared</h2>
+            <p>Your delivery address and phone number are shared solely with logistics and fulfillment partners necessary to deliver your package to your doorstep. We never sell or rent your personal information to third parties.</p>
+        </section>
+
+        <section class="space-y-3">
+            <h2 class="text-base font-bold text-navy-900">4. Contacting Us About Privacy</h2>
+            <p>If you have any questions regarding your account or data deletion requests, please email us at <a href="mailto:{{ site_config.support_email }}" class="text-orange-600 font-bold underline">{{ site_config.support_email }}</a>.</p>
+        </section>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Shopping Cart | POCKET{% endblock %}
+
+{% block content %}
+<div class="bg-slate-50 border-b border-slate-200 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-2xl sm:text-3xl font-black text-navy-900 tracking-tight">Shopping Cart</h1>
+        <p class="text-xs text-slate-500 mt-1">Review your selected items before proceeding to checkout</p>
+    </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    {% if cart_items %}
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Cart Items List (8 cols) -->
+        <div class="lg:col-span-8 space-y-4">
+            
+            <!-- COD Notice Banner (Mandatory business rule) -->
+            <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 flex items-center gap-3">
+                <svg class="w-5 h-5 text-amber-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                <p class="text-xs font-bold text-amber-800">
+                    Cash on Delivery is not available. Please pay online via direct UPI to confirm your order.
+                </p>
+            </div>
+
+            <!-- Items Container -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden divide-y divide-slate-100">
+                {% for item in cart_items %}
+                <div class="p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div class="flex items-center gap-4">
+                        <a href="{{ item.product.get_absolute_url }}" class="w-20 h-24 rounded-2xl bg-slate-100 overflow-hidden border border-slate-200 flex-shrink-0 block">
+                            {% if item.product.primary_image %}
+                            <img src="{{ item.product.primary_image.image.url }}" alt="{{ item.product.name }}" class="w-full h-full object-cover">
+                            {% else %}
+                            <img src="{% static 'images/pocket_logo.jpg' %}" alt="{{ item.product.name }}" class="w-full h-full object-contain p-2 bg-navy-900">
+                            {% endif %}
+                        </a>
+                        <div>
+                            <h3 class="font-bold text-sm text-navy-900 hover:text-orange-600 transition">
+                                <a href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a>
+                            </h3>
+                            {% if item.variant %}
+                            <p class="text-xs text-slate-500 mt-0.5">
+                                {% if item.variant.size %}Size: <strong>{{ item.variant.size }}</strong>{% endif %}
+                                {% if item.variant.color %}| Color: <strong>{{ item.variant.color }}</strong>{% endif %}
+                            </p>
+                            {% endif %}
+                            <p class="text-xs text-navy-900 font-extrabold mt-1">₹{{ item.unit_price }} each</p>
+                        </div>
+                    </div>
+
+                    <!-- Quantity & Subtotal Controls -->
+                    <div class="flex items-center justify-between sm:justify-end gap-6 w-full sm:w-auto pt-2 sm:pt-0 border-t sm:border-0 border-slate-100">
+                        <form action="{% url 'orders:cart_update' item.id %}" method="POST" class="flex items-center border border-slate-200 rounded-xl overflow-hidden bg-slate-50">
+                            {% csrf_token %}
+                            <button type="submit" name="quantity" value="{{ item.quantity|add:'-1' }}" class="px-2.5 py-1 text-slate-600 hover:bg-slate-200 font-bold focus:outline-none">-</button>
+                            <span class="px-3 py-1 text-xs font-bold text-navy-900">{{ item.quantity }}</span>
+                            <button type="submit" name="quantity" value="{{ item.quantity|add:'1' }}" class="px-2.5 py-1 text-slate-600 hover:bg-slate-200 font-bold focus:outline-none">+</button>
+                        </form>
+
+                        <div class="text-right">
+                            <span class="text-sm font-black text-navy-900 block">₹{{ item.total_price }}</span>
+                            <form action="{% url 'orders:cart_remove' item.id %}" method="POST" class="mt-1">
+                                {% csrf_token %}
+                                <button type="submit" class="text-[11px] font-bold text-red-500 hover:text-red-700 underline">
+                                    Remove
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="flex justify-between items-center pt-2">
+                <a href="{% url 'products:product_list' %}" class="text-xs font-bold text-navy-900 hover:text-orange-600 flex items-center gap-1">
+                    &larr; Continue Shopping
+                </a>
+            </div>
+        </div>
+
+        <!-- Order Summary & Checkout (4 cols) -->
+        <div class="lg:col-span-4 space-y-6">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xl space-y-6">
+                <h2 class="text-lg font-black text-navy-900 pb-3 border-b border-slate-100">Order Summary</h2>
+
+                <div class="space-y-3 text-xs">
+                    <div class="flex justify-between text-slate-600">
+                        <span>Items Subtotal:</span>
+                        <span class="font-bold text-navy-900">₹{{ cart.subtotal }}</span>
+                    </div>
+
+                    <div class="flex justify-between text-slate-600">
+                        <span>Shipping Charges:</span>
+                        {% if cart.shipping_charge == 0 %}
+                        <span class="font-extrabold text-emerald-600">FREE</span>
+                        {% else %}
+                        <span class="font-bold text-navy-900">₹{{ cart.shipping_charge }}</span>
+                        {% endif %}
+                    </div>
+
+                    {% if cart.shipping_charge > 0 %}
+                    <p class="text-[11px] text-orange-600 font-semibold bg-orange-50 p-2 rounded-xl">
+                        Add ₹{{ 499|add:cart.subtotal }} more to unlock FREE delivery!
+                    </p>
+                    {% endif %}
+
+                    <div class="pt-3 border-t border-slate-100 flex justify-between text-base font-black text-navy-900">
+                        <span>Grand Total:</span>
+                        <span>₹{{ cart.grand_total }}</span>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <a href="{% url 'orders:checkout' %}" class="w-full py-4 bg-orange-500 hover:bg-orange-600 text-white font-extrabold text-sm rounded-2xl transition shadow-lg shadow-orange-500/25 flex items-center justify-center gap-2">
+                        <span>Proceed to Checkout</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </a>
+                </div>
+
+                <div class="pt-2 text-center text-[11px] text-slate-400 space-y-1">
+                    <p class="flex items-center justify-center gap-1 font-semibold text-slate-600">
+                        <svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        Direct UPI Verified Orders
+                    </p>
+                    <p>Prices recalculated & guaranteed on server</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {% else %}
+    <!-- Empty Cart State -->
+    <div class="text-center py-20 bg-white rounded-3xl border border-slate-200 max-w-lg mx-auto p-8 shadow-sm">
+        <div class="w-20 h-20 rounded-full bg-slate-100 text-slate-400 mx-auto flex items-center justify-center mb-4">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        </div>
+        <h2 class="text-xl font-bold text-navy-900">Your shopping cart is empty</h2>
+        <p class="text-xs text-slate-500 mt-2 max-w-xs mx-auto">Looks like you haven't added anything to your cart yet. Explore our trendy collections today!</p>
+        <a href="{% url 'products:product_list' %}" class="mt-6 inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-extrabold text-xs transition shadow-md">
+            Start Shopping Now
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

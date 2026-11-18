@@ -1,0 +1,76 @@
+{% extends 'admin_dashboard/base_admin.html' %}
+
+{% block title %}{{ title }} | POCKET Admin{% endblock %}
+
+{% block admin_content %}
+<div class="max-w-2xl mx-auto space-y-6">
+    <div>
+        <a href="{% url 'admin_dashboard:supplier_list' %}" class="text-xs font-bold text-orange-600 hover:underline">&larr; Back to Suppliers</a>
+        <h1 class="text-2xl font-black text-navy-900 tracking-tight mt-1">{{ title }}</h1>
+        <p class="text-xs text-rose-600 font-bold mt-0.5">Strictly internal. Never displayed to customers.</p>
+    </div>
+
+    <form method="POST" class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-5">
+        {% csrf_token %}
+
+        <div>
+            <label class="block text-xs font-bold text-navy-900 mb-1">Supplier / Shop Name *</label>
+            <input type="text" name="name" value="{{ supplier.name|default:'' }}" required placeholder="e.g. TrendHub Apparel (Tirupur Hub)" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+                <label class="block text-xs font-bold text-navy-900 mb-1">Platform / Sourcing Channel *</label>
+                <select name="platform" class="w-full text-xs p-3 rounded-xl border border-slate-300 bg-white">
+                    <option value="MEESHO" {% if supplier and supplier.platform == 'MEESHO' %}selected{% endif %}>Meesho Seller</option>
+                    <option value="FLIPKART" {% if supplier and supplier.platform == 'FLIPKART' %}selected{% endif %}>Flipkart Seller</option>
+                    <option value="MANUFACTURER" {% if supplier and supplier.platform == 'MANUFACTURER' %}selected{% endif %}>Direct Manufacturer / Wholesaler</option>
+                    <option value="LOCAL_DISTRIBUTOR" {% if supplier and supplier.platform == 'LOCAL_DISTRIBUTOR' %}selected{% endif %}>Local Distributor</option>
+                    <option value="OTHER" {% if supplier and supplier.platform == 'OTHER' %}selected{% endif %}>Other Platform</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-navy-900 mb-1">Contact Person</label>
+                <input type="text" name="contact_person" value="{{ supplier.contact_person|default:'' }}" placeholder="e.g. Ramesh Bhai" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+                <label class="block text-xs font-bold text-navy-900 mb-1">Phone Number</label>
+                <input type="text" name="phone" value="{{ supplier.phone|default:'' }}" placeholder="+91..." class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-navy-900 mb-1">Email</label>
+                <input type="email" name="email" value="{{ supplier.email|default:'' }}" placeholder="vendor@gmail.com" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+            </div>
+        </div>
+
+        <div>
+            <label class="block text-xs font-bold text-navy-900 mb-1">Store / Catalog URL</label>
+            <input type="url" name="website_or_store_url" value="{{ supplier.website_or_store_url|default:'' }}" placeholder="https://..." class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+        </div>
+
+        <div>
+            <label class="block text-xs font-bold text-navy-900 mb-1">Internal Operational Notes</label>
+            <textarea name="internal_notes" rows="3" placeholder="Dispatch speed, quality observations, returns terms..." class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">{{ supplier.internal_notes|default:'' }}</textarea>
+        </div>
+
+        <div>
+            <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-navy-900">
+                <input type="checkbox" name="is_active" {% if not supplier or supplier.is_active %}checked{% endif %} class="rounded border-slate-300 text-orange-500 focus:ring-orange-500">
+                <span>Active Vendor</span>
+            </label>
+        </div>
+
+        <div class="pt-4 border-t border-slate-200 flex items-center gap-4">
+            <button type="submit" class="px-8 py-3.5 bg-navy-900 hover:bg-orange-500 text-white font-extrabold text-xs rounded-xl transition shadow-md">
+                Save Supplier Record
+            </button>
+            <a href="{% url 'admin_dashboard:supplier_list' %}" class="px-6 py-3.5 border border-slate-200 text-slate-700 font-bold text-xs rounded-xl hover:bg-slate-50 transition">
+                Cancel
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

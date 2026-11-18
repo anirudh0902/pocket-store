@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}About Us | POCKET - Fashion that fits your pocket{% endblock %}
+
+{% block content %}
+<div class="bg-navy-900 text-white py-16">
+    <div class="max-w-4xl mx-auto px-4 text-center space-y-4">
+        <img src="{% static 'images/pocket_logo.jpg' %}" alt="POCKET" class="w-20 h-20 mx-auto rounded-2xl object-contain border border-slate-700 shadow-lg">
+        <h1 class="text-3xl sm:text-4xl font-black tracking-tight">About POCKET</h1>
+        <p class="text-sm sm:text-base text-orange-400 font-bold uppercase tracking-widest">Fashion that fits your pocket.</p>
+    </div>
+</div>
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8 text-slate-700 text-sm leading-relaxed">
+    <div class="bg-white p-8 rounded-3xl border border-slate-200 space-y-4">
+        <h2 class="text-xl font-bold text-navy-900">Our Story & Mission</h2>
+        <p>
+            Welcome to <strong>POCKET</strong>. We started with a simple, powerful belief: everyone deserves access to stylish, premium-feeling fashion without stretching their household budget.
+        </p>
+        <p>
+            Traditional retail markups and middleman fees drive clothing prices through the roof. At POCKET, we work closely with trusted manufacturers and certified suppliers across Indian textile hubs like Surat, Tirupur, Jaipur, and Agra. By keeping our operational costs lean and passing the savings directly to our customers, we ensure genuine quality at honest prices.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+            <h3 class="font-extrabold text-navy-900 text-base mb-1">Honest Pricing</h3>
+            <p class="text-xs text-slate-500">No inflated markups. Direct savings for your pocket.</p>
+        </div>
+        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+            <h3 class="font-extrabold text-navy-900 text-base mb-1">Direct Verification</h3>
+            <p class="text-xs text-slate-500">Every UPI transaction is personally verified by our operations team.</p>
+        </div>
+        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+            <h3 class="font-extrabold text-navy-900 text-base mb-1">Pan-India Reach</h3>
+            <p class="text-xs text-slate-500">Reliable delivery to over 19,000 PIN codes across India.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

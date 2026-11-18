@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% block title %}Shipping & Delivery Policy | POCKET{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-sm space-y-6 text-sm text-slate-700 leading-relaxed">
+        <h1 class="text-3xl font-black text-navy-900 tracking-tight">Shipping & Delivery Policy</h1>
+        <p class="text-xs text-slate-400">POCKET All-India Logistics</p>
+
+        <section class="space-y-3">
+            <h2 class="text-base font-bold text-navy-900">1. Delivery Timeline</h2>
+            <p>Once your UPI payment is verified, orders are processed and handed over to our logistics partners within 24 to 48 business hours. Typical delivery times are <strong>4 to 7 business days</strong> depending on your delivery PIN code.</p>
+        </section>
+
+        <section class="space-y-3">
+            <h2 class="text-base font-bold text-navy-900">2. Shipping Charges</h2>
+            <p>We believe in transparent pricing:</p>
+            <ul class="list-disc pl-5 space-y-1">
+                <li><strong>FREE Shipping:</strong> Applicable on all orders of ₹{{ site_config.free_shipping_threshold|default:'499' }} or above.</li>
+                <li><strong>Standard Shipping:</strong> A flat ₹{{ site_config.standard_shipping_charge|default:'49' }} fee applies to orders below ₹{{ site_config.free_shipping_threshold|default:'499' }}.</li>
+            </ul>
+        </section>
+
+        <section class="space-y-3">
+            <h2 class="text-base font-bold text-navy-900">3. Real-Time Tracking</h2>
+            <p>As soon as your shipment is dispatched, you will receive an update in your POCKET account with the courier partner name (e.g. Delhivery, BlueDart, DTDC, XpressBees) and an active AWB tracking number.</p>
+        </section>
+    </div>
+</div>
+{% endblock %}

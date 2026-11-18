@@ -1,0 +1,192 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Order #{{ order.order_number }} | POCKET{% endblock %}
+
+{% block content %}
+<div class="bg-slate-50 border-b border-slate-200 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex text-xs font-semibold text-slate-500 mb-2">
+            <a href="{% url 'core:home' %}" class="hover:text-orange-600">Home</a>
+            <span class="mx-2">/</span>
+            <a href="{% url 'accounts:my_orders' %}" class="hover:text-orange-600">My Orders</a>
+            <span class="mx-2">/</span>
+            <span class="text-navy-900 font-bold">#{{ order.order_number }}</span>
+        </nav>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+                <h1 class="text-2xl sm:text-3xl font-black text-navy-900 tracking-tight">Order #{{ order.order_number }}</h1>
+                <p class="text-xs text-slate-500 mt-1">Placed on {{ order.created_at|date:"l, d F Y, h:i A" }}</p>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <span class="px-4 py-1.5 rounded-full text-xs font-extrabold {% if order.status == 'DELIVERED' %}bg-emerald-100 text-emerald-800{% elif order.status == 'SHIPPED' %}bg-blue-100 text-blue-800{% elif order.status == 'PAYMENT_VERIFIED' %}bg-indigo-100 text-indigo-800{% elif order.status == 'CANCELLED' %}bg-red-100 text-red-800{% else %}bg-amber-100 text-amber-800{% endif %}">
+                    {{ order.get_status_display }}
+                </span>
+                {% if order.payment_status == 'UNPAID' %}
+                <a href="{% url 'payments:upi_payment' order.order_number %}" class="px-4 py-1.5 rounded-full bg-orange-500 text-white font-extrabold text-xs hover:bg-orange-600 shadow-md transition">
+                    Pay Now via UPI
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- LEFT COLUMN: Items & Tracking (8 cols) -->
+        <div class="lg:col-span-8 space-y-6">
+            
+            <!-- Shipping / Courier Tracking Box (if dispatched) -->
+            {% if order.shipping_details %}
+            <div class="p-6 rounded-3xl bg-blue-50 border border-blue-200 shadow-sm space-y-3">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-black uppercase tracking-wider text-blue-900 flex items-center gap-2">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+                        Logistics & Courier Tracking
+                    </span>
+                    <span class="text-xs font-bold text-blue-700">{{ order.shipping_details.courier_partner }}</span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                    <div>
+                        <span class="text-slate-500 block">AWB / Tracking Number:</span>
+                        <strong class="text-navy-900 font-mono text-sm">{{ order.shipping_details.tracking_number }}</strong>
+                    </div>
+                    {% if order.shipping_details.tracking_url %}
+                    <div class="flex items-center">
+                        <a href="{{ order.shipping_details.tracking_url }}" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-4 py-2 bg-navy-900 hover:bg-blue-700 text-white rounded-xl font-bold transition">
+                            <span>Track on Courier Portal</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Ordered Items List -->
+            <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+                <h3 class="text-base font-black text-navy-900 mb-6 pb-3 border-b border-slate-100">Ordered Items ({{ order.items.count }})</h3>
+                <div class="divide-y divide-slate-100">
+                    {% for item in order.items.all %}
+                    <div class="py-4 flex items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 rounded-xl bg-slate-100 overflow-hidden border border-slate-200 flex-shrink-0">
+                                {% if item.product.primary_image %}
+                                <img src="{{ item.product.primary_image.image.url }}" alt="{{ item.product_name }}" class="w-full h-full object-cover">
+                                {% else %}
+                                <img src="{% static 'images/pocket_logo.jpg' %}" alt="{{ item.product_name }}" class="w-full h-full object-contain p-2 bg-navy-900">
+                                {% endif %}
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-navy-900">
+                                    <a href="{{ item.product.get_absolute_url }}" class="hover:text-orange-600 transition">{{ item.product_name }}</a>
+                                </h4>
+                                {% if item.variant_details %}
+                                <p class="text-xs text-slate-500 mt-0.5">{{ item.variant_details }}</p>
+                                {% endif %}
+                                <p class="text-xs text-slate-500 mt-0.5">Quantity: <strong class="text-navy-900">{{ item.quantity }}</strong> &times; ₹{{ item.unit_price }}</p>
+                            </div>
+                        </div>
+                        <span class="font-black text-sm text-navy-900">₹{{ item.total_price }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Order Timeline / Status History -->
+            <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+                <h3 class="text-base font-black text-navy-900 mb-6 pb-3 border-b border-slate-100">Order Updates & Timeline</h3>
+                <div class="space-y-6 relative pl-6 border-l-2 border-orange-200">
+                    {% for h in status_history %}
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-orange-500 border-2 border-white shadow-sm"></div>
+                        <div class="text-xs">
+                            <span class="font-bold text-navy-900 block text-sm">{{ h.get_status_display }}</span>
+                            <span class="text-[11px] text-slate-400 font-medium">{{ h.created_at|date:"d M Y, h:i A" }}</span>
+                            {% if h.comment %}
+                            <p class="text-slate-600 mt-1 bg-slate-50 p-2.5 rounded-xl border border-slate-100">{{ h.comment }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p class="text-xs text-slate-400 italic">No timeline entries recorded yet.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: Payment & Address Summary (4 cols) -->
+        <div class="lg:col-span-4 space-y-6">
+            
+            <!-- Payment Status Box -->
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                <h3 class="text-sm font-black uppercase tracking-wider text-navy-900 pb-2 border-b border-slate-100">Payment Status</h3>
+                
+                <div class="flex items-center justify-between text-xs">
+                    <span class="text-slate-500">Method</span>
+                    <strong class="text-navy-900">Direct UPI Transfer</strong>
+                </div>
+
+                <div class="flex items-center justify-between text-xs">
+                    <span class="text-slate-500">Status</span>
+                    <span class="px-2.5 py-0.5 rounded-full font-bold {% if order.payment_status == 'VERIFIED' %}bg-emerald-100 text-emerald-800{% elif order.payment_status == 'SUBMITTED' %}bg-amber-100 text-amber-800{% elif order.payment_status == 'FAILED_REJECTED' %}bg-red-100 text-red-800{% else %}bg-slate-100 text-slate-700{% endif %}">
+                        {{ order.get_payment_status_display }}
+                    </span>
+                </div>
+
+                {% if order.latest_payment %}
+                <div class="p-3 bg-slate-50 rounded-2xl border border-slate-100 text-xs space-y-1">
+                    <p class="text-slate-500">Submitted UTR:</p>
+                    <p class="font-mono font-bold text-navy-900">{{ order.latest_payment.utr_number }}</p>
+                    <p class="text-[10px] text-slate-400">On {{ order.latest_payment.created_at|date:"d M Y, h:i A" }}</p>
+                </div>
+                {% endif %}
+
+                {% if order.payment_status == 'UNPAID' %}
+                <a href="{% url 'payments:upi_payment' order.order_number %}" class="w-full block py-3 bg-orange-500 hover:bg-orange-600 text-white text-center font-extrabold text-xs rounded-xl transition shadow-md">
+                    Pay Now via UPI QR &rarr;
+                </a>
+                {% endif %}
+            </div>
+
+            <!-- Billing Summary Box -->
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+                <h3 class="text-sm font-black uppercase tracking-wider text-navy-900 pb-2 border-b border-slate-100">Order Summary</h3>
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between text-slate-600">
+                        <span>Items Subtotal:</span>
+                        <span>₹{{ order.subtotal }}</span>
+                    </div>
+                    <div class="flex justify-between text-slate-600">
+                        <span>Shipping Charges:</span>
+                        <span>{% if order.shipping_fee == 0 %}FREE{% else %}₹{{ order.shipping_fee }}{% endif %}</span>
+                    </div>
+                    <div class="pt-2 border-t border-slate-100 flex justify-between text-sm font-black text-navy-900">
+                        <span>Total Paid / Payable:</span>
+                        <span>₹{{ order.total_amount }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delivery Address Snapshot -->
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+                <h3 class="text-sm font-black uppercase tracking-wider text-navy-900 pb-2 border-b border-slate-100">Delivery Address</h3>
+                <div class="text-xs text-slate-700 leading-relaxed">
+                    <strong class="text-navy-900 block font-bold text-sm">{{ order.shipping_address_snapshot.full_name }}</strong>
+                    <span>{{ order.shipping_address_snapshot.address_line_1 }}</span><br>
+                    {% if order.shipping_address_snapshot.address_line_2 %}<span>{{ order.shipping_address_snapshot.address_line_2 }}</span><br>{% endif %}
+                    {% if order.shipping_address_snapshot.landmark %}<span>Landmark: {{ order.shipping_address_snapshot.landmark }}</span><br>{% endif %}
+                    <span class="font-bold text-navy-900">{{ order.shipping_address_snapshot.city }}, {{ order.shipping_address_snapshot.state }} - {{ order.shipping_address_snapshot.pincode }}</span><br>
+                    <span class="text-slate-500 mt-1 block">Phone: {{ order.shipping_address_snapshot.phone_number }}</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

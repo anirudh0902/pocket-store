@@ -1,0 +1,176 @@
+{% extends 'admin_dashboard/base_admin.html' %}
+{% load static %}
+
+{% block title %}Profit & Financial Accounting Reports | POCKET Admin{% endblock %}
+
+{% block admin_content %}
+<div class="space-y-8">
+    <div>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-black uppercase tracking-wider mb-1">
+            Internal Accounting & P&L Statement
+        </div>
+        <h1 class="text-2xl font-black text-navy-900 tracking-tight">Business Financial Reports & Profit Analysis</h1>
+        <p class="text-xs text-slate-500 mt-0.5">Computed exclusively from verified completed transactions and immutable historical order snapshots</p>
+    </div>
+
+    <!-- HIGH-LEVEL REVENUE VS PROFIT SUMMARY CARDS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-1">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Realized Revenue</span>
+            <p class="text-3xl font-black text-navy-900">₹{{ total_revenue }}</p>
+            <p class="text-[11px] text-slate-500">Gross customer collections</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-1">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Supplier Sourcing Cost</span>
+            <p class="text-3xl font-black text-rose-600">₹{{ total_supplier_cost }}</p>
+            <p class="text-[11px] text-slate-500">Paid to manufacturers & wholesalers</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-1">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Logistics & Packaging</span>
+            <p class="text-3xl font-black text-slate-700">₹{{ total_shipping_expense|add:total_packaging }}</p>
+            <p class="text-[11px] text-slate-500">Courier delivery + box materials</p>
+        </div>
+
+        <div class="bg-emerald-50 p-6 rounded-3xl border border-emerald-200 shadow-sm space-y-1">
+            <span class="text-xs font-black text-emerald-900 uppercase tracking-wider">Net Estimated Profit</span>
+            <p class="text-3xl font-black text-emerald-700">₹{{ total_profit }}</p>
+            <p class="text-[11px] text-emerald-800 font-bold">Bottom-line net business margin</p>
+        </div>
+    </div>
+
+    <!-- SALES TIME BREAKDOWN: DAILY, WEEKLY, MONTHLY -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Daily -->
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+                <h3 class="text-sm font-extrabold text-navy-900">Today's Sales</h3>
+                <span class="text-[11px] font-bold text-slate-400">{{ daily_sales.count|default:0 }} orders</span>
+            </div>
+            <div class="space-y-2 text-xs">
+                <div class="flex justify-between">
+                    <span class="text-slate-500">Revenue:</span>
+                    <strong class="text-navy-900">₹{{ daily_sales.rev|default:'0.00' }}</strong>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-500">Estimated Net Profit:</span>
+                    <strong class="text-emerald-600">₹{{ daily_sales.prof|default:'0.00' }}</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weekly (Last 7 Days) -->
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+                <h3 class="text-sm font-extrabold text-navy-900">Last 7 Days Sales</h3>
+                <span class="text-[11px] font-bold text-slate-400">{{ weekly_sales.count|default:0 }} orders</span>
+            </div>
+            <div class="space-y-2 text-xs">
+                <div class="flex justify-between">
+                    <span class="text-slate-500">Revenue:</span>
+                    <strong class="text-navy-900">₹{{ weekly_sales.rev|default:'0.00' }}</strong>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-500">Estimated Net Profit:</span>
+                    <strong class="text-emerald-600">₹{{ weekly_sales.prof|default:'0.00' }}</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monthly (Last 30 Days) -->
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+                <h3 class="text-sm font-extrabold text-navy-900">Last 30 Days Sales</h3>
+                <span class="text-[11px] font-bold text-slate-400">{{ monthly_sales.count|default:0 }} orders</span>
+            </div>
+            <div class="space-y-2 text-xs">
+                <div class="flex justify-between">
+                    <span class="text-slate-500">Revenue:</span>
+                    <strong class="text-navy-900">₹{{ monthly_sales.rev|default:'0.00' }}</strong>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-500">Estimated Net Profit:</span>
+                    <strong class="text-emerald-600">₹{{ monthly_sales.prof|default:'0.00' }}</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAILED P&L EXPENSE BREAKDOWN & CANCELLATION RATE -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- P&L Table (7 cols) -->
+        <div class="lg:col-span-7 bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+            <h3 class="text-sm font-black uppercase tracking-wider text-navy-900 pb-2 border-b border-slate-100">
+                Profit & Loss Expense Accounting
+            </h3>
+            <table class="min-w-full divide-y divide-slate-100 text-xs">
+                <tbody class="divide-y divide-slate-100">
+                    <tr class="font-bold text-navy-900">
+                        <td class="py-2.5">Total Customer Selling Revenue (+)</td>
+                        <td class="py-2.5 text-right font-black">₹{{ total_revenue }}</td>
+                    </tr>
+                    <tr class="text-slate-600">
+                        <td class="py-2.5">Less: Direct Supplier Procurement Cost (-)</td>
+                        <td class="py-2.5 text-right font-bold text-rose-600">-₹{{ total_supplier_cost }}</td>
+                    </tr>
+                    <tr class="text-slate-600">
+                        <td class="py-2.5">Less: Actual Shipping & Logistics Expense (-)</td>
+                        <td class="py-2.5 text-right font-bold text-slate-700">-₹{{ total_shipping_expense }}</td>
+                    </tr>
+                    <tr class="text-slate-600">
+                        <td class="py-2.5">Less: Order Packaging Material Charges (-)</td>
+                        <td class="py-2.5 text-right font-bold text-slate-700">-₹{{ total_packaging }}</td>
+                    </tr>
+                    <tr class="text-slate-600">
+                        <td class="py-2.5">Less: Payment Gateway / Banking Charges (-)</td>
+                        <td class="py-2.5 text-right font-bold text-slate-700">-₹{{ total_payment_charges }}</td>
+                    </tr>
+                    <tr class="text-slate-600">
+                        <td class="py-2.5">Less: Other Operating Expenses (-)</td>
+                        <td class="py-2.5 text-right font-bold text-slate-700">-₹{{ total_other_expenses }}</td>
+                    </tr>
+                    <tr class="bg-emerald-50 text-emerald-950 font-black text-sm">
+                        <td class="py-3 px-2 rounded-l-xl">Net Realized Profit (=)</td>
+                        <td class="py-3 px-2 rounded-r-xl text-right">₹{{ total_profit }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Best Sellers & Cancellation Metrics (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+            
+            <!-- Cancellation Rate Box -->
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+                <h3 class="text-xs font-black uppercase tracking-wider text-navy-900">Order Cancellation Rate</h3>
+                <div class="flex items-baseline justify-between pt-2">
+                    <span class="text-3xl font-black text-navy-900">{{ cancellation_rate }}%</span>
+                    <span class="text-xs text-slate-500 font-semibold">{{ cancelled_orders_count }} of {{ all_orders_count }} total orders</span>
+                </div>
+                <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden mt-2">
+                    <div class="bg-rose-500 h-full rounded-full" style="width: {{ cancellation_rate }}%;"></div>
+                </div>
+            </div>
+
+            <!-- Best-Selling Products Box -->
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+                <h3 class="text-xs font-black uppercase tracking-wider text-navy-900 pb-2 border-b border-slate-100">Top Selling Products</h3>
+                <div class="space-y-2 text-xs">
+                    {% for p in bestselling_products %}
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-slate-800 line-clamp-1 max-w-[200px]">{{ p.product__name }}</span>
+                        <span class="font-black text-navy-900 whitespace-nowrap">{{ p.total_units }} sold (₹{{ p.total_revenue }})</span>
+                    </div>
+                    {% empty %}
+                    <p class="text-xs text-slate-400 italic">No sales recorded yet.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

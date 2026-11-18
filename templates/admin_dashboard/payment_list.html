@@ -1,0 +1,130 @@
+{% extends 'admin_dashboard/base_admin.html' %}
+{% load static %}
+
+{% block title %}UPI Payment Verification Desk | POCKET Admin{% endblock %}
+
+{% block admin_content %}
+<div class="space-y-6">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[10px] font-black uppercase tracking-wider mb-1">
+                Zero Gateway Charges • Direct Bank Settlement
+            </div>
+            <h1 class="text-2xl font-black text-navy-900 tracking-tight">Manual UPI Payment Verification</h1>
+            <p class="text-xs text-slate-500 mt-0.5">Audit transaction UTR numbers against your official business bank statement</p>
+        </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="bg-white p-4 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-slate-500">Filter By Status:</span>
+            <a href="?status=PENDING" class="px-3 py-1.5 rounded-xl text-xs font-bold {% if status_filter == 'PENDING' %}bg-amber-500 text-white{% else %}bg-slate-100 text-slate-700 hover:bg-slate-200{% endif %} transition">
+                Pending Verification
+            </a>
+            <a href="?status=VERIFIED" class="px-3 py-1.5 rounded-xl text-xs font-bold {% if status_filter == 'VERIFIED' %}bg-emerald-600 text-white{% else %}bg-slate-100 text-slate-700 hover:bg-slate-200{% endif %} transition">
+                Verified Paid
+            </a>
+            <a href="?status=REJECTED" class="px-3 py-1.5 rounded-xl text-xs font-bold {% if status_filter == 'REJECTED' %}bg-red-600 text-white{% else %}bg-slate-100 text-slate-700 hover:bg-slate-200{% endif %} transition">
+                Rejected
+            </a>
+            <a href="?status=ALL" class="px-3 py-1.5 rounded-xl text-xs font-bold {% if status_filter == 'ALL' %}bg-navy-900 text-white{% else %}bg-slate-100 text-slate-700 hover:bg-slate-200{% endif %} transition">
+                All Transactions
+            </a>
+        </div>
+
+        <form method="GET" class="flex items-center gap-2 w-full sm:w-auto">
+            <input type="text" name="q" value="{{ query|default:'' }}" placeholder="Search by UTR or Order ID..." class="w-full sm:w-60 text-xs p-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-1 focus:ring-orange-500">
+            <button type="submit" class="px-3.5 py-2 bg-navy-900 text-white font-bold text-xs rounded-xl">Search</button>
+        </form>
+    </div>
+
+    <!-- Payments Table -->
+    <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-slate-100 text-xs">
+                <thead>
+                    <tr class="bg-slate-50 text-slate-400 font-extrabold uppercase tracking-wider text-[10px]">
+                        <th class="py-3 px-4 text-left">Order Number</th>
+                        <th class="py-3 px-4 text-left">Customer</th>
+                        <th class="py-3 px-4 text-left">Amount (₹)</th>
+                        <th class="py-3 px-4 text-left">12-Digit UTR</th>
+                        <th class="py-3 px-4 text-left">Payer Details</th>
+                        <th class="py-3 px-4 text-left">Screenshot</th>
+                        <th class="py-3 px-4 text-left">Status</th>
+                        <th class="py-3 px-4 text-left">Submitted Date</th>
+                        <th class="py-3 px-4 text-right">Verification Action</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    {% for p in page_obj %}
+                    <tr class="hover:bg-slate-50/70 transition">
+                        <td class="py-3.5 px-4 font-mono font-bold text-navy-900">
+                            <a href="{% url 'admin_dashboard:order_detail' p.order.order_number %}" class="hover:text-orange-600 underline">
+                                #{{ p.order.order_number }}
+                            </a>
+                        </td>
+                        <td class="py-3.5 px-4 font-bold text-slate-800">
+                            {{ p.order.user.get_full_name|default:p.order.user.username }}
+                        </td>
+                        <td class="py-3.5 px-4 font-black text-navy-900">
+                            ₹{{ p.amount }}
+                        </td>
+                        <td class="py-3.5 px-4 font-mono font-bold text-orange-600 bg-orange-50/60 px-2.5 py-1 rounded inline-block">
+                            {{ p.utr_number }}
+                        </td>
+                        <td class="py-3.5 px-4 text-slate-600">
+                            {{ p.payer_name|default:'-' }}
+                            {% if p.payer_upi_id %}<br><span class="text-[10px] text-slate-400 font-mono">{{ p.payer_upi_id }}</span>{% endif %}
+                        </td>
+                        <td class="py-3.5 px-4">
+                            {% if p.payment_screenshot %}
+                            <a href="{{ p.payment_screenshot.url }}" target="_blank" class="text-orange-600 font-bold underline text-[11px] flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                <span>View Receipt</span>
+                            </a>
+                            {% else %}
+                            <span class="text-slate-400">-</span>
+                            {% endif %}
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold {% if p.status == 'VERIFIED' %}bg-emerald-100 text-emerald-800{% elif p.status == 'REJECTED' %}bg-red-100 text-red-800{% else %}bg-amber-100 text-amber-800{% endif %}">
+                                {{ p.get_status_display }}
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-slate-400 whitespace-nowrap">
+                            {{ p.created_at|date:"d M Y, h:i A" }}
+                        </td>
+                        <td class="py-3.5 px-4 text-right space-x-2">
+                            {% if p.status == 'PENDING' %}
+                            <form action="{% url 'admin_dashboard:payment_approve' p.id %}" method="POST" class="inline">
+                                {% csrf_token %}
+                                <button type="submit" onclick="return confirm('Confirm payment receipt of ₹{{ p.amount }} for Order #{{ p.order.order_number }}?')" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold rounded-lg shadow-sm">
+                                    Approve
+                                </button>
+                            </form>
+                            <form action="{% url 'admin_dashboard:payment_reject' p.id %}" method="POST" class="inline">
+                                {% csrf_token %}
+                                <input type="hidden" name="reason" value="Transaction not found in bank records">
+                                <button type="submit" onclick="return confirm('Reject payment for Order #{{ p.order.order_number }}?')" class="px-2.5 py-1.5 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg shadow-sm">
+                                    Reject
+                                </button>
+                            </form>
+                            {% else %}
+                            <span class="text-[11px] text-slate-400">
+                                Verified by {{ p.verified_by.username|default:'Admin' }}
+                            </span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="9" class="text-center py-8 text-slate-400">No payment records found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

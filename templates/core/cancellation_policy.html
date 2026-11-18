@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+{% block title %}Cancellation Policy | POCKET{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-sm space-y-6 text-sm text-slate-700 leading-relaxed">
+        <h1 class="text-3xl font-black text-navy-900 tracking-tight">Cancellation Policy</h1>
+
+        <section class="space-y-3">
+            <h2 class="text-base font-bold text-navy-900">1. Cancellations Before Shipment</h2>
+            <p>You can request to cancel your order prior to dispatch by reaching out to our support team at <a href="mailto:{{ site_config.support_email }}" class="text-orange-600 font-bold underline">{{ site_config.support_email }}</a> with your Order ID.</p>
+        </section>
+
+        <section class="space-y-3">
+            <h2 class="text-base font-bold text-navy-900">2. Cancellations After Shipment</h2>
+            <p>Orders that have already been dispatched cannot be cancelled in transit. You may refuse delivery at the doorstep or request a return/replacement upon receipt.</p>
+        </section>
+
+        <section class="space-y-3">
+            <h2 class="text-base font-bold text-navy-900">3. Refund for Cancelled Orders</h2>
+            <p>If payment was already verified, verified refunds are processed back to the original UPI account within 3 to 5 business days.</p>
+        </section>
+    </div>
+</div>
+{% endblock %}

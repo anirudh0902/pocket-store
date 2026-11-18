@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}All Categories | POCKET{% endblock %}
+
+{% block content %}
+<div class="bg-slate-50 border-b border-slate-200 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex text-xs font-semibold text-slate-500 mb-2">
+            <a href="{% url 'core:home' %}" class="hover:text-orange-600">Home</a>
+            <span class="mx-2">/</span>
+            <span class="text-navy-900 font-bold">Categories</span>
+        </nav>
+        <h1 class="text-3xl font-black text-navy-900 tracking-tight">Explore Categories</h1>
+        <p class="text-xs text-slate-500 mt-1">Browse all curated fashion departments in POCKET</p>
+    </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {% for cat in categories %}
+        <a href="{{ cat.get_absolute_url }}" class="group bg-white rounded-3xl p-6 border border-slate-200/80 hover:border-orange-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+                <div class="w-14 h-14 rounded-2xl bg-orange-100 group-hover:bg-orange-500 text-orange-600 group-hover:text-white flex items-center justify-center transition shadow-sm">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                </div>
+                <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600">
+                    {{ cat.active_products_count }} Products
+                </span>
+            </div>
+            <div class="mt-6">
+                <h3 class="text-lg font-bold text-navy-900 group-hover:text-orange-600 transition">{{ cat.name }}</h3>
+                <p class="text-xs text-slate-500 mt-1 line-clamp-2">{{ cat.description }}</p>
+                <div class="mt-4 flex items-center text-xs font-bold text-orange-600 group-hover:translate-x-1 transition-transform">
+                    <span>Explore Collection</span>
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

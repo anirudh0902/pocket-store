@@ -1,0 +1,73 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Order Confirmed | POCKET{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="bg-white rounded-3xl border border-slate-200 shadow-xl p-8 sm:p-12 text-center space-y-6">
+        
+        <!-- Success Icon -->
+        <div class="w-20 h-20 mx-auto rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shadow-inner">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        </div>
+
+        <div class="space-y-2">
+            <span class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-black uppercase tracking-wider">
+                Payment Verification in Progress
+            </span>
+            <h1 class="text-3xl font-black text-navy-900 tracking-tight">Order #{{ order.order_number }} Placed!</h1>
+            <p class="text-sm text-slate-600 max-w-md mx-auto">
+                Thank you for shopping with POCKET! We have received your order and submitted payment details.
+            </p>
+        </div>
+
+        <!-- Verification Snapshot Box -->
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 text-left space-y-3 max-w-md mx-auto text-xs">
+            <div class="flex justify-between">
+                <span class="text-slate-500">Order Number:</span>
+                <strong class="text-navy-900">#{{ order.order_number }}</strong>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-slate-500">Amount:</span>
+                <strong class="text-navy-900">₹{{ order.total_amount }}</strong>
+            </div>
+            {% if payment %}
+            <div class="flex justify-between">
+                <span class="text-slate-500">Submitted UTR:</span>
+                <span class="font-mono font-bold text-navy-900">{{ payment.utr_number }}</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-slate-500">Verification Status:</span>
+                <span class="text-amber-700 font-extrabold">{{ payment.get_status_display }}</span>
+            </div>
+            {% endif %}
+            <div class="flex justify-between">
+                <span class="text-slate-500">Delivery Address:</span>
+                <span class="text-navy-900 text-right">{{ order.shipping_address_snapshot.city }}, {{ order.shipping_address_snapshot.pincode }}</span>
+            </div>
+        </div>
+
+        <!-- Next Steps Explanation -->
+        <div class="text-left bg-blue-50/70 p-5 rounded-2xl border border-blue-100 text-xs text-blue-900 space-y-2 max-w-md mx-auto">
+            <h4 class="font-extrabold uppercase tracking-wider text-[11px] text-blue-800">What Happens Next?</h4>
+            <ol class="list-decimal pl-4 space-y-1 text-slate-700">
+                <li>Our verification team audits your UTR against our bank statement.</li>
+                <li>Once approved, you receive an instant notification in your account.</li>
+                <li>Your products are prepared and dispatched with a courier tracking AWB.</li>
+            </ol>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="{% url 'accounts:order_detail' order.order_number %}" class="w-full sm:w-auto px-8 py-3.5 bg-navy-900 hover:bg-navy-950 text-white font-extrabold text-xs rounded-xl transition shadow-md">
+                View Order & Tracking Status
+            </a>
+            <a href="{% url 'products:product_list' %}" class="w-full sm:w-auto px-8 py-3.5 border border-slate-200 text-slate-700 font-bold text-xs rounded-xl hover:bg-slate-50 transition">
+                Continue Shopping
+            </a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

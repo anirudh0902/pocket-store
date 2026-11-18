@@ -1,0 +1,77 @@
+{% extends 'admin_dashboard/base_admin.html' %}
+{% load static %}
+
+{% block title %}Supplier Management | POCKET Admin{% endblock %}
+
+{% block admin_content %}
+<div class="space-y-6">
+    <div class="flex items-center justify-between">
+        <div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 text-[10px] font-black uppercase tracking-wider mb-1">
+                Strictly Internal Operational Data
+            </div>
+            <h1 class="text-2xl font-black text-navy-900 tracking-tight">Supplier Directory</h1>
+            <p class="text-xs text-slate-500 mt-0.5">Manage private procurement sources, vendor platforms, and wholesale contacts</p>
+        </div>
+        <a href="{% url 'admin_dashboard:supplier_create' %}" class="inline-flex items-center gap-2 px-5 py-2.5 bg-navy-900 hover:bg-orange-500 text-white font-extrabold text-xs rounded-xl shadow-md transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            <span>Add Supplier Record</span>
+        </a>
+    </div>
+
+    <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-slate-100 text-xs">
+                <thead>
+                    <tr class="bg-slate-50 text-slate-400 font-extrabold uppercase tracking-wider text-[10px]">
+                        <th class="py-3 px-4 text-left">Supplier / Shop Name</th>
+                        <th class="py-3 px-4 text-left">Platform Type</th>
+                        <th class="py-3 px-4 text-left">Contact Person</th>
+                        <th class="py-3 px-4 text-left">Phone & Email</th>
+                        <th class="py-3 px-4 text-left">Internal Notes</th>
+                        <th class="py-3 px-4 text-left">Status</th>
+                        <th class="py-3 px-4 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    {% for sup in suppliers %}
+                    <tr class="hover:bg-slate-50/70 transition">
+                        <td class="py-3.5 px-4 font-bold text-navy-900">
+                            {{ sup.name }}
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-slate-100 text-slate-700">
+                                {{ sup.get_platform_display }}
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-slate-700 font-medium">
+                            {{ sup.contact_person|default:'-' }}
+                        </td>
+                        <td class="py-3.5 px-4 text-slate-500">
+                            {{ sup.phone|default:'' }}{% if sup.email %}<br><span class="text-[11px] text-slate-400">{{ sup.email }}</span>{% endif %}
+                        </td>
+                        <td class="py-3.5 px-4 text-slate-600 max-w-xs truncate">
+                            {{ sup.internal_notes|default:'-' }}
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold {% if sup.is_active %}bg-emerald-100 text-emerald-800{% else %}bg-slate-200 text-slate-700{% endif %}">
+                                {{ sup.is_active|yesno:"Active,Inactive" }}
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <a href="{% url 'admin_dashboard:supplier_edit' sup.id %}" class="px-3 py-1 bg-navy-900 hover:bg-orange-600 text-white font-bold rounded-lg transition">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7" class="text-center py-8 text-slate-400">No supplier records configured yet.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

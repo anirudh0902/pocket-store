@@ -1,0 +1,80 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Saved Delivery Addresses | POCKET{% endblock %}
+
+{% block content %}
+<div class="bg-slate-50 border-b border-slate-200 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+            <h1 class="text-3xl font-black text-navy-900 tracking-tight">Saved Addresses</h1>
+            <p class="text-xs text-slate-500 mt-1">Manage delivery locations for quick, 1-click checkout</p>
+        </div>
+        <a href="{% url 'accounts:address_create' %}" class="inline-flex items-center gap-2 px-5 py-2.5 bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold rounded-xl transition shadow-md self-start sm:self-auto">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            <span>Add New Address</span>
+        </a>
+    </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for addr in addresses %}
+        <div class="bg-white rounded-3xl p-6 border {% if addr.is_default %}border-orange-500 ring-2 ring-orange-200{% else %}border-slate-200{% endif %} shadow-sm flex flex-col justify-between space-y-4">
+            <div>
+                <div class="flex items-center justify-between mb-3">
+                    <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-slate-100 text-slate-700">
+                        {{ addr.get_address_type_display }}
+                    </span>
+                    {% if addr.is_default %}
+                    <span class="inline-flex items-center gap-1 text-[11px] font-extrabold text-orange-600">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        Default Address
+                    </span>
+                    {% endif %}
+                </div>
+
+                <h3 class="font-bold text-sm text-navy-900">{{ addr.full_name }}</h3>
+                <p class="text-xs text-slate-600 font-medium mt-0.5">{{ addr.phone_number }}{% if addr.alternate_phone %}, {{ addr.alternate_phone }}{% endif %}</p>
+
+                <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                    {{ addr.address_line_1 }}<br>
+                    {% if addr.address_line_2 %}{{ addr.address_line_2 }}<br>{% endif %}
+                    {% if addr.landmark %}Landmark: {{ addr.landmark }}<br>{% endif %}
+                    <strong class="text-navy-900">{{ addr.city }}, {{ addr.state }} - {{ addr.pincode }}</strong>
+                </p>
+            </div>
+
+            <!-- Actions -->
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                <div class="flex items-center gap-3">
+                    <a href="{% url 'accounts:address_edit' addr.id %}" class="font-bold text-navy-900 hover:text-orange-600">Edit</a>
+                    <span>|</span>
+                    <a href="{% url 'accounts:address_delete' addr.id %}" class="font-bold text-red-600 hover:text-red-700">Delete</a>
+                </div>
+
+                {% if not addr.is_default %}
+                <form action="{% url 'accounts:address_set_default' addr.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="text-[11px] font-bold text-orange-600 hover:underline">
+                        Set as Default
+                    </button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-span-full text-center py-16 bg-white rounded-3xl border border-slate-200">
+            <div class="w-16 h-16 rounded-full bg-slate-100 text-slate-400 mx-auto flex items-center justify-center mb-4">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <p class="text-sm font-bold text-navy-900">No saved addresses found.</p>
+            <p class="text-xs text-slate-500 mt-1">Add your delivery address to proceed with checkout effortlessly.</p>
+            <a href="{% url 'accounts:address_create' %}" class="mt-4 inline-block px-6 py-2.5 bg-navy-900 text-white rounded-full font-bold text-xs hover:bg-orange-600 transition">
+                Add Your First Address
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

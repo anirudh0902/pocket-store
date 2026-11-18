@@ -1,0 +1,141 @@
+{% load static %}
+<footer class="bg-navy-900 text-white mt-16 border-t border-navy-800">
+    <!-- Value Proposition Banner -->
+    <div class="border-b border-navy-800/80 bg-navy-950/60 py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 text-center md:text-left">
+            <div class="flex items-center justify-center md:justify-start gap-4 p-3 rounded-2xl bg-white/5 border border-white/5">
+                <div class="w-12 h-12 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm text-white">Genuine Quality</h4>
+                    <p class="text-xs text-slate-400 mt-0.5">Handpicked trendy fashion verified for quality</p>
+                </div>
+            </div>
+            <div class="flex items-center justify-center md:justify-start gap-4 p-3 rounded-2xl bg-white/5 border border-white/5">
+                <div class="w-12 h-12 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm text-white">Pocket-Friendly Prices</h4>
+                    <p class="text-xs text-slate-400 mt-0.5">Fashion that fits your pocket without compromise</p>
+                </div>
+            </div>
+            <div class="flex items-center justify-center md:justify-start gap-4 p-3 rounded-2xl bg-white/5 border border-white/5">
+                <div class="w-12 h-12 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm text-white">Direct UPI Payment</h4>
+                    <p class="text-xs text-slate-400 mt-0.5">Fast, zero extra fee, manually verified securely</p>
+                </div>
+            </div>
+            <div class="flex items-center justify-center md:justify-start gap-4 p-3 rounded-2xl bg-white/5 border border-white/5">
+                <div class="w-12 h-12 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm text-white">7-Day Replacement</h4>
+                    <p class="text-xs text-slate-400 mt-0.5">Quick support for damaged or defective items</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Footer Links -->
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            
+            <!-- Brand Column -->
+            <div class="lg:col-span-2 space-y-4">
+                <div class="flex items-center gap-3">
+                    <img src="{% static 'images/pocket_logo.jpg' %}" alt="POCKET" class="w-14 h-14 rounded-xl object-contain border border-slate-700 shadow-md">
+                    <div>
+                        <span class="font-black text-2xl tracking-tight text-white block">POCKET</span>
+                        <span class="text-xs text-orange-400 font-semibold uppercase tracking-wider">{{ brand.TAGLINE }}</span>
+                    </div>
+                </div>
+                <p class="text-slate-300 text-sm leading-relaxed max-w-sm">
+                    POCKET is your trusted destination for stylish, trending fashion at prices that fit every pocket. From casual everyday wear to statement pieces, we deliver style directly to your doorstep.
+                </p>
+                <!-- Newsletter Subscription Form -->
+                <div class="pt-2">
+                    <p class="text-xs font-bold text-white uppercase tracking-wider mb-2">Subscribe to POCKET Offers</p>
+                    <form action="{% url 'core:newsletter_signup' %}" method="POST" class="flex max-w-md">
+                        {% csrf_token %}
+                        <input type="email" name="email" required placeholder="Enter your email address" class="w-full px-4 py-2.5 rounded-l-xl bg-navy-800 text-white border border-slate-700 text-xs focus:outline-none focus:border-orange-500">
+                        <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-4 py-2.5 rounded-r-xl text-xs transition flex-shrink-0">
+                            Join
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Customer Care -->
+            <div>
+                <h3 class="text-xs font-extrabold uppercase tracking-widest text-orange-400 mb-4">Customer Care</h3>
+                <ul class="space-y-2.5 text-sm text-slate-300">
+                    <li><a href="{% url 'accounts:my_orders' %}" class="hover:text-white transition">Track Your Order</a></li>
+                    <li><a href="{% url 'core:shipping_policy' %}" class="hover:text-white transition">Shipping Policy</a></li>
+                    <li><a href="{% url 'core:returns_policy' %}" class="hover:text-white transition">Return & Exchange Policy</a></li>
+                    <li><a href="{% url 'core:cancellation_policy' %}" class="hover:text-white transition">Cancellation Policy</a></li>
+                    <li><a href="{% url 'core:contact_us' %}" class="hover:text-white transition">Contact Us & Support</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal & Policies -->
+            <div>
+                <h3 class="text-xs font-extrabold uppercase tracking-widest text-orange-400 mb-4">About & Policies</h3>
+                <ul class="space-y-2.5 text-sm text-slate-300">
+                    <li><a href="{% url 'core:about_us' %}" class="hover:text-white transition">About POCKET</a></li>
+                    <li><a href="{% url 'core:privacy_policy' %}" class="hover:text-white transition">Privacy Policy</a></li>
+                    <li><a href="{% url 'core:terms_and_conditions' %}" class="hover:text-white transition">Terms & Conditions</a></li>
+                    <li><a href="{% url 'products:category_list' %}" class="hover:text-white transition">Explore Categories</a></li>
+                    <li><a href="{% url 'products:product_list' %}" class="hover:text-white transition">All Products</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact & Help -->
+            <div>
+                <h3 class="text-xs font-extrabold uppercase tracking-widest text-orange-400 mb-4">Need Help?</h3>
+                <div class="space-y-3 text-xs text-slate-300">
+                    <div>
+                        <span class="block text-slate-400 font-semibold">Phone Support</span>
+                        <a href="tel:{{ site_config.support_phone|default:'+919876543210' }}" class="text-white hover:text-orange-400 font-bold text-sm">
+                            {{ site_config.support_phone|default:'+91 98765 43210' }}
+                        </a>
+                    </div>
+                    <div>
+                        <span class="block text-slate-400 font-semibold">Email Support</span>
+                        <a href="mailto:{{ site_config.support_email|default:'support@pocketfashion.in' }}" class="text-white hover:text-orange-400">
+                            {{ site_config.support_email|default:'support@pocketfashion.in' }}
+                        </a>
+                    </div>
+                    <div>
+                        <span class="block text-slate-400 font-semibold">Support Hours</span>
+                        <span>{{ site_config.support_hours|default:'Mon - Sat: 10:00 AM - 7:00 PM' }}</span>
+                    </div>
+                    <div class="pt-2">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-orange-500/10 border border-orange-500/30 text-orange-300 text-[11px] font-semibold">
+                            <svg class="w-3.5 h-3.5 text-orange-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                            Direct UPI Verified Orders
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Copyright & Disclaimer -->
+        <div class="mt-12 pt-8 border-t border-navy-800 text-xs text-slate-400 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p>&copy; {% now "Y" %} POCKET Retail. All rights reserved. {{ brand.TAGLINE }}</p>
+            <div class="flex items-center gap-6">
+                <span>Secure Manual UPI Verification</span>
+                <span>•</span>
+                <span>100% Genuine Retail Store</span>
+                <span>•</span>
+                <span>All India Fast Delivery</span>
+            </div>
+        </div>
+    </div>
+</footer>

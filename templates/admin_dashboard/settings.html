@@ -1,0 +1,117 @@
+{% extends 'admin_dashboard/base_admin.html' %}
+{% load static %}
+
+{% block title %}Store & Payment Settings | POCKET Admin{% endblock %}
+
+{% block admin_content %}
+<div class="max-w-4xl mx-auto space-y-6">
+    <div>
+        <h1 class="text-2xl font-black text-navy-900 tracking-tight">Store & Payment Configuration</h1>
+        <p class="text-xs text-slate-500 mt-1">Configure your official business UPI payment details, QR code, and customer support channels</p>
+    </div>
+
+    <!-- Compliance Callout -->
+    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 flex items-start gap-3">
+        <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+        <p class="text-xs text-amber-900 leading-relaxed">
+            <strong>Commercial UPI Compliance Notice:</strong> Before using a personal UPI ID for commercial transactions, verify that your bank/payment provider permits the intended business use. Configure your registered business VPA below.
+        </p>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data" class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+        {% csrf_token %}
+
+        <!-- Branding & Store Identity -->
+        <div class="space-y-4">
+            <h3 class="text-sm font-black uppercase tracking-wider text-navy-900 pb-2 border-b border-slate-100">1. Brand Identity</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-navy-900 mb-1">Brand Name</label>
+                    <input type="text" name="site_name" value="{{ config.site_name }}" required class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-navy-900 mb-1">Official Tagline</label>
+                    <input type="text" name="tagline" value="{{ config.tagline }}" required class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                </div>
+            </div>
+        </div>
+
+        <!-- Official UPI Payment Details -->
+        <div class="space-y-4 pt-4 border-t border-slate-100">
+            <h3 class="text-sm font-black uppercase tracking-wider text-navy-900 pb-2 border-b border-slate-100">2. Official UPI Configuration</h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-navy-900 mb-1">Business UPI ID *</label>
+                    <input type="text" name="upi_id" value="{{ config.upi_id }}" required placeholder="yourbusiness@upi" class="w-full text-xs font-mono font-bold p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-navy-900 mb-1">Account Display Name *</label>
+                    <input type="text" name="account_display_name" value="{{ config.account_display_name }}" required placeholder="POCKET RETAIL" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-navy-900 mb-1">Customer Payment Instructions</label>
+                <textarea name="payment_instructions" rows="4" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500">{{ config.payment_instructions }}</textarea>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-navy-900 mb-1">Upload Official Business QR Code Image</label>
+                <input type="file" name="qr_code_image" accept="image/*" class="w-full text-xs p-2 rounded-xl border border-slate-300 bg-slate-50">
+                {% if config.qr_code_image %}
+                <div class="mt-2 flex items-center gap-3">
+                    <img src="{{ config.qr_code_image.url }}" alt="QR" class="w-20 h-20 object-contain rounded-xl border border-slate-200">
+                    <span class="text-xs text-slate-500">Current active QR code image</span>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Shipping Thresholds -->
+        <div class="space-y-4 pt-4 border-t border-slate-100">
+            <h3 class="text-sm font-black uppercase tracking-wider text-navy-900 pb-2 border-b border-slate-100">3. Shipping Fees</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-navy-900 mb-1">Free Shipping Minimum Amount (₹)</label>
+                    <input type="number" step="0.01" name="free_shipping_threshold" value="{{ config.free_shipping_threshold }}" required class="w-full text-xs p-3 rounded-xl border border-slate-300">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-navy-900 mb-1">Standard Shipping Charge (₹)</label>
+                    <input type="number" step="0.01" name="standard_shipping_charge" value="{{ config.standard_shipping_charge }}" required class="w-full text-xs p-3 rounded-xl border border-slate-300">
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer Support Channels -->
+        <div class="space-y-4 pt-4 border-t border-slate-100">
+            <h3 class="text-sm font-black uppercase tracking-wider text-navy-900 pb-2 border-b border-slate-100">4. Customer Support Channels</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-navy-900 mb-1">Support Phone</label>
+                    <input type="text" name="support_phone" value="{{ config.support_phone }}" class="w-full text-xs p-3 rounded-xl border border-slate-300">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-navy-900 mb-1">Support Email</label>
+                    <input type="email" name="support_email" value="{{ config.support_email }}" class="w-full text-xs p-3 rounded-xl border border-slate-300">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-navy-900 mb-1">Working Hours</label>
+                    <input type="text" name="support_hours" value="{{ config.support_hours }}" class="w-full text-xs p-3 rounded-xl border border-slate-300">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-navy-900 mb-1">Official Business Address</label>
+                <input type="text" name="address" value="{{ config.address }}" class="w-full text-xs p-3 rounded-xl border border-slate-300">
+            </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-200">
+            <button type="submit" class="px-8 py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-extrabold text-xs rounded-xl transition shadow-lg shadow-orange-500/25">
+                Save All Settings
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

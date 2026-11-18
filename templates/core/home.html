@@ -1,0 +1,205 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}POCKET | Fashion that fits your pocket{% endblock %}
+
+{% block content %}
+<!-- HERO PROMOTIONAL BANNER -->
+<section class="relative bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 text-white overflow-hidden">
+    <!-- Subtle background geometric accents -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-orange-500/10 blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <!-- Brand Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-xs font-semibold text-orange-400">
+                    <span class="w-2 h-2 rounded-full bg-orange-400 animate-ping"></span>
+                    <span>New Season 2026 Collection Live</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-white">
+                    Fashion that fits <br class="hidden sm:inline">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-orange-500 to-amber-300">
+                        your pocket.
+                    </span>
+                </h1>
+
+                <p class="text-base sm:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                    Discover India's most pocket-friendly fashion destination. Premium quality shirts, kurtas, oversized tees, bottoms, and footwear curated for you.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="{% url 'products:product_list' %}" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-extrabold text-sm transition shadow-lg shadow-orange-500/25 flex items-center justify-center gap-2">
+                        <span>Shop All Fashion</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </a>
+                    <a href="{% url 'products:category_list' %}" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 backdrop-blur-md transition flex items-center justify-center">
+                        Explore Categories
+                    </a>
+                </div>
+
+                <!-- Trust Points -->
+                <div class="pt-6 border-t border-white/10 grid grid-cols-3 gap-4 text-center lg:text-left">
+                    <div>
+                        <p class="text-xl sm:text-2xl font-black text-white">₹499</p>
+                        <p class="text-[11px] text-slate-400 mt-0.5">Free Shipping Min</p>
+                    </div>
+                    <div>
+                        <p class="text-xl sm:text-2xl font-black text-orange-400">100%</p>
+                        <p class="text-[11px] text-slate-400 mt-0.5">Verified Quality</p>
+                    </div>
+                    <div>
+                        <p class="text-xl sm:text-2xl font-black text-white">7 Days</p>
+                        <p class="text-[11px] text-slate-400 mt-0.5">Easy Replacement</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image Banner with Official Logo Display -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-72 sm:w-80 lg:w-96 aspect-square rounded-3xl p-3 bg-gradient-to-tr from-orange-500/30 to-navy-700/50 backdrop-blur-xl border border-white/20 shadow-2xl">
+                    <img src="{% static 'images/pocket_logo.jpg' %}" alt="POCKET Logo" class="w-full h-full object-contain rounded-2xl shadow-inner">
+                    <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-2xl bg-white text-navy-900 shadow-xl border border-slate-100 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                        <span class="text-xs font-extrabold">Direct UPI Payments</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FEATURED CATEGORIES SECTION -->
+<section class="py-12 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between mb-8">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-orange-600">Curated For You</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 tracking-tight mt-1">Shop by Category</h2>
+            </div>
+            <a href="{% url 'products:category_list' %}" class="text-xs sm:text-sm font-bold text-navy-900 hover:text-orange-600 transition flex items-center gap-1">
+                View All
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {% for cat in featured_categories %}
+            <a href="{{ cat.get_absolute_url }}" class="group bg-white rounded-2xl p-4 border border-slate-200/80 hover:border-orange-400 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-orange-50 group-hover:bg-orange-500 text-orange-600 group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm mb-3">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                </div>
+                <h3 class="font-bold text-xs sm:text-sm text-navy-900 group-hover:text-orange-600 transition line-clamp-1">
+                    {{ cat.name }}
+                </h3>
+                <span class="text-[11px] text-slate-400 mt-0.5">{{ cat.active_products_count }} items</span>
+            </a>
+            {% empty %}
+            <div class="col-span-full text-center py-8 text-slate-500">
+                Categories are being updated.
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- TRENDING NOW SECTION -->
+<section class="py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between mb-8">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-orange-600">Hot Picks</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 tracking-tight mt-1">Trending Fashion</h2>
+            </div>
+            <a href="{% url 'products:product_list' %}?filter=trending" class="text-xs sm:text-sm font-bold text-navy-900 hover:text-orange-600 transition flex items-center gap-1">
+                Explore Trending
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            {% for product in trending_products %}
+                {% include 'products/product_card.html' with product=product %}
+            {% empty %}
+            <div class="col-span-full text-center py-12 text-slate-500">
+                Products will appear here shortly.
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- VALUE HIGHLIGHT PROMO STRIP -->
+<section class="py-10 bg-navy-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-3xl bg-gradient-to-r from-orange-600 to-orange-500 p-8 sm:p-12 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="space-y-2 text-center md:text-left">
+                <span class="inline-block px-3 py-1 rounded-full bg-white/20 text-white text-xs font-extrabold uppercase tracking-wider">Zero Extra Platform Charges</span>
+                <h3 class="text-2xl sm:text-3xl font-black text-white">Pay Online via UPI & Enjoy Free Shipping</h3>
+                <p class="text-sm text-orange-100 max-w-xl">
+                    Every order above ₹499 is delivered free across India. Secure direct UPI payment with manual verification prevents unwanted hidden fees.
+                </p>
+            </div>
+            <a href="{% url 'products:product_list' %}" class="px-8 py-3.5 rounded-full bg-navy-900 hover:bg-navy-950 text-white font-extrabold text-sm transition shadow-lg flex-shrink-0">
+                Start Shopping Now
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- BEST SELLERS SECTION -->
+<section class="py-14 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between mb-8">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-orange-600">Customer Favorites</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 tracking-tight mt-1">Best Selling Styles</h2>
+            </div>
+            <a href="{% url 'products:product_list' %}?filter=bestsellers" class="text-xs sm:text-sm font-bold text-navy-900 hover:text-orange-600 transition flex items-center gap-1">
+                View All Bestsellers
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            {% for product in bestseller_products %}
+                {% include 'products/product_card.html' with product=product %}
+            {% empty %}
+            <div class="col-span-full text-center py-12 text-slate-500">
+                Products will appear here shortly.
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- RECENTLY ADDED SECTION -->
+<section class="py-14 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between mb-8">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">Fresh Drops</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 tracking-tight mt-1">New Arrivals</h2>
+            </div>
+            <a href="{% url 'products:product_list' %}?sort=newest" class="text-xs sm:text-sm font-bold text-navy-900 hover:text-orange-600 transition flex items-center gap-1">
+                View All New Arrivals
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            {% for product in recent_products %}
+                {% include 'products/product_card.html' with product=product %}
+            {% empty %}
+            <div class="col-span-full text-center py-12 text-slate-500">
+                New products dropping soon.
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
