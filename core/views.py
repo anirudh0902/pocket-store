@@ -11,8 +11,8 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        # Featured categories
-        ctx['featured_categories'] = Category.objects.filter(is_active=True).order_by('display_order', 'name')[:6]
+        # Featured categories (clothing departments & essentials)
+        ctx['featured_categories'] = Category.objects.filter(is_active=True).order_by('display_order', 'name')[:14]
         
         # Products sections (active products only)
         base_qs = Product.objects.filter(is_active=True).select_related('category').prefetch_related('images')

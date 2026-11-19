@@ -16,7 +16,7 @@ def site_context(request):
         config = None
 
     try:
-        nav_categories = Category.objects.filter(is_active=True).order_by('display_order', 'name')[:8]
+        nav_categories = Category.objects.filter(is_active=True).order_by('display_order', 'name')
     except Exception:
         nav_categories = []
 

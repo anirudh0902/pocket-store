@@ -14,11 +14,18 @@
             <span class="text-navy-900 font-bold">{{ category.name }}</span>
         </nav>
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-                <h1 class="text-3xl font-black text-navy-900 tracking-tight">{{ category.name }}</h1>
-                <p class="text-xs text-slate-500 mt-1">{{ category.description|default:"Handpicked products curated for you" }}</p>
+            <div class="flex items-center gap-4">
+                {% if category.image %}
+                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm shrink-0">
+                    <img src="{{ category.image.url }}" alt="{{ category.name }}" class="w-full h-full object-cover">
+                </div>
+                {% endif %}
+                <div>
+                    <h1 class="text-2xl sm:text-3xl font-black text-navy-900 tracking-tight">{{ category.name }}</h1>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl">{{ category.description|default:"Handpicked products curated for you" }}</p>
+                </div>
             </div>
-            <form method="GET" class="flex items-center gap-2">
+            <form method="GET" class="flex items-center gap-2 shrink-0">
                 <label for="sort" class="text-xs font-bold text-slate-600">Sort By:</label>
                 <select name="sort" id="sort" onchange="this.form.submit()" class="text-xs font-semibold rounded-xl border border-slate-300 bg-white py-2 pl-3 pr-8 focus:outline-none focus:ring-2 focus:ring-orange-500">
                     <option value="newest" {% if sort == 'newest' %}selected{% endif %}>Newest</option>
@@ -61,11 +68,23 @@
     {% endif %}
 
     {% else %}
-    <div class="text-center py-16 bg-white rounded-3xl border border-slate-200">
-        <p class="text-base font-bold text-navy-900">No products found in this category yet.</p>
-        <a href="{% url 'products:product_list' %}" class="mt-4 inline-block px-6 py-2 bg-orange-500 text-white text-xs font-bold rounded-full">
-            Browse All Products
-        </a>
+    <div class="text-center py-16 px-6 bg-white rounded-3xl border border-slate-200 shadow-sm max-w-2xl mx-auto">
+        <div class="w-16 h-16 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-navy-900">Curating Collections for {{ category.name }}</h3>
+        <p class="text-xs sm:text-sm text-slate-500 mt-2 max-w-md mx-auto">
+            Our team is currently vetting verified suppliers, premium fabric samples, and affordable price points for {{ category.name }}. New arrivals will drop very soon!
+        </p>
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+            <a href="{% url 'products:product_list' %}" class="inline-flex items-center gap-1.5 px-6 py-2.5 bg-navy-900 text-white text-xs font-bold rounded-full hover:bg-orange-600 transition shadow-sm">
+                <span>Browse All Products</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <a href="{% url 'products:category_list' %}" class="inline-flex items-center gap-1.5 px-6 py-2.5 bg-slate-100 text-navy-900 text-xs font-bold rounded-full hover:bg-slate-200 transition">
+                <span>Other Categories</span>
+            </a>
+        </div>
     </div>
     {% endif %}
 </div>

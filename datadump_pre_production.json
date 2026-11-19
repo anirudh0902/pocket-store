@@ -1,0 +1,4619 @@
+[
+{
+  "model": "sessions.session",
+  "pk": "azoxwxa8jxg3bopxejizq09zqzzta77s",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCwHRhcuvcMZAZGqRpISrsy3l2bdKHb_977LxVpXUpcu8xxyuqkrDr8bkzpIXUD-U711nRqdZkn1puid9r1pWV5nnf376BQL986sctCAR2P2RMM_ioysAPwaBiDNQIWKZnEPsgoSdCBtYEkACP6o3p_AP0COCE:1xTwSr:KCZANP0s3Wa6VtX5VqMdCSexAZuykR24zxSwSu6oDTY",
+    "expire_date": "2026-12-03T07:21:49.988Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "duc6ovbodxi9ceijn9c0bb9imkaw2ett",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCwHRhcuvcMZAZGqRpISrsy3l2bdKHb_977LxVpXUpcu8xxyuqkrDr8bkzpIXUD-U711nRqdZkn1puid9r1pWV5nnf376BQL986sctCAR2P2RMM_ioysAPwaBiDNQIWKZnEPsgoSdCBtYEkACP6o3p_AP0COCE:1xTyII:gwVKv290ZQ2pEna81oA3TZEVN9yoRIC_DjYB9JGjtJw",
+    "expire_date": "2026-12-03T09:19:02.132Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "j6g4tvrzswntsdpgwebyvwk1d7g8acbd",
+  "fields": {
+    "session_data": "e30:1xTwU9:PecoWFXvijfagbEZfJRIUrpUSruVp4gCdcMpOPECukM",
+    "expire_date": "2026-12-03T07:23:09.181Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "k6oqqkfmhyixkjpe47gv0knrz5y750gw",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCwHRhcuvcMZAZGqRpISrsy3l2bdKHb_977LxVpXUpcu8xxyuqkrDr8bkzpIXUD-U711nRqdZkn1puid9r1pWV5nnf376BQL986sctCAR2P2RMM_ioysAPwaBiDNQIWKZnEPsgoSdCBtYEkACP6o3p_AP0COCE:1xTaRL:3_s7oov5B35tMKbj9u7pyfU1s3zkv2vYCNKDLFjIc-o",
+    "expire_date": "2026-12-02T07:50:47.002Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "mabrw9k2lj2h55qtkxr0s3bpq8nm4q5c",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCwHRhcuvcMZAZGqRpISrsy3l2bdKHb_977LxVpXUpcu8xxyuqkrDr8bkzpIXUD-U711nRqdZkn1puid9r1pWV5nnf376BQL986sctCAR2P2RMM_ioysAPwaBiDNQIWKZnEPsgoSdCBtYEkACP6o3p_AP0COCE:1xTwU8:IMhJPLpGcM65f3PW2oy8lZUDQDQ_wXf2ZIlYOPTljGI",
+    "expire_date": "2026-12-03T07:23:08.991Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "unx576j6l5ky5d758q7sqmq9wv9r29h3",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCwHRhcuvcMZAZGqRpISrsy3l2bdKHb_977LxVpXUpcu8xxyuqkrDr8bkzpIXUD-U711nRqdZkn1puid9r1pWV5nnf376BQL986sctCAR2P2RMM_ioysAPwaBiDNQIWKZnEPsgoSdCBtYEkACP6o3p_AP0COCE:1xTaQz:1dTPAZH_QTqCpoG_XkyX6vxghbAdEU5TGCNQjMMQS34",
+    "expire_date": "2026-12-02T07:50:25.874Z"
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$qrTMjugVU0WtBVbJv7fpCB$CoiGH1lT7/SulJODgv3jGytcVwPuHIX2dlI472WhvuY=",
+    "last_login": "2026-11-19T07:23:08.838Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "Anirudh",
+    "last_name": "Admin",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-11-18T07:28:54.641Z",
+    "email": "admin@pocketfashion.in",
+    "phone_number": "",
+    "is_customer": true,
+    "is_pocket_admin": true,
+    "created_at": "2026-11-18T07:28:54.641Z",
+    "updated_at": "2026-11-18T07:28:58.273Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$AU6GlpaDZvvHEuob0teLIp$XKlQ8ovX7kbvisJTissiSQBGiEV3hOceM9d0EbdowQE=",
+    "last_login": "2026-11-18T08:12:14.492Z",
+    "is_superuser": false,
+    "username": "anirudhverma799",
+    "first_name": "anirudh",
+    "last_name": "verma",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-18T08:12:10.985Z",
+    "email": "anirudhverma799@gmail.com",
+    "phone_number": "9302535162",
+    "is_customer": true,
+    "is_pocket_admin": false,
+    "created_at": "2026-11-18T08:12:14.436Z",
+    "updated_at": "2026-11-18T08:12:14.436Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.customeraddress",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "anirudhverma799"
+    ],
+    "full_name": "anirudh verma",
+    "phone_number": "9302535162",
+    "alternate_phone": "",
+    "address_line_1": "35",
+    "address_line_2": "bhopal",
+    "landmark": "",
+    "city": "bhopal",
+    "state": "madhya pradesh",
+    "pincode": "462044",
+    "address_type": "HOME",
+    "is_default": true,
+    "created_at": "2026-11-18T08:13:55.073Z",
+    "updated_at": "2026-11-18T08:13:55.073Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 1,
+  "fields": {
+    "name": "Men's Fashion",
+    "slug": "mens-fashion",
+    "description": "Trendy shirts, casual t-shirts, jackets, and formal wear.",
+    "image": "categories/mens-fashion.jpg",
+    "is_active": true,
+    "display_order": 8,
+    "created_at": "2026-11-18T07:28:58.357Z",
+    "updated_at": "2026-11-19T08:08:16.154Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 2,
+  "fields": {
+    "name": "Women's Ethnic & Western",
+    "slug": "womens-ethnic-western",
+    "description": "Graceful kurtas, stylish tops, dresses, and co-ord sets.",
+    "image": "categories/womens-ethnic-western.jpg",
+    "is_active": true,
+    "display_order": 9,
+    "created_at": "2026-11-18T07:28:58.374Z",
+    "updated_at": "2026-11-19T08:08:16.365Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 3,
+  "fields": {
+    "name": "Trendy T-Shirts & Tops",
+    "slug": "trendy-t-shirts-tops",
+    "description": "Oversized graphic tees, solid polo shirts, and casual tops.",
+    "image": "categories/trendy-t-shirts-tops.jpg",
+    "is_active": true,
+    "display_order": 10,
+    "created_at": "2026-11-18T07:28:58.382Z",
+    "updated_at": "2026-11-19T08:08:16.642Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 4,
+  "fields": {
+    "name": "Bottoms & Denims",
+    "slug": "bottoms-denims",
+    "description": "Stretchable denim jeans, cargo trousers, and comfortable joggers.",
+    "image": "categories/bottoms-denims.jpg",
+    "is_active": true,
+    "display_order": 11,
+    "created_at": "2026-11-18T07:28:58.391Z",
+    "updated_at": "2026-11-19T08:08:17.032Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 5,
+  "fields": {
+    "name": "Footwear & Sneakers",
+    "slug": "footwear-sneakers",
+    "description": "Comfortable everyday sneakers, loafers, and walking shoes.",
+    "image": "categories/footwear-sneakers.jpg",
+    "is_active": true,
+    "display_order": 12,
+    "created_at": "2026-11-18T07:28:58.402Z",
+    "updated_at": "2026-11-19T08:08:17.168Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 6,
+  "fields": {
+    "name": "Accessories & Bags",
+    "slug": "accessories-bags",
+    "description": "Backpacks, belts, wallets, and daily fashion accessories.",
+    "image": "categories/accessories-bags.jpg",
+    "is_active": true,
+    "display_order": 13,
+    "created_at": "2026-11-18T07:28:58.415Z",
+    "updated_at": "2026-11-19T08:08:17.353Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 7,
+  "fields": {
+    "name": "Oversized T-shirts",
+    "slug": "oversized-t-shirts",
+    "description": "Relaxed, dropped-shoulder heavyweight oversized tees designed for effortless streetwear style.",
+    "image": "categories/oversized-t-shirts.jpg",
+    "is_active": true,
+    "display_order": 1,
+    "created_at": "2026-11-19T06:59:50.243Z",
+    "updated_at": "2026-11-19T08:08:15.046Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 8,
+  "fields": {
+    "name": "Graphic T-shirts",
+    "slug": "graphic-t-shirts",
+    "description": "Bold graphic prints, typography, and vibrant artistic designs on premium breathable cotton.",
+    "image": "categories/graphic-t-shirts.jpg",
+    "is_active": true,
+    "display_order": 2,
+    "created_at": "2026-11-19T06:59:50.255Z",
+    "updated_at": "2026-11-19T08:08:15.168Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 9,
+  "fields": {
+    "name": "Basic T-shirts",
+    "slug": "basic-t-shirts",
+    "description": "Everyday solid essentials in classic crew and v-neck cuts crafted from ultra-soft combed cotton.",
+    "image": "categories/basic-t-shirts.jpg",
+    "is_active": true,
+    "display_order": 3,
+    "created_at": "2026-11-19T06:59:50.263Z",
+    "updated_at": "2026-11-19T08:08:15.286Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 10,
+  "fields": {
+    "name": "Polo T-shirts",
+    "slug": "polo-t-shirts",
+    "description": "Smart collared polos with ribbed cuffs and subtle detailing, perfect for casual and semi-formal wear.",
+    "image": "categories/polo-t-shirts.jpg",
+    "is_active": true,
+    "display_order": 4,
+    "created_at": "2026-11-19T06:59:50.277Z",
+    "updated_at": "2026-11-19T08:08:15.445Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 11,
+  "fields": {
+    "name": "Casual Shirts",
+    "slug": "casual-shirts",
+    "description": "Classic Oxford, linen blend, checks, and relaxed button-down shirts tailored for versatile styling.",
+    "image": "categories/casual-shirts.jpg",
+    "is_active": true,
+    "display_order": 5,
+    "created_at": "2026-11-19T06:59:50.291Z",
+    "updated_at": "2026-11-19T08:08:15.604Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 12,
+  "fields": {
+    "name": "Joggers",
+    "slug": "joggers",
+    "description": "Ultra-comfortable athletic and street joggers with elastic drawstrings and tailored tapered ankles.",
+    "image": "categories/joggers.jpg",
+    "is_active": true,
+    "display_order": 6,
+    "created_at": "2026-11-19T06:59:50.301Z",
+    "updated_at": "2026-11-19T08:08:15.782Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 13,
+  "fields": {
+    "name": "Cargo Pants",
+    "slug": "cargo-pants",
+    "description": "Rugged multi-pocket utility cargo trousers built with stretch twill and reinforced stitching.",
+    "image": "categories/cargo-pants.jpg",
+    "is_active": true,
+    "display_order": 7,
+    "created_at": "2026-11-19T06:59:50.312Z",
+    "updated_at": "2026-11-19T08:08:15.922Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 1,
+  "fields": {
+    "category": 3,
+    "name": "POCKET Classic Heavyweight 220 GSM Oversized Cotton T-Shirt",
+    "slug": "pocket-classic-heavyweight-220-gsm-oversized-cotton-t-shirt",
+    "description": "Elevate your daily streetwear with the POCKET Classic Heavyweight Oversized Tee. Crafted from 100% combed bio-washed cotton (220 GSM), it provides a relaxed boxy fit, dropped shoulders, and durable ribbed collar that holds shape wash after wash.",
+    "specifications": "Fabric: 100% Combed Cotton | GSM: 220 GSM Heavyweight | Fit: Relaxed Oversized Fit | Neck: Ribbed Crew Neck | Wash Care: Machine wash cold, tumble dry low",
+    "selling_price": "499.00",
+    "original_price": "899.00",
+    "source_cost": "220.00",
+    "supplier": 2,
+    "supplier_sku_or_url": "",
+    "stock_quantity": 45,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": true,
+    "is_trending": true,
+    "delivery_info": "Free delivery on orders above ₹499. Dispatched within 24-48 hours. Delivered in 4-7 business days across India.",
+    "return_policy_info": "7-Day replacement or return available in case of defective, wrong, or damaged items received.",
+    "created_at": "2026-11-18T07:28:58.433Z",
+    "updated_at": "2026-11-18T07:28:58.433Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 2,
+  "fields": {
+    "category": 2,
+    "name": "POCKET Pure Cotton Embroidered Straight Kurta with Dupatta Set",
+    "slug": "pocket-pure-cotton-embroidered-straight-kurta-with-dupatta-set",
+    "description": "A graceful ethnic ensemble designed for both festive occasions and everyday elegance. Made with breathable premium cotton featuring delicate thread embroidery on the neckline and sleeves, accompanied by a coordinating soft dupatta.",
+    "specifications": "Kurta Fabric: 100% Cotton | Dupatta Fabric: Mulmul Cotton | Pattern: Embroidered | Length: Calf Length | Sleeve: 3/4th Sleeve",
+    "selling_price": "799.00",
+    "original_price": "1499.00",
+    "source_cost": "380.00",
+    "supplier": 1,
+    "supplier_sku_or_url": "",
+    "stock_quantity": 30,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": true,
+    "is_trending": true,
+    "delivery_info": "Free delivery on orders above ₹499. Dispatched within 24-48 hours. Delivered in 4-7 business days across India.",
+    "return_policy_info": "7-Day replacement or return available in case of defective, wrong, or damaged items received.",
+    "created_at": "2026-11-18T07:28:58.515Z",
+    "updated_at": "2026-11-18T07:28:58.515Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 3,
+  "fields": {
+    "category": 1,
+    "name": "POCKET Slim Fit Oxford Casual Shirt with Pocket Monogram",
+    "slug": "pocket-slim-fit-oxford-casual-shirt-with-pocket-monogram",
+    "description": "The quintessential modern button-down shirt. Woven from breathable Oxford cotton with a subtle texture, tailored in a flattering slim silhouette suitable for work, weekends, and evening get-togethers.",
+    "specifications": "Fabric: 100% Oxford Cotton | Collar: Button-Down Collar | Fit: Slim Fit | Pattern: Solid | Hem: Curved Hem",
+    "selling_price": "649.00",
+    "original_price": "1199.00",
+    "source_cost": "310.00",
+    "supplier": 2,
+    "supplier_sku_or_url": "",
+    "stock_quantity": 35,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": false,
+    "is_trending": true,
+    "delivery_info": "Free delivery on orders above ₹499. Dispatched within 24-48 hours. Delivered in 4-7 business days across India.",
+    "return_policy_info": "7-Day replacement or return available in case of defective, wrong, or damaged items received.",
+    "created_at": "2026-11-18T07:28:58.571Z",
+    "updated_at": "2026-11-18T07:28:58.571Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 4,
+  "fields": {
+    "category": 4,
+    "name": "POCKET Urban Flex 6-Pocket Tactical Cargo Pants",
+    "slug": "pocket-urban-flex-6-pocket-tactical-cargo-pants",
+    "description": "Engineered for utility and comfort, these 6-pocket cargo trousers feature lightweight stretch twill, reinforced stitching, elasticated waistband with drawstring, and deep utility cargo pockets.",
+    "specifications": "Fabric: 98% Cotton Twill, 2% Elastane | Pockets: 6 Functional Pockets | Fit: Regular Tapered | Waist: Mid-Rise Elasticated",
+    "selling_price": "749.00",
+    "original_price": "1399.00",
+    "source_cost": "360.00",
+    "supplier": 2,
+    "supplier_sku_or_url": "",
+    "stock_quantity": 28,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": true,
+    "is_trending": false,
+    "delivery_info": "Free delivery on orders above ₹499. Dispatched within 24-48 hours. Delivered in 4-7 business days across India.",
+    "return_policy_info": "7-Day replacement or return available in case of defective, wrong, or damaged items received.",
+    "created_at": "2026-11-18T07:28:58.634Z",
+    "updated_at": "2026-11-18T07:28:58.634Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 5,
+  "fields": {
+    "category": 5,
+    "name": "POCKET AirStride Ultralight Breathable Running Sneakers",
+    "slug": "pocket-airstride-ultralight-breathable-running-sneakers",
+    "description": "Walk on clouds with AirStride. Built with high-elasticity EVA cushioned soles and breathable flyknit upper that adapts to your foot stride, providing all-day shock absorption and ventilation.",
+    "specifications": "Upper Material: Breathable Flyknit Mesh | Sole: Shock-absorbing EVA Foam | Closure: Lace-Up | Insole: Cushioned Memory Foam",
+    "selling_price": "899.00",
+    "original_price": "1699.00",
+    "source_cost": "420.00",
+    "supplier": 3,
+    "supplier_sku_or_url": "",
+    "stock_quantity": 24,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": true,
+    "is_trending": true,
+    "delivery_info": "Free delivery on orders above ₹499. Dispatched within 24-48 hours. Delivered in 4-7 business days across India.",
+    "return_policy_info": "7-Day replacement or return available in case of defective, wrong, or damaged items received.",
+    "created_at": "2026-11-18T07:28:58.699Z",
+    "updated_at": "2026-11-18T07:28:58.699Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 6,
+  "fields": {
+    "category": 6,
+    "name": "POCKET Commuter Water-Resistant Everyday City Backpack",
+    "slug": "pocket-commuter-water-resistant-everyday-city-backpack",
+    "description": "A streamlined 24-litre commuter backpack with padded 15.6\" laptop compartment, anti-theft hidden pocket, durable water-resistant polyester outer shell, and breathable air-mesh shoulder straps.",
+    "specifications": "Capacity: 24 Litres | Laptop Fit: Up to 15.6 inch | Material: 600D Water-Resistant Polyester | Weight: 480 grams",
+    "selling_price": "599.00",
+    "original_price": "1099.00",
+    "source_cost": "260.00",
+    "supplier": 2,
+    "supplier_sku_or_url": "",
+    "stock_quantity": 40,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": false,
+    "is_trending": true,
+    "delivery_info": "Free delivery on orders above ₹499. Dispatched within 24-48 hours. Delivered in 4-7 business days across India.",
+    "return_policy_info": "7-Day replacement or return available in case of defective, wrong, or damaged items received.",
+    "created_at": "2026-11-18T07:28:58.776Z",
+    "updated_at": "2026-11-18T07:28:58.776Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "category": 7,
+    "name": "POCKET StreetStyle Heavyweight 240 GSM French Terry Acid Wash Oversized T-Shirt",
+    "slug": "pocket-streetstyle-heavyweight-240-gsm-acid-wash-oversized-t-shirt",
+    "description": "Crafted from luxury-grade 240 GSM French Terry combed cotton, this heavy-drape oversized t-shirt combines raw streetwear aesthetics with supreme breathable comfort. Features dropped shoulder seams, reinforced double-needle ribbed neckline, and an authentic vintage mineral acid-wash finish that gets softer with every wash.",
+    "specifications": "Fabric: 100% Combed Cotton French Terry\nGSM: 240 GSM Heavyweight\nFit: Boxy Relaxed Oversized Fit\nNeck: Ribbed Crew Neck (Holds Shape)\nFinish: Enzyme Bio-Washed & Acid Washed\nCountry of Origin: India (Tirupur Knitwear Hub)\nCare: Machine wash cold inside out, do not bleach, tumble dry low",
+    "selling_price": "499.00",
+    "original_price": "999.00",
+    "source_cost": "240.00",
+    "supplier": 4,
+    "supplier_sku_or_url": "https://www.indiamart.com/proddetail/240-gsm-french-terry-oversized-t-shirt-28514930212.html",
+    "stock_quantity": 60,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": true,
+    "is_trending": true,
+    "delivery_info": "Dispatched within 24-48 hours. Express delivery across India in 3-5 business days. FREE shipping on orders above ₹499.",
+    "return_policy_info": "7-Day hassle-free return or size replacement for genuine defects or sizing fit issues.",
+    "created_at": "2026-11-19T07:20:14.907Z",
+    "updated_at": "2026-11-19T07:20:14.907Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 8,
+  "fields": {
+    "category": 7,
+    "name": "POCKET Urban Drop-Shoulder Boxy Fit 100% Combed Cotton Oversized Tee",
+    "slug": "pocket-urban-drop-shoulder-boxy-fit-combed-cotton-oversized-tee",
+    "description": "An essential minimalist streetwear silhouette. Constructed from pure 210 GSM bio-washed cotton, this tee offers a generous boxy drape through the chest and torso with extended drop-shoulder short sleeves, creating a relaxed modern drape without clinging.",
+    "specifications": "Fabric: 100% Combed Bio-Washed Cotton\nGSM: 210 GSM\nFit: Extended Drop-Shoulder Boxy Fit\nNeck: Lycra-Ribbed Crew Collar\nColor Fastness: Lab-Tested Reactive Dyes\nCountry of Origin: India\nCare: Machine wash cold, dry flat in shade",
+    "selling_price": "449.00",
+    "original_price": "899.00",
+    "source_cost": "210.00",
+    "supplier": 2,
+    "supplier_sku_or_url": "https://meesho.com/men-oversized-drop-shoulder-cotton-tshirt/p/5t8m3q",
+    "stock_quantity": 55,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": false,
+    "is_trending": true,
+    "delivery_info": "Dispatched within 24 hours. Standard 3-5 day delivery across all Indian pin codes. Free delivery above ₹499.",
+    "return_policy_info": "7-Day replacement guarantee if fitting is not satisfactory.",
+    "created_at": "2026-11-19T07:20:15.139Z",
+    "updated_at": "2026-11-19T07:20:15.139Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 9,
+  "fields": {
+    "category": 7,
+    "name": "POCKET Tokyo Cyberpunk Back-Print Streetwear Oversized T-Shirt",
+    "slug": "pocket-tokyo-cyberpunk-back-print-streetwear-oversized-t-shirt",
+    "description": "Make a striking statement with this Tokyo Cyberpunk back-graphic oversized tee. Features an ultra-durable, high-density screen print on the back with subtle front chest typography. Tailored in an oversized silhouette from breathable 220 GSM combed jersey.",
+    "specifications": "Fabric: 100% Combed Cotton\nGSM: 220 GSM\nPrint Type: Crack-Resistant Plastisol & High-Density Screen Print\nFit: Loose Oversized Fit\nSleeve: Half Sleeve\nOrigin: India\nWash Care: Gentle wash cold inside out, warm iron on reverse only",
+    "selling_price": "479.00",
+    "original_price": "949.00",
+    "source_cost": "235.00",
+    "supplier": 9,
+    "supplier_sku_or_url": "https://meesho.com/tokyo-street-anime-back-graphic-oversized-tshirt/p/6y1k8p",
+    "stock_quantity": 50,
+    "is_active": true,
+    "is_featured": false,
+    "is_bestseller": true,
+    "is_trending": true,
+    "delivery_info": "Fast 3-4 day express delivery via trusted couriers. Free delivery on ₹499+ orders.",
+    "return_policy_info": "7-Day return policy for manufacturing defects or size mismatches.",
+    "created_at": "2026-11-19T07:20:15.320Z",
+    "updated_at": "2026-11-19T07:20:15.320Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 10,
+  "fields": {
+    "category": 8,
+    "name": "POCKET Minimalist Typographic High-Density Print Cotton T-Shirt",
+    "slug": "pocket-minimalist-typographic-high-density-print-cotton-t-shirt",
+    "description": "Understated contemporary elegance. Designed with clean architectural typography across the chest using raised high-density rubber print that won't peel or fade. Cut from 100% lightweight 180 GSM bio-washed combed cotton for all-day comfort in tropical weather.",
+    "specifications": "Fabric: 100% Bio-Washed Combed Cotton\nGSM: 180 GSM Lightweight Breathable\nNeck: Crew Neck with Elastane Rib\nPrint: Micro High-Density Rubber Print\nFit: Regular Casual Fit\nCare: Machine wash cold, dry in shade",
+    "selling_price": "399.00",
+    "original_price": "799.00",
+    "source_cost": "185.00",
+    "supplier": 2,
+    "supplier_sku_or_url": "https://meesho.com/minimal-aesthetic-quotes-cotton-graphic-tshirt/p/4v9n2k",
+    "stock_quantity": 45,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": false,
+    "is_trending": false,
+    "delivery_info": "Dispatches in 24 hours. Tracked delivery in 3-5 days across India.",
+    "return_policy_info": "7-Day easy return & replacement.",
+    "created_at": "2026-11-19T07:20:15.477Z",
+    "updated_at": "2026-11-19T07:20:15.477Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 11,
+  "fields": {
+    "category": 8,
+    "name": "POCKET Retro Heritage Vintage Motorcycle Club Graphic Tee",
+    "slug": "pocket-retro-heritage-vintage-motorcycle-club-graphic-tee",
+    "description": "Inspired by 1970s cafe racer motorcycle culture, this vintage-washed graphic tee features a weathered distressed emblem screen print on chest and back. Crafted in comfortable 190 GSM cotton jersey with reinforced shoulder taping.",
+    "specifications": "Fabric: 100% Super-Combed Cotton\nGSM: 190 GSM\nFinish: Vintage Enzyme Wash\nPrint: Distressed Screen Print with Soft Hand-Feel\nNeck: Contrast Ribbed Crew Neck\nOrigin: India",
+    "selling_price": "429.00",
+    "original_price": "849.00",
+    "source_cost": "195.00",
+    "supplier": 9,
+    "supplier_sku_or_url": "https://www.flipkart.com/shopsy/vintage-biker-graphic-printed-cotton-t-shirt/p/itm5k8v39",
+    "stock_quantity": 48,
+    "is_active": true,
+    "is_featured": false,
+    "is_bestseller": true,
+    "is_trending": false,
+    "delivery_info": "Ships within 48 hours. Delivered nationwide in 3-5 business days.",
+    "return_policy_info": "7-Day replacement on fit and quality.",
+    "created_at": "2026-11-19T07:20:15.611Z",
+    "updated_at": "2026-11-19T07:20:15.611Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 12,
+  "fields": {
+    "category": 8,
+    "name": "POCKET Abstract Neo-Geometric Rubber-Print Cotton Graphic T-Shirt",
+    "slug": "pocket-abstract-neo-geometric-rubber-print-cotton-graphic-t-shirt",
+    "description": "Modern art meets everyday streetwear. Features multi-layered geometric color-blocking printed with flexible, breathable plastisol ink that stretches naturally with the cotton fabric. Soft pre-shrunk cotton ensures the shirt maintains its tailored shape after washing.",
+    "specifications": "Fabric: 100% Premium Cotton\nGSM: 180 GSM\nPrint: Flexible Anti-Crack Rubberized Print\nFit: Regular Fit\nPre-Shrunk: Yes\nWash Care: Gentle cycle wash, iron on reverse",
+    "selling_price": "399.00",
+    "original_price": "799.00",
+    "source_cost": "190.00",
+    "supplier": 4,
+    "supplier_sku_or_url": "https://www.indiamart.com/proddetail/abstract-geometric-men-cotton-tshirt-28509124810.html",
+    "stock_quantity": 40,
+    "is_active": true,
+    "is_featured": false,
+    "is_bestseller": false,
+    "is_trending": true,
+    "delivery_info": "Dispatches in 24 hours. Express 3-day delivery available.",
+    "return_policy_info": "7-Day doorstep pickup for returns or exchanges.",
+    "created_at": "2026-11-19T07:20:15.754Z",
+    "updated_at": "2026-11-19T07:20:15.754Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 13,
+  "fields": {
+    "category": 9,
+    "name": "POCKET Everyday Essential 100% Combed Cotton Crew Neck T-Shirt",
+    "slug": "pocket-everyday-essential-100-combed-cotton-crew-neck-t-shirt",
+    "description": "The holy grail of everyday basics. Made from 100% combed cotton jersey (180 GSM), this tee features a tagless scratch-free collar, reinforced neck taping, and a tailored regular cut that works equally well layered under shirts or worn solo.",
+    "specifications": "Fabric: 100% Super-Combed Cotton\nGSM: 180 GSM\nCollar: Lycra Ribbed Tagless Crew Neck\nPre-Shrunk: Yes, Preshrunk Fabric\nFit: Classic Regular Fit\nOrigin: Tirupur, India\nCare: Machine wash cold, tumble dry low",
+    "selling_price": "299.00",
+    "original_price": "599.00",
+    "source_cost": "145.00",
+    "supplier": 2,
+    "supplier_sku_or_url": "https://meesho.com/men-solid-plain-cotton-crew-neck-tee/p/3b8x1k",
+    "stock_quantity": 70,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": true,
+    "is_trending": false,
+    "delivery_info": "Dispatched within 24 hours. Free delivery on orders ₹499+.",
+    "return_policy_info": "7-Day hassle-free return and exchange.",
+    "created_at": "2026-11-19T07:20:15.884Z",
+    "updated_at": "2026-11-19T07:20:15.884Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 14,
+  "fields": {
+    "category": 9,
+    "name": "POCKET Ultra-Soft Bio-Washed Solid V-Neck Cotton T-Shirt",
+    "slug": "pocket-ultra-soft-bio-washed-solid-v-neck-cotton-t-shirt",
+    "description": "A flattering modern V-neck cut with a neat ribbed collar depth that looks polished. Crafted with silicone-softened bio-washed combed cotton that eliminates pilling and gives a feather-light feel against the skin.",
+    "specifications": "Fabric: 100% Combed Cotton\r\nGSM: 175 GSM Breathable Jersey\r\nNeckline: Modest Depth Ribbed V-Neck\r\nSoftness: Enzyme Silicone Washed\r\nFit: Modern Tailored Fit\r\nOrigin: India",
+    "selling_price": "109.00",
+    "original_price": "648.72",
+    "source_cost": "155.00",
+    "supplier": 9,
+    "supplier_sku_or_url": "https://meesho.com/men-solid-v-neck-cotton-tshirt-bio-washed/p/4p2m8z",
+    "stock_quantity": 50,
+    "is_active": true,
+    "is_featured": false,
+    "is_bestseller": false,
+    "is_trending": true,
+    "delivery_info": "",
+    "return_policy_info": "",
+    "created_at": "2026-11-19T07:20:16.066Z",
+    "updated_at": "2026-11-19T09:17:53.629Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 15,
+  "fields": {
+    "category": 9,
+    "name": "POCKET Heavy-Gauge Solid Round-Neck Daily Wear T-Shirt",
+    "slug": "pocket-heavy-gauge-solid-round-neck-daily-wear-t-shirt",
+    "description": "Built for durability and repeated wear. Woven with compact ring-spun cotton (200 GSM) that prevents see-through translucency and holds its structured drape throughout long active workdays.",
+    "specifications": "Fabric: 100% Ring-Spun Compact Cotton\nGSM: 200 GSM Opaque Heavy Jersey\nFit: Regular Fit\nNeck: 1x1 Rib with Spandex\nShrinkage: Less than 3% (Sanforized)",
+    "selling_price": "349.00",
+    "original_price": "699.00",
+    "source_cost": "160.00",
+    "supplier": 4,
+    "supplier_sku_or_url": "https://www.indiamart.com/proddetail/heavy-gauge-plain-cotton-tshirt-28498112048.html",
+    "stock_quantity": 55,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": false,
+    "is_trending": false,
+    "delivery_info": "Dispatched in 24 hours. Free delivery on orders ₹499+.",
+    "return_policy_info": "7-Day satisfaction guarantee.",
+    "created_at": "2026-11-19T07:20:16.187Z",
+    "updated_at": "2026-11-19T07:20:16.187Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 16,
+  "fields": {
+    "category": 10,
+    "name": "POCKET Signature Honeycomb Cotton Pique Polo T-Shirt",
+    "slug": "pocket-signature-honeycomb-cotton-pique-polo-t-shirt",
+    "description": "The timeless smart-casual benchmark. Woven in a classic breathable honeycomb matty piqué pattern (230 GSM) that promotes airflow. Features a crisp flat-knit structured collar, pearlized dual-button placket, and ribbed arm cuffs.",
+    "specifications": "Fabric: 100% Cotton Honeycomb Pique\nGSM: 230 GSM\nCollar: Engineered Flat-Knit Anti-Curl Collar\nPlacket: 2-Button Box Placket with Mother-of-Pearl Finish Buttons\nHem: Side Vents for Ease of Movement\nOrigin: Tirupur, India",
+    "selling_price": "549.00",
+    "original_price": "1099.00",
+    "source_cost": "260.00",
+    "supplier": 4,
+    "supplier_sku_or_url": "https://www.indiamart.com/proddetail/cotton-pique-matty-polo-tshirt-28520938122.html",
+    "stock_quantity": 50,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": true,
+    "is_trending": false,
+    "delivery_info": "Dispatched in 24-48 hours. Express tracked delivery in 3-5 business days.",
+    "return_policy_info": "7-Day size exchange and return.",
+    "created_at": "2026-11-19T07:20:16.488Z",
+    "updated_at": "2026-11-19T07:20:16.488Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 17,
+  "fields": {
+    "category": 10,
+    "name": "POCKET Dual-Tipped Collar Textured Slim-Fit Polo",
+    "slug": "pocket-dual-tipped-collar-textured-slim-fit-polo",
+    "description": "Sporty athletic refinement. Features sharp contrast dual tipping lines along the collar and sleeve bands. Engineered in a textured cotton-lycra pique blend that provides flexible stretch across the chest and shoulders.",
+    "specifications": "Fabric: 95% Combed Cotton, 5% Lycra Spandex\nGSM: 220 GSM\nPattern: Solid with Contrast Tipped Ribbing\nFit: Slim Athletic Fit\nButton: Contrast Resin Buttons",
+    "selling_price": "499.00",
+    "original_price": "999.00",
+    "source_cost": "240.00",
+    "supplier": 2,
+    "supplier_sku_or_url": "https://meesho.com/dual-tipped-collar-matty-polo-tshirt/p/5k7m2w",
+    "stock_quantity": 45,
+    "is_active": true,
+    "is_featured": false,
+    "is_bestseller": false,
+    "is_trending": true,
+    "delivery_info": "Dispatched within 24 hours. Delivery nationwide in 3-5 days.",
+    "return_policy_info": "7-Day replacement guarantee.",
+    "created_at": "2026-11-19T07:20:16.656Z",
+    "updated_at": "2026-11-19T07:20:16.656Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 18,
+  "fields": {
+    "category": 10,
+    "name": "POCKET Modern Zip-Neck Ottoman Textured Knit Polo T-Shirt",
+    "slug": "pocket-modern-zip-neck-ottoman-textured-knit-polo-t-shirt",
+    "description": "Contemporary minimalism redefined. Replaces traditional buttons with a sleek metallic quarter-zip neck closure on an elegant horizontal Ottoman ribbed knit texture. Perfect for evening catch-ups and upscale casual settings.",
+    "specifications": "Fabric: 100% Breathable Combed Cotton Ottoman Rib\nGSM: 240 GSM\nNeckline: Metallic Quarter-Zip Closure with Auto-Lock Puller\nFit: Regular Tailored Fit\nCare: Hand or machine wash delicate",
+    "selling_price": "579.00",
+    "original_price": "1199.00",
+    "source_cost": "275.00",
+    "supplier": 5,
+    "supplier_sku_or_url": "https://www.flipkart.com/shopsy/ottoman-rib-zip-collar-polo-tshirt/p/itm8m9v21",
+    "stock_quantity": 40,
+    "is_active": true,
+    "is_featured": false,
+    "is_bestseller": true,
+    "is_trending": false,
+    "delivery_info": "Express delivery in 3-5 days with full online tracking.",
+    "return_policy_info": "7-Day easy replacement policy.",
+    "created_at": "2026-11-19T07:20:16.778Z",
+    "updated_at": "2026-11-19T07:20:16.778Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 19,
+  "fields": {
+    "category": 11,
+    "name": "POCKET Classic Oxford Button-Down Casual Cotton Shirt",
+    "slug": "pocket-classic-oxford-button-down-casual-cotton-shirt",
+    "description": "The quintessential button-down shirt every man needs. Woven with authentic basket-weave Oxford cotton that balances crisp structure with soft breathability. Features a sturdy button-down collar, chest patch pocket with subtle monogram, and curved shirttail hem.",
+    "specifications": "Fabric: 100% Pure Oxford Cotton\nWeave: Classic Basketweave\nCollar: Roll Button-Down Collar\nFit: Slim / Semi-Tailored Fit\nPocket: 1 Chest Patch Pocket\nHem: Curved Hem (Tucked or Untucked)",
+    "selling_price": "649.00",
+    "original_price": "1299.00",
+    "source_cost": "320.00",
+    "supplier": 8,
+    "supplier_sku_or_url": "https://www.indiamart.com/proddetail/men-oxford-cotton-casual-shirt-28531980419.html",
+    "stock_quantity": 45,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": true,
+    "is_trending": false,
+    "delivery_info": "Dispatched in 24 hours. Free shipping across India on orders above ₹499.",
+    "return_policy_info": "7-Day replacement for fit or fabric quality.",
+    "created_at": "2026-11-19T07:20:16.917Z",
+    "updated_at": "2026-11-19T07:20:16.917Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 20,
+  "fields": {
+    "category": 11,
+    "name": "POCKET Breathable Cotton-Linen Blend Mandarin Collar Casual Shirt",
+    "slug": "pocket-breathable-cotton-linen-blend-mandarin-collar-casual-shirt",
+    "description": "Stay breezy and refined in warm weather. Combining the natural cooling breathability of linen with the wrinkle-resistant softness of long-staple cotton. Styled with a contemporary mandarin band collar and roll-up button sleeve tabs.",
+    "specifications": "Fabric: 60% Cotton, 40% Natural Linen\nCollar: Mandarin / Band Collar\nSleeve: Full Sleeve with Roll-Up Button Tab\nButtons: Natural Wood-Finish Eco Buttons\nFit: Relaxed Casual Fit",
+    "selling_price": "699.00",
+    "original_price": "1399.00",
+    "source_cost": "340.00",
+    "supplier": 8,
+    "supplier_sku_or_url": "https://www.indiamart.com/proddetail/cotton-linen-mandarin-collar-shirt-28519028471.html",
+    "stock_quantity": 40,
+    "is_active": true,
+    "is_featured": false,
+    "is_bestseller": false,
+    "is_trending": true,
+    "delivery_info": "Dispatched within 24-48 hours. Delivered in 3-5 business days.",
+    "return_policy_info": "7-Day hassle-free return and exchange.",
+    "created_at": "2026-11-19T07:20:17.055Z",
+    "updated_at": "2026-11-19T07:20:17.055Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 21,
+  "fields": {
+    "category": 11,
+    "name": "POCKET Buffalo Plaid Twill Check Relaxed Casual Shirt",
+    "slug": "pocket-buffalo-plaid-twill-check-relaxed-casual-shirt",
+    "description": "Rugged weekend staple. Woven from brushed cotton twill featuring a bold buffalo plaid check pattern. Pre-washed for a super-soft lived-in texture that pairs effortlessly over plain white t-shirts or denims.",
+    "specifications": "Fabric: 100% Brushed Cotton Twill\nPattern: Yarn-Dyed Buffalo Plaid Checks\nCollar: Standard Spread Collar\nPlacket: Reinforced Front Button Placket\nFit: Relaxed Regular Fit",
+    "selling_price": "629.00",
+    "original_price": "1249.00",
+    "source_cost": "310.00",
+    "supplier": 5,
+    "supplier_sku_or_url": "https://www.flipkart.com/shopsy/men-check-twill-cotton-casual-shirt/p/itm7v1b89",
+    "stock_quantity": 42,
+    "is_active": true,
+    "is_featured": false,
+    "is_bestseller": true,
+    "is_trending": false,
+    "delivery_info": "Fast doorstep delivery in 3-5 days across all Indian states.",
+    "return_policy_info": "7-Day replacement for size and defect issues.",
+    "created_at": "2026-11-19T07:20:17.196Z",
+    "updated_at": "2026-11-19T07:20:17.196Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 22,
+  "fields": {
+    "category": 12,
+    "name": "POCKET Pro-Stretch 4-Way Lycra Athletic Slim-Fit Joggers",
+    "slug": "pocket-pro-stretch-4-way-lycra-athletic-slim-fit-joggers",
+    "description": "Maximum movement, zero restriction. Engineered with ultra-flexible 4-way stretch cotton-lycra (260 GSM). Features deep side pockets, dual rear welt pockets, elastic waistband with tubular metal-tipped drawstrings, and snug ribbed ankle cuffs.",
+    "specifications": "Fabric: 92% Combed Cotton, 8% Lycra Spandex\nStretch: 4-Way High Recovery Stretch\nWaistband: Encased Elastic with Braided Drawcord\nPockets: 2 Deep Hand Pockets + 1 Back Pocket\nAnkle: Ribbed Spandex Cuffs\nCare: Machine wash cold",
+    "selling_price": "599.00",
+    "original_price": "1199.00",
+    "source_cost": "280.00",
+    "supplier": 6,
+    "supplier_sku_or_url": "https://www.indiamart.com/proddetail/cotton-lycra-4way-stretch-joggers-28511094833.html",
+    "stock_quantity": 55,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": true,
+    "is_trending": true,
+    "delivery_info": "Dispatched within 24 hours. Free shipping nationwide above ₹499.",
+    "return_policy_info": "7-Day size replacement and returns.",
+    "created_at": "2026-11-19T07:20:17.319Z",
+    "updated_at": "2026-11-19T07:20:17.324Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 23,
+  "fields": {
+    "category": 12,
+    "name": "POCKET Heavyweight French Terry Streetwear Casual Joggers",
+    "slug": "pocket-heavyweight-french-terry-streetwear-casual-joggers",
+    "description": "Plush warmth and relaxed streetwear drape. Cut from 280 GSM loopback cotton French Terry. Built with a relaxed thigh profile tapering down to snug ribbed ankles, perfect for casual outings, long flights, and chilly evenings.",
+    "specifications": "Fabric: 100% Cotton Loopback French Terry\nGSM: 280 GSM Heavyweight\nWaist: Broad Non-Roll Elastic Waist with Thick Drawstring\nFit: Tapered Streetwear Fit\nPre-Shrunk: Yes",
+    "selling_price": "649.00",
+    "original_price": "1299.00",
+    "source_cost": "310.00",
+    "supplier": 6,
+    "supplier_sku_or_url": "https://www.indiamart.com/proddetail/heavyweight-french-terry-men-joggers-28509831920.html",
+    "stock_quantity": 45,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": false,
+    "is_trending": false,
+    "delivery_info": "Ships in 24-48 hours. Doorstep delivery across India in 3-5 days.",
+    "return_policy_info": "7-Day replacement on size and fit.",
+    "created_at": "2026-11-19T07:20:17.468Z",
+    "updated_at": "2026-11-19T07:20:17.468Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 24,
+  "fields": {
+    "category": 12,
+    "name": "POCKET Dual Zipper-Pocket Tapered Ankle Gym Joggers",
+    "slug": "pocket-dual-zipper-pocket-tapered-ankle-gym-joggers",
+    "description": "Never worry about keys or smartphones slipping out during workouts or commutes. Features two secure waterproof inverted-zipper side pockets, breathable moisture-wicking poly-cotton fabric, and ergonomic articulated knee panels.",
+    "specifications": "Fabric: 75% Combed Cotton, 20% Polyester, 5% Elastane\nPockets: 2 Inverted Reverse-Coil Zipper Pockets\nMoisture Wicking: Quick-Drying Fabric\nFit: Tapered Athletic Fit",
+    "selling_price": "549.00",
+    "original_price": "1099.00",
+    "source_cost": "265.00",
+    "supplier": 2,
+    "supplier_sku_or_url": "https://meesho.com/men-dual-zipper-track-pant-gym-joggers/p/6n4m1x",
+    "stock_quantity": 48,
+    "is_active": true,
+    "is_featured": false,
+    "is_bestseller": false,
+    "is_trending": true,
+    "delivery_info": "Dispatched in 24 hours. Free delivery on orders ₹499+.",
+    "return_policy_info": "7-Day size replacement.",
+    "created_at": "2026-11-19T07:20:17.588Z",
+    "updated_at": "2026-11-19T07:20:17.588Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 25,
+  "fields": {
+    "category": 13,
+    "name": "POCKET Rugged Utility 6-Pocket Stretch Twill Cargo Pants",
+    "slug": "pocket-rugged-utility-6-pocket-stretch-twill-cargo-pants",
+    "description": "Built for hard-wearing utility and modern tactical style. Tailored from robust 270 GSM cotton twill infused with 2% elastane for unrestricted mobility. Equipped with 6 reinforced utility pockets: 2 deep front hand pockets, 2 bellows cargo flap pockets with heavy-duty snap buttons, and 2 rear flap pockets.",
+    "specifications": "Fabric: 98% Heavyweight Cotton Twill, 2% Spandex\nGSM: 270 GSM\nPockets: 6 Reinforced Utility Pockets (2 Cargo, 2 Slash, 2 Back)\nClosure: Heavy-Duty YKK Brass Zipper & Button Waist\nReinforcement: Bar-Tack Stitching at All Stress Points\nFit: Regular Tapered Utility Fit",
+    "selling_price": "749.00",
+    "original_price": "1499.00",
+    "source_cost": "360.00",
+    "supplier": 7,
+    "supplier_sku_or_url": "https://www.indiamart.com/proddetail/6-pocket-cotton-twill-cargo-pant-28542091873.html",
+    "stock_quantity": 50,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": true,
+    "is_trending": true,
+    "delivery_info": "Dispatched within 24-48 hours. Nationwide express delivery in 3-5 days. Free delivery above ₹499.",
+    "return_policy_info": "7-Day hassle-free return or size replacement.",
+    "created_at": "2026-11-19T07:20:17.732Z",
+    "updated_at": "2026-11-19T07:20:17.732Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 26,
+  "fields": {
+    "category": 13,
+    "name": "POCKET Tactical Modular Relaxed-Fit Multi-Pocket Cargo Trousers",
+    "slug": "pocket-tactical-modular-relaxed-fit-multi-pocket-cargo-trousers",
+    "description": "High-capacity tactical utility meets streetwear comfort. Features an elasticated back waistband with internal drawstring, reinforced dual-layer knees for rugged abrasion resistance, and 6 spacious 3D bellows pockets with hook-and-loop flap closures.",
+    "specifications": "Fabric: 98% Combed Cotton Canvas Twill, 2% Elastane\r\nWaist: Semi-Elasticated Comfort Waist with Belt Loops\r\nPockets: 6 3D Ergonomic Pockets\r\nKnee: Articulated Double-Reinforced Knee Panels\r\nLeg Opening: Adjustable Ankle Drawcord Option\r\nOrigin: India",
+    "selling_price": "699.00",
+    "original_price": "1699.00",
+    "source_cost": "375.00",
+    "supplier": 7,
+    "supplier_sku_or_url": "https://www.indiamart.com/proddetail/tactical-multi-pocket-cargo-trouser-28531980410.html",
+    "stock_quantity": 45,
+    "is_active": true,
+    "is_featured": true,
+    "is_bestseller": true,
+    "is_trending": true,
+    "delivery_info": "",
+    "return_policy_info": "",
+    "created_at": "2026-11-19T07:20:17.875Z",
+    "updated_at": "2026-11-19T07:33:24.240Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 119,
+  "fields": {
+    "product": 1,
+    "image": "products/pocket-classic-heavyweight-220-gsm-oversized-cotton-t-shirt_front.jpg",
+    "alt_text": "POCKET Classic Heavyweight 220 GSM Oversized Cotton T-Shirt - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 120,
+  "fields": {
+    "product": 1,
+    "image": "products/pocket-classic-heavyweight-220-gsm-oversized-cotton-t-shirt_detail.jpg",
+    "alt_text": "POCKET Classic Heavyweight 220 GSM Oversized Cotton T-Shirt - 220 GSM Cotton Knit & Collar Macro",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 121,
+  "fields": {
+    "product": 1,
+    "image": "products/pocket-classic-heavyweight-220-gsm-oversized-cotton-t-shirt_angle.jpg",
+    "alt_text": "POCKET Classic Heavyweight 220 GSM Oversized Cotton T-Shirt - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 122,
+  "fields": {
+    "product": 2,
+    "image": "products/pocket-pure-cotton-embroidered-straight-kurta-with-dupatta-set_front.jpg",
+    "alt_text": "POCKET Pure Cotton Embroidered Straight Kurta with Dupatta Set - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 123,
+  "fields": {
+    "product": 2,
+    "image": "products/pocket-pure-cotton-embroidered-straight-kurta-with-dupatta-set_detail.jpg",
+    "alt_text": "POCKET Pure Cotton Embroidered Straight Kurta with Dupatta Set - Intricate Resham Thread & Needlework Macro",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 124,
+  "fields": {
+    "product": 2,
+    "image": "products/pocket-pure-cotton-embroidered-straight-kurta-with-dupatta-set_angle.jpg",
+    "alt_text": "POCKET Pure Cotton Embroidered Straight Kurta with Dupatta Set - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 125,
+  "fields": {
+    "product": 3,
+    "image": "products/pocket-slim-fit-oxford-casual-shirt-with-pocket-monogram_front.jpg",
+    "alt_text": "POCKET Slim Fit Oxford Casual Shirt with Pocket Monogram - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 126,
+  "fields": {
+    "product": 3,
+    "image": "products/pocket-slim-fit-oxford-casual-shirt-with-pocket-monogram_detail.jpg",
+    "alt_text": "POCKET Slim Fit Oxford Casual Shirt with Pocket Monogram - Oxford Weave & Pearl Button Placket Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 127,
+  "fields": {
+    "product": 3,
+    "image": "products/pocket-slim-fit-oxford-casual-shirt-with-pocket-monogram_angle.jpg",
+    "alt_text": "POCKET Slim Fit Oxford Casual Shirt with Pocket Monogram - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 128,
+  "fields": {
+    "product": 4,
+    "image": "products/pocket-urban-flex-6-pocket-tactical-cargo-pants_front.jpg",
+    "alt_text": "POCKET Urban Flex 6-Pocket Tactical Cargo Pants - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 129,
+  "fields": {
+    "product": 4,
+    "image": "products/pocket-urban-flex-6-pocket-tactical-cargo-pants_detail.jpg",
+    "alt_text": "POCKET Urban Flex 6-Pocket Tactical Cargo Pants - Reinforced 3D Flap Cargo Pocket & Rivets Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 130,
+  "fields": {
+    "product": 4,
+    "image": "products/pocket-urban-flex-6-pocket-tactical-cargo-pants_angle.jpg",
+    "alt_text": "POCKET Urban Flex 6-Pocket Tactical Cargo Pants - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 131,
+  "fields": {
+    "product": 5,
+    "image": "products/pocket-airstride-ultralight-breathable-running-sneakers_front.jpg",
+    "alt_text": "POCKET AirStride Ultralight Breathable Running Sneakers - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 132,
+  "fields": {
+    "product": 5,
+    "image": "products/pocket-airstride-ultralight-breathable-running-sneakers_detail.jpg",
+    "alt_text": "POCKET AirStride Ultralight Breathable Running Sneakers - Breathable Engineered Mesh Upper & EVA Sole Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 133,
+  "fields": {
+    "product": 5,
+    "image": "products/pocket-airstride-ultralight-breathable-running-sneakers_angle.jpg",
+    "alt_text": "POCKET AirStride Ultralight Breathable Running Sneakers - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 134,
+  "fields": {
+    "product": 6,
+    "image": "products/pocket-commuter-water-resistant-everyday-city-backpack_front.jpg",
+    "alt_text": "POCKET Commuter Water-Resistant Everyday City Backpack - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 135,
+  "fields": {
+    "product": 6,
+    "image": "products/pocket-commuter-water-resistant-everyday-city-backpack_detail.jpg",
+    "alt_text": "POCKET Commuter Water-Resistant Everyday City Backpack - Water-Resistant Coated Weave & SBS Zipper Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 136,
+  "fields": {
+    "product": 6,
+    "image": "products/pocket-commuter-water-resistant-everyday-city-backpack_angle.jpg",
+    "alt_text": "POCKET Commuter Water-Resistant Everyday City Backpack - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 137,
+  "fields": {
+    "product": 7,
+    "image": "products/pocket-streetstyle-heavyweight-240-gsm-acid-wash-oversized-t-shirt_front.jpg",
+    "alt_text": "POCKET StreetStyle Heavyweight 240 GSM French Terry Acid Wash Oversized T-Shirt - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 138,
+  "fields": {
+    "product": 7,
+    "image": "products/pocket-streetstyle-heavyweight-240-gsm-acid-wash-oversized-t-shirt_detail.jpg",
+    "alt_text": "POCKET StreetStyle Heavyweight 240 GSM French Terry Acid Wash Oversized T-Shirt - 240 GSM Acid Wash Cotton Fabric Macro",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 139,
+  "fields": {
+    "product": 7,
+    "image": "products/pocket-streetstyle-heavyweight-240-gsm-acid-wash-oversized-t-shirt_angle.jpg",
+    "alt_text": "POCKET StreetStyle Heavyweight 240 GSM French Terry Acid Wash Oversized T-Shirt - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 140,
+  "fields": {
+    "product": 8,
+    "image": "products/pocket-urban-drop-shoulder-boxy-fit-combed-cotton-oversized-tee_front.jpg",
+    "alt_text": "POCKET Urban Drop-Shoulder Boxy Fit 100% Combed Cotton Oversized Tee - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 141,
+  "fields": {
+    "product": 8,
+    "image": "products/pocket-urban-drop-shoulder-boxy-fit-combed-cotton-oversized-tee_detail.jpg",
+    "alt_text": "POCKET Urban Drop-Shoulder Boxy Fit 100% Combed Cotton Oversized Tee - Drop Shoulder Seam & Ribbed Crew Neck Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 142,
+  "fields": {
+    "product": 8,
+    "image": "products/pocket-urban-drop-shoulder-boxy-fit-combed-cotton-oversized-tee_angle.jpg",
+    "alt_text": "POCKET Urban Drop-Shoulder Boxy Fit 100% Combed Cotton Oversized Tee - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 143,
+  "fields": {
+    "product": 9,
+    "image": "products/pocket-tokyo-cyberpunk-back-print-streetwear-oversized-t-shirt_front.jpg",
+    "alt_text": "POCKET Tokyo Cyberpunk Back-Print Streetwear Oversized T-Shirt - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 144,
+  "fields": {
+    "product": 9,
+    "image": "products/pocket-tokyo-cyberpunk-back-print-streetwear-oversized-t-shirt_detail.jpg",
+    "alt_text": "POCKET Tokyo Cyberpunk Back-Print Streetwear Oversized T-Shirt - High-Definition Screen Print & Fabric Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 145,
+  "fields": {
+    "product": 9,
+    "image": "products/pocket-tokyo-cyberpunk-back-print-streetwear-oversized-t-shirt_angle.jpg",
+    "alt_text": "POCKET Tokyo Cyberpunk Back-Print Streetwear Oversized T-Shirt - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 146,
+  "fields": {
+    "product": 10,
+    "image": "products/pocket-minimalist-typographic-high-density-print-cotton-t-shirt_front.jpg",
+    "alt_text": "POCKET Minimalist Typographic High-Density Print Cotton T-Shirt - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 147,
+  "fields": {
+    "product": 10,
+    "image": "products/pocket-minimalist-typographic-high-density-print-cotton-t-shirt_detail.jpg",
+    "alt_text": "POCKET Minimalist Typographic High-Density Print Cotton T-Shirt - High-Density Rubber Print & Cotton Weave Macro",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 148,
+  "fields": {
+    "product": 10,
+    "image": "products/pocket-minimalist-typographic-high-density-print-cotton-t-shirt_angle.jpg",
+    "alt_text": "POCKET Minimalist Typographic High-Density Print Cotton T-Shirt - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 149,
+  "fields": {
+    "product": 11,
+    "image": "products/pocket-retro-heritage-vintage-motorcycle-club-graphic-tee_front.jpg",
+    "alt_text": "POCKET Retro Heritage Vintage Motorcycle Club Graphic Tee - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 150,
+  "fields": {
+    "product": 11,
+    "image": "products/pocket-retro-heritage-vintage-motorcycle-club-graphic-tee_detail.jpg",
+    "alt_text": "POCKET Retro Heritage Vintage Motorcycle Club Graphic Tee - Distressed Vintage Motor Club Graphic Print Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 151,
+  "fields": {
+    "product": 11,
+    "image": "products/pocket-retro-heritage-vintage-motorcycle-club-graphic-tee_angle.jpg",
+    "alt_text": "POCKET Retro Heritage Vintage Motorcycle Club Graphic Tee - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 152,
+  "fields": {
+    "product": 12,
+    "image": "products/pocket-abstract-neo-geometric-rubber-print-cotton-graphic-t-shirt_front.jpg",
+    "alt_text": "POCKET Abstract Neo-Geometric Rubber-Print Cotton Graphic T-Shirt - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 153,
+  "fields": {
+    "product": 12,
+    "image": "products/pocket-abstract-neo-geometric-rubber-print-cotton-graphic-t-shirt_detail.jpg",
+    "alt_text": "POCKET Abstract Neo-Geometric Rubber-Print Cotton Graphic T-Shirt - Geometric Colorblock Silk Screen Print Texture",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 154,
+  "fields": {
+    "product": 12,
+    "image": "products/pocket-abstract-neo-geometric-rubber-print-cotton-graphic-t-shirt_angle.jpg",
+    "alt_text": "POCKET Abstract Neo-Geometric Rubber-Print Cotton Graphic T-Shirt - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 155,
+  "fields": {
+    "product": 13,
+    "image": "products/pocket-everyday-essential-100-combed-cotton-crew-neck-t-shirt_front.jpg",
+    "alt_text": "POCKET Everyday Essential 100% Combed Cotton Crew Neck T-Shirt - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 156,
+  "fields": {
+    "product": 13,
+    "image": "products/pocket-everyday-essential-100-combed-cotton-crew-neck-t-shirt_detail.jpg",
+    "alt_text": "POCKET Everyday Essential 100% Combed Cotton Crew Neck T-Shirt - 180 GSM Pure Combed Cotton Weave & Seam Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 157,
+  "fields": {
+    "product": 13,
+    "image": "products/pocket-everyday-essential-100-combed-cotton-crew-neck-t-shirt_angle.jpg",
+    "alt_text": "POCKET Everyday Essential 100% Combed Cotton Crew Neck T-Shirt - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 158,
+  "fields": {
+    "product": 14,
+    "image": "products/pocket-ultra-soft-bio-washed-solid-v-neck-cotton-t-shirt_front.jpg",
+    "alt_text": "POCKET Ultra-Soft Bio-Washed Solid V-Neck Cotton T-Shirt - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 159,
+  "fields": {
+    "product": 14,
+    "image": "products/pocket-ultra-soft-bio-washed-solid-v-neck-cotton-t-shirt_detail.jpg",
+    "alt_text": "POCKET Ultra-Soft Bio-Washed Solid V-Neck Cotton T-Shirt - Bio-Washed Cotton Finish & Reinforced V-Neckline",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 160,
+  "fields": {
+    "product": 14,
+    "image": "products/pocket-ultra-soft-bio-washed-solid-v-neck-cotton-t-shirt_angle.jpg",
+    "alt_text": "POCKET Ultra-Soft Bio-Washed Solid V-Neck Cotton T-Shirt - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 161,
+  "fields": {
+    "product": 15,
+    "image": "products/pocket-heavy-gauge-solid-round-neck-daily-wear-t-shirt_front.jpg",
+    "alt_text": "POCKET Heavy-Gauge Solid Round-Neck Daily Wear T-Shirt - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 162,
+  "fields": {
+    "product": 15,
+    "image": "products/pocket-heavy-gauge-solid-round-neck-daily-wear-t-shirt_detail.jpg",
+    "alt_text": "POCKET Heavy-Gauge Solid Round-Neck Daily Wear T-Shirt - Heavy-Gauge Melange Cotton Ribbing & Stitch Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 163,
+  "fields": {
+    "product": 15,
+    "image": "products/pocket-heavy-gauge-solid-round-neck-daily-wear-t-shirt_angle.jpg",
+    "alt_text": "POCKET Heavy-Gauge Solid Round-Neck Daily Wear T-Shirt - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 164,
+  "fields": {
+    "product": 16,
+    "image": "products/pocket-signature-honeycomb-cotton-pique-polo-t-shirt_front.jpg",
+    "alt_text": "POCKET Signature Honeycomb Cotton Pique Polo T-Shirt - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 165,
+  "fields": {
+    "product": 16,
+    "image": "products/pocket-signature-honeycomb-cotton-pique-polo-t-shirt_detail.jpg",
+    "alt_text": "POCKET Signature Honeycomb Cotton Pique Polo T-Shirt - Honeycomb Matty Pique Knit & Placket Macro",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 166,
+  "fields": {
+    "product": 16,
+    "image": "products/pocket-signature-honeycomb-cotton-pique-polo-t-shirt_angle.jpg",
+    "alt_text": "POCKET Signature Honeycomb Cotton Pique Polo T-Shirt - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 167,
+  "fields": {
+    "product": 17,
+    "image": "products/pocket-dual-tipped-collar-textured-slim-fit-polo_front.jpg",
+    "alt_text": "POCKET Dual-Tipped Collar Textured Slim-Fit Polo - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 168,
+  "fields": {
+    "product": 17,
+    "image": "products/pocket-dual-tipped-collar-textured-slim-fit-polo_detail.jpg",
+    "alt_text": "POCKET Dual-Tipped Collar Textured Slim-Fit Polo - Dual Tipped Ribbed Collar & Contrast Cuffs Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 169,
+  "fields": {
+    "product": 17,
+    "image": "products/pocket-dual-tipped-collar-textured-slim-fit-polo_angle.jpg",
+    "alt_text": "POCKET Dual-Tipped Collar Textured Slim-Fit Polo - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 170,
+  "fields": {
+    "product": 18,
+    "image": "products/pocket-modern-zip-neck-ottoman-textured-knit-polo-t-shirt_front.jpg",
+    "alt_text": "POCKET Modern Zip-Neck Ottoman Textured Knit Polo T-Shirt - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 171,
+  "fields": {
+    "product": 18,
+    "image": "products/pocket-modern-zip-neck-ottoman-textured-knit-polo-t-shirt_detail.jpg",
+    "alt_text": "POCKET Modern Zip-Neck Ottoman Textured Knit Polo T-Shirt - Textured Ottoman Knit & Metal Zip Placket Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 172,
+  "fields": {
+    "product": 18,
+    "image": "products/pocket-modern-zip-neck-ottoman-textured-knit-polo-t-shirt_angle.jpg",
+    "alt_text": "POCKET Modern Zip-Neck Ottoman Textured Knit Polo T-Shirt - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 173,
+  "fields": {
+    "product": 19,
+    "image": "products/pocket-classic-oxford-button-down-casual-cotton-shirt_front.jpg",
+    "alt_text": "POCKET Classic Oxford Button-Down Casual Cotton Shirt - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 174,
+  "fields": {
+    "product": 19,
+    "image": "products/pocket-classic-oxford-button-down-casual-cotton-shirt_detail.jpg",
+    "alt_text": "POCKET Classic Oxford Button-Down Casual Cotton Shirt - 100% Breathable Oxford Cotton Weave & Collar Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 175,
+  "fields": {
+    "product": 19,
+    "image": "products/pocket-classic-oxford-button-down-casual-cotton-shirt_angle.jpg",
+    "alt_text": "POCKET Classic Oxford Button-Down Casual Cotton Shirt - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 176,
+  "fields": {
+    "product": 20,
+    "image": "products/pocket-breathable-cotton-linen-blend-mandarin-collar-casual-shirt_front.jpg",
+    "alt_text": "POCKET Breathable Cotton-Linen Blend Mandarin Collar Casual Shirt - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 177,
+  "fields": {
+    "product": 20,
+    "image": "products/pocket-breathable-cotton-linen-blend-mandarin-collar-casual-shirt_detail.jpg",
+    "alt_text": "POCKET Breathable Cotton-Linen Blend Mandarin Collar Casual Shirt - Linen-Blend Fabric Texture & Mandarin Collar Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 178,
+  "fields": {
+    "product": 20,
+    "image": "products/pocket-breathable-cotton-linen-blend-mandarin-collar-casual-shirt_angle.jpg",
+    "alt_text": "POCKET Breathable Cotton-Linen Blend Mandarin Collar Casual Shirt - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 179,
+  "fields": {
+    "product": 21,
+    "image": "products/pocket-buffalo-plaid-twill-check-relaxed-casual-shirt_front.jpg",
+    "alt_text": "POCKET Buffalo Plaid Twill Check Relaxed Casual Shirt - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 180,
+  "fields": {
+    "product": 21,
+    "image": "products/pocket-buffalo-plaid-twill-check-relaxed-casual-shirt_detail.jpg",
+    "alt_text": "POCKET Buffalo Plaid Twill Check Relaxed Casual Shirt - Yarn-Dyed Buffalo Plaid Twill Weave & Button Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 181,
+  "fields": {
+    "product": 21,
+    "image": "products/pocket-buffalo-plaid-twill-check-relaxed-casual-shirt_angle.jpg",
+    "alt_text": "POCKET Buffalo Plaid Twill Check Relaxed Casual Shirt - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 182,
+  "fields": {
+    "product": 22,
+    "image": "products/pocket-pro-stretch-4-way-lycra-athletic-slim-fit-joggers_front.jpg",
+    "alt_text": "POCKET Pro-Stretch 4-Way Lycra Athletic Slim-Fit Joggers - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 183,
+  "fields": {
+    "product": 22,
+    "image": "products/pocket-pro-stretch-4-way-lycra-athletic-slim-fit-joggers_detail.jpg",
+    "alt_text": "POCKET Pro-Stretch 4-Way Lycra Athletic Slim-Fit Joggers - 4-Way Stretch Lycra Waistband & Drawstring Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 184,
+  "fields": {
+    "product": 22,
+    "image": "products/pocket-pro-stretch-4-way-lycra-athletic-slim-fit-joggers_angle.jpg",
+    "alt_text": "POCKET Pro-Stretch 4-Way Lycra Athletic Slim-Fit Joggers - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 185,
+  "fields": {
+    "product": 23,
+    "image": "products/pocket-heavyweight-french-terry-streetwear-casual-joggers_front.jpg",
+    "alt_text": "POCKET Heavyweight French Terry Streetwear Casual Joggers - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 186,
+  "fields": {
+    "product": 23,
+    "image": "products/pocket-heavyweight-french-terry-streetwear-casual-joggers_detail.jpg",
+    "alt_text": "POCKET Heavyweight French Terry Streetwear Casual Joggers - French Terry Loopback Knit & Ribbed Ankle Cuff Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 187,
+  "fields": {
+    "product": 23,
+    "image": "products/pocket-heavyweight-french-terry-streetwear-casual-joggers_angle.jpg",
+    "alt_text": "POCKET Heavyweight French Terry Streetwear Casual Joggers - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 188,
+  "fields": {
+    "product": 24,
+    "image": "products/pocket-dual-zipper-pocket-tapered-ankle-gym-joggers_front.jpg",
+    "alt_text": "POCKET Dual Zipper-Pocket Tapered Ankle Gym Joggers - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 189,
+  "fields": {
+    "product": 24,
+    "image": "products/pocket-dual-zipper-pocket-tapered-ankle-gym-joggers_detail.jpg",
+    "alt_text": "POCKET Dual Zipper-Pocket Tapered Ankle Gym Joggers - Dual Concealed Zipper Pocket & Athletic Seam Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 190,
+  "fields": {
+    "product": 24,
+    "image": "products/pocket-dual-zipper-pocket-tapered-ankle-gym-joggers_angle.jpg",
+    "alt_text": "POCKET Dual Zipper-Pocket Tapered Ankle Gym Joggers - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 191,
+  "fields": {
+    "product": 25,
+    "image": "products/pocket-rugged-utility-6-pocket-stretch-twill-cargo-pants_front.jpg",
+    "alt_text": "POCKET Rugged Utility 6-Pocket Stretch Twill Cargo Pants - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 192,
+  "fields": {
+    "product": 25,
+    "image": "products/pocket-rugged-utility-6-pocket-stretch-twill-cargo-pants_detail.jpg",
+    "alt_text": "POCKET Rugged Utility 6-Pocket Stretch Twill Cargo Pants - Military Heavy Cotton Twill & Flap Cargo Pocket Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 193,
+  "fields": {
+    "product": 25,
+    "image": "products/pocket-rugged-utility-6-pocket-stretch-twill-cargo-pants_angle.jpg",
+    "alt_text": "POCKET Rugged Utility 6-Pocket Stretch Twill Cargo Pants - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 194,
+  "fields": {
+    "product": 26,
+    "image": "products/pocket-tactical-modular-relaxed-fit-multi-pocket-cargo-trousers_front.jpg",
+    "alt_text": "POCKET Tactical Modular Relaxed-Fit Multi-Pocket Cargo Trousers - Front View",
+    "is_primary": true,
+    "display_order": 1
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 195,
+  "fields": {
+    "product": 26,
+    "image": "products/pocket-tactical-modular-relaxed-fit-multi-pocket-cargo-trousers_detail.jpg",
+    "alt_text": "POCKET Tactical Modular Relaxed-Fit Multi-Pocket Cargo Trousers - Modular Multi-Pocket Utility Construction Detail",
+    "is_primary": false,
+    "display_order": 2
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 196,
+  "fields": {
+    "product": 26,
+    "image": "products/pocket-tactical-modular-relaxed-fit-multi-pocket-cargo-trousers_angle.jpg",
+    "alt_text": "POCKET Tactical Modular Relaxed-Fit Multi-Pocket Cargo Trousers - Styling & Fit Perspective",
+    "is_primary": false,
+    "display_order": 3
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 1,
+  "fields": {
+    "product": 1,
+    "size": "S",
+    "color": "Navy Blue",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 2,
+  "fields": {
+    "product": 1,
+    "size": "M",
+    "color": "Navy Blue",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 15,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 3,
+  "fields": {
+    "product": 1,
+    "size": "L",
+    "color": "Navy Blue",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 12,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 4,
+  "fields": {
+    "product": 1,
+    "size": "XL",
+    "color": "Navy Blue",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 5,
+  "fields": {
+    "product": 2,
+    "size": "M",
+    "color": "Rust Orange",
+    "color_code": "#F7892A",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 6,
+  "fields": {
+    "product": 2,
+    "size": "L",
+    "color": "Rust Orange",
+    "color_code": "#F7892A",
+    "additional_price": "0.00",
+    "stock_quantity": 12,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 7,
+  "fields": {
+    "product": 2,
+    "size": "XL",
+    "color": "Rust Orange",
+    "color_code": "#F7892A",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 8,
+  "fields": {
+    "product": 3,
+    "size": "38",
+    "color": "Sky Blue",
+    "color_code": "#93C5FD",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 9,
+  "fields": {
+    "product": 3,
+    "size": "40",
+    "color": "Sky Blue",
+    "color_code": "#93C5FD",
+    "additional_price": "0.00",
+    "stock_quantity": 12,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 10,
+  "fields": {
+    "product": 3,
+    "size": "42",
+    "color": "Sky Blue",
+    "color_code": "#93C5FD",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 11,
+  "fields": {
+    "product": 3,
+    "size": "44",
+    "color": "Sky Blue",
+    "color_code": "#93C5FD",
+    "additional_price": "0.00",
+    "stock_quantity": 5,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 12,
+  "fields": {
+    "product": 4,
+    "size": "30",
+    "color": "Olive Green",
+    "color_code": "#365314",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 13,
+  "fields": {
+    "product": 4,
+    "size": "32",
+    "color": "Olive Green",
+    "color_code": "#365314",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 14,
+  "fields": {
+    "product": 4,
+    "size": "34",
+    "color": "Olive Green",
+    "color_code": "#365314",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 15,
+  "fields": {
+    "product": 4,
+    "size": "36",
+    "color": "Olive Green",
+    "color_code": "#365314",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 16,
+  "fields": {
+    "product": 5,
+    "size": "UK 7",
+    "color": "Midnight Black",
+    "color_code": "#0F172A",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 17,
+  "fields": {
+    "product": 5,
+    "size": "UK 8",
+    "color": "Midnight Black",
+    "color_code": "#0F172A",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 18,
+  "fields": {
+    "product": 5,
+    "size": "UK 9",
+    "color": "Midnight Black",
+    "color_code": "#0F172A",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 19,
+  "fields": {
+    "product": 5,
+    "size": "UK 10",
+    "color": "Midnight Black",
+    "color_code": "#0F172A",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 20,
+  "fields": {
+    "product": 6,
+    "size": "Free Size",
+    "color": "Charcoal Navy",
+    "color_code": "#1E293B",
+    "additional_price": "0.00",
+    "stock_quantity": 40,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 21,
+  "fields": {
+    "product": 7,
+    "size": "M",
+    "color": "Charcoal Grey",
+    "color_code": "#374151",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 22,
+  "fields": {
+    "product": 7,
+    "size": "L",
+    "color": "Charcoal Grey",
+    "color_code": "#374151",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 23,
+  "fields": {
+    "product": 7,
+    "size": "XL",
+    "color": "Charcoal Grey",
+    "color_code": "#374151",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 24,
+  "fields": {
+    "product": 7,
+    "size": "XXL",
+    "color": "Charcoal Grey",
+    "color_code": "#374151",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 25,
+  "fields": {
+    "product": 7,
+    "size": "M",
+    "color": "Vintage Washed Black",
+    "color_code": "#1F2937",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 26,
+  "fields": {
+    "product": 7,
+    "size": "L",
+    "color": "Vintage Washed Black",
+    "color_code": "#1F2937",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 27,
+  "fields": {
+    "product": 7,
+    "size": "XL",
+    "color": "Vintage Washed Black",
+    "color_code": "#1F2937",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 28,
+  "fields": {
+    "product": 7,
+    "size": "XXL",
+    "color": "Vintage Washed Black",
+    "color_code": "#1F2937",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 29,
+  "fields": {
+    "product": 8,
+    "size": "S",
+    "color": "Cobalt Royal Blue",
+    "color_code": "#1D4ED8",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 30,
+  "fields": {
+    "product": 8,
+    "size": "M",
+    "color": "Cobalt Royal Blue",
+    "color_code": "#1D4ED8",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 31,
+  "fields": {
+    "product": 8,
+    "size": "L",
+    "color": "Cobalt Royal Blue",
+    "color_code": "#1D4ED8",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 32,
+  "fields": {
+    "product": 8,
+    "size": "XL",
+    "color": "Cobalt Royal Blue",
+    "color_code": "#1D4ED8",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 33,
+  "fields": {
+    "product": 8,
+    "size": "S",
+    "color": "Off-White Cream",
+    "color_code": "#F3F4F6",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 34,
+  "fields": {
+    "product": 8,
+    "size": "M",
+    "color": "Off-White Cream",
+    "color_code": "#F3F4F6",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 35,
+  "fields": {
+    "product": 8,
+    "size": "L",
+    "color": "Off-White Cream",
+    "color_code": "#F3F4F6",
+    "additional_price": "0.00",
+    "stock_quantity": 7,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 36,
+  "fields": {
+    "product": 8,
+    "size": "XL",
+    "color": "Off-White Cream",
+    "color_code": "#F3F4F6",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 37,
+  "fields": {
+    "product": 9,
+    "size": "M",
+    "color": "Jet Black",
+    "color_code": "#111827",
+    "additional_price": "0.00",
+    "stock_quantity": 12,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 38,
+  "fields": {
+    "product": 9,
+    "size": "L",
+    "color": "Jet Black",
+    "color_code": "#111827",
+    "additional_price": "0.00",
+    "stock_quantity": 12,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 39,
+  "fields": {
+    "product": 9,
+    "size": "XL",
+    "color": "Jet Black",
+    "color_code": "#111827",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 40,
+  "fields": {
+    "product": 9,
+    "size": "M",
+    "color": "Dusty Lilac",
+    "color_code": "#A855F7",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 41,
+  "fields": {
+    "product": 9,
+    "size": "L",
+    "color": "Dusty Lilac",
+    "color_code": "#A855F7",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 42,
+  "fields": {
+    "product": 9,
+    "size": "XL",
+    "color": "Dusty Lilac",
+    "color_code": "#A855F7",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 43,
+  "fields": {
+    "product": 10,
+    "size": "S",
+    "color": "Olive Green",
+    "color_code": "#3F6212",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 44,
+  "fields": {
+    "product": 10,
+    "size": "M",
+    "color": "Olive Green",
+    "color_code": "#3F6212",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 45,
+  "fields": {
+    "product": 10,
+    "size": "L",
+    "color": "Olive Green",
+    "color_code": "#3F6212",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 46,
+  "fields": {
+    "product": 10,
+    "size": "XL",
+    "color": "Olive Green",
+    "color_code": "#3F6212",
+    "additional_price": "0.00",
+    "stock_quantity": 3,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 47,
+  "fields": {
+    "product": 10,
+    "size": "S",
+    "color": "Mustard Gold",
+    "color_code": "#CA8A04",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 48,
+  "fields": {
+    "product": 10,
+    "size": "M",
+    "color": "Mustard Gold",
+    "color_code": "#CA8A04",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 49,
+  "fields": {
+    "product": 10,
+    "size": "L",
+    "color": "Mustard Gold",
+    "color_code": "#CA8A04",
+    "additional_price": "0.00",
+    "stock_quantity": 5,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 50,
+  "fields": {
+    "product": 10,
+    "size": "XL",
+    "color": "Mustard Gold",
+    "color_code": "#CA8A04",
+    "additional_price": "0.00",
+    "stock_quantity": 3,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 51,
+  "fields": {
+    "product": 11,
+    "size": "M",
+    "color": "Heather Grey",
+    "color_code": "#9CA3AF",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 52,
+  "fields": {
+    "product": 11,
+    "size": "L",
+    "color": "Heather Grey",
+    "color_code": "#9CA3AF",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 53,
+  "fields": {
+    "product": 11,
+    "size": "XL",
+    "color": "Heather Grey",
+    "color_code": "#9CA3AF",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 54,
+  "fields": {
+    "product": 11,
+    "size": "XXL",
+    "color": "Heather Grey",
+    "color_code": "#9CA3AF",
+    "additional_price": "0.00",
+    "stock_quantity": 2,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 55,
+  "fields": {
+    "product": 11,
+    "size": "M",
+    "color": "Navy Blue",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 56,
+  "fields": {
+    "product": 11,
+    "size": "L",
+    "color": "Navy Blue",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 57,
+  "fields": {
+    "product": 11,
+    "size": "XL",
+    "color": "Navy Blue",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 58,
+  "fields": {
+    "product": 11,
+    "size": "XXL",
+    "color": "Navy Blue",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 2,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 59,
+  "fields": {
+    "product": 12,
+    "size": "M",
+    "color": "Deep Maroon",
+    "color_code": "#881337",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 60,
+  "fields": {
+    "product": 12,
+    "size": "L",
+    "color": "Deep Maroon",
+    "color_code": "#881337",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 61,
+  "fields": {
+    "product": 12,
+    "size": "XL",
+    "color": "Deep Maroon",
+    "color_code": "#881337",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 62,
+  "fields": {
+    "product": 12,
+    "size": "M",
+    "color": "Pure White",
+    "color_code": "#FFFFFF",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 63,
+  "fields": {
+    "product": 12,
+    "size": "L",
+    "color": "Pure White",
+    "color_code": "#FFFFFF",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 64,
+  "fields": {
+    "product": 12,
+    "size": "XL",
+    "color": "Pure White",
+    "color_code": "#FFFFFF",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 65,
+  "fields": {
+    "product": 13,
+    "size": "S",
+    "color": "Pitch Black",
+    "color_code": "#000000",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 66,
+  "fields": {
+    "product": 13,
+    "size": "M",
+    "color": "Pitch Black",
+    "color_code": "#000000",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 67,
+  "fields": {
+    "product": 13,
+    "size": "L",
+    "color": "Pitch Black",
+    "color_code": "#000000",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 68,
+  "fields": {
+    "product": 13,
+    "size": "XL",
+    "color": "Pitch Black",
+    "color_code": "#000000",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 69,
+  "fields": {
+    "product": 13,
+    "size": "XXL",
+    "color": "Pitch Black",
+    "color_code": "#000000",
+    "additional_price": "0.00",
+    "stock_quantity": 3,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 70,
+  "fields": {
+    "product": 13,
+    "size": "S",
+    "color": "Crisp White",
+    "color_code": "#F9FAFB",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 71,
+  "fields": {
+    "product": 13,
+    "size": "M",
+    "color": "Crisp White",
+    "color_code": "#F9FAFB",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 72,
+  "fields": {
+    "product": 13,
+    "size": "L",
+    "color": "Crisp White",
+    "color_code": "#F9FAFB",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 73,
+  "fields": {
+    "product": 13,
+    "size": "XL",
+    "color": "Crisp White",
+    "color_code": "#F9FAFB",
+    "additional_price": "0.00",
+    "stock_quantity": 5,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 74,
+  "fields": {
+    "product": 13,
+    "size": "S",
+    "color": "Navy Blue",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 75,
+  "fields": {
+    "product": 13,
+    "size": "M",
+    "color": "Navy Blue",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 76,
+  "fields": {
+    "product": 13,
+    "size": "L",
+    "color": "Navy Blue",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 77,
+  "fields": {
+    "product": 14,
+    "size": "M",
+    "color": "Melange Grey",
+    "color_code": "#9CA3AF",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 78,
+  "fields": {
+    "product": 14,
+    "size": "L",
+    "color": "Melange Grey",
+    "color_code": "#9CA3AF",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 79,
+  "fields": {
+    "product": 14,
+    "size": "XL",
+    "color": "Melange Grey",
+    "color_code": "#9CA3AF",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 80,
+  "fields": {
+    "product": 14,
+    "size": "M",
+    "color": "Olive Green",
+    "color_code": "#365314",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 81,
+  "fields": {
+    "product": 14,
+    "size": "L",
+    "color": "Olive Green",
+    "color_code": "#365314",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 82,
+  "fields": {
+    "product": 14,
+    "size": "XL",
+    "color": "Olive Green",
+    "color_code": "#365314",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 83,
+  "fields": {
+    "product": 15,
+    "size": "M",
+    "color": "Slate Blue",
+    "color_code": "#475569",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 84,
+  "fields": {
+    "product": 15,
+    "size": "L",
+    "color": "Slate Blue",
+    "color_code": "#475569",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 85,
+  "fields": {
+    "product": 15,
+    "size": "XL",
+    "color": "Slate Blue",
+    "color_code": "#475569",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 86,
+  "fields": {
+    "product": 15,
+    "size": "XXL",
+    "color": "Slate Blue",
+    "color_code": "#475569",
+    "additional_price": "0.00",
+    "stock_quantity": 2,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 87,
+  "fields": {
+    "product": 15,
+    "size": "M",
+    "color": "Deep Maroon",
+    "color_code": "#881337",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 88,
+  "fields": {
+    "product": 15,
+    "size": "L",
+    "color": "Deep Maroon",
+    "color_code": "#881337",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 89,
+  "fields": {
+    "product": 15,
+    "size": "XL",
+    "color": "Deep Maroon",
+    "color_code": "#881337",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 90,
+  "fields": {
+    "product": 15,
+    "size": "XXL",
+    "color": "Deep Maroon",
+    "color_code": "#881337",
+    "additional_price": "0.00",
+    "stock_quantity": 3,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 91,
+  "fields": {
+    "product": 16,
+    "size": "M",
+    "color": "Classic Navy",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 92,
+  "fields": {
+    "product": 16,
+    "size": "L",
+    "color": "Classic Navy",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 93,
+  "fields": {
+    "product": 16,
+    "size": "XL",
+    "color": "Classic Navy",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 94,
+  "fields": {
+    "product": 16,
+    "size": "XXL",
+    "color": "Classic Navy",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 2,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 95,
+  "fields": {
+    "product": 16,
+    "size": "M",
+    "color": "Wine Red",
+    "color_code": "#7F1D1D",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 96,
+  "fields": {
+    "product": 16,
+    "size": "L",
+    "color": "Wine Red",
+    "color_code": "#7F1D1D",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 97,
+  "fields": {
+    "product": 16,
+    "size": "XL",
+    "color": "Wine Red",
+    "color_code": "#7F1D1D",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 98,
+  "fields": {
+    "product": 16,
+    "size": "XXL",
+    "color": "Wine Red",
+    "color_code": "#7F1D1D",
+    "additional_price": "0.00",
+    "stock_quantity": 2,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 99,
+  "fields": {
+    "product": 17,
+    "size": "M",
+    "color": "Royal Blue",
+    "color_code": "#1E40AF",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 100,
+  "fields": {
+    "product": 17,
+    "size": "L",
+    "color": "Royal Blue",
+    "color_code": "#1E40AF",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 101,
+  "fields": {
+    "product": 17,
+    "size": "XL",
+    "color": "Royal Blue",
+    "color_code": "#1E40AF",
+    "additional_price": "0.00",
+    "stock_quantity": 5,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 102,
+  "fields": {
+    "product": 17,
+    "size": "M",
+    "color": "Forest Green",
+    "color_code": "#14532D",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 103,
+  "fields": {
+    "product": 17,
+    "size": "L",
+    "color": "Forest Green",
+    "color_code": "#14532D",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 104,
+  "fields": {
+    "product": 17,
+    "size": "XL",
+    "color": "Forest Green",
+    "color_code": "#14532D",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 105,
+  "fields": {
+    "product": 18,
+    "size": "M",
+    "color": "Jet Black",
+    "color_code": "#111827",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 106,
+  "fields": {
+    "product": 18,
+    "size": "L",
+    "color": "Jet Black",
+    "color_code": "#111827",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 107,
+  "fields": {
+    "product": 18,
+    "size": "XL",
+    "color": "Jet Black",
+    "color_code": "#111827",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 108,
+  "fields": {
+    "product": 18,
+    "size": "XXL",
+    "color": "Jet Black",
+    "color_code": "#111827",
+    "additional_price": "0.00",
+    "stock_quantity": 2,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 109,
+  "fields": {
+    "product": 18,
+    "size": "M",
+    "color": "Steel Grey",
+    "color_code": "#6B7280",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 110,
+  "fields": {
+    "product": 18,
+    "size": "L",
+    "color": "Steel Grey",
+    "color_code": "#6B7280",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 111,
+  "fields": {
+    "product": 18,
+    "size": "XL",
+    "color": "Steel Grey",
+    "color_code": "#6B7280",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 112,
+  "fields": {
+    "product": 18,
+    "size": "XXL",
+    "color": "Steel Grey",
+    "color_code": "#6B7280",
+    "additional_price": "0.00",
+    "stock_quantity": 2,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 113,
+  "fields": {
+    "product": 19,
+    "size": "38/S",
+    "color": "Sky Blue",
+    "color_code": "#93C5FD",
+    "additional_price": "0.00",
+    "stock_quantity": 5,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 114,
+  "fields": {
+    "product": 19,
+    "size": "40/M",
+    "color": "Sky Blue",
+    "color_code": "#93C5FD",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 115,
+  "fields": {
+    "product": 19,
+    "size": "42/L",
+    "color": "Sky Blue",
+    "color_code": "#93C5FD",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 116,
+  "fields": {
+    "product": 19,
+    "size": "44/XL",
+    "color": "Sky Blue",
+    "color_code": "#93C5FD",
+    "additional_price": "0.00",
+    "stock_quantity": 3,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 117,
+  "fields": {
+    "product": 19,
+    "size": "38/S",
+    "color": "Crisp White",
+    "color_code": "#F8FAFC",
+    "additional_price": "0.00",
+    "stock_quantity": 5,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 118,
+  "fields": {
+    "product": 19,
+    "size": "40/M",
+    "color": "Crisp White",
+    "color_code": "#F8FAFC",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 119,
+  "fields": {
+    "product": 19,
+    "size": "42/L",
+    "color": "Crisp White",
+    "color_code": "#F8FAFC",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 120,
+  "fields": {
+    "product": 19,
+    "size": "44/XL",
+    "color": "Crisp White",
+    "color_code": "#F8FAFC",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 121,
+  "fields": {
+    "product": 20,
+    "size": "38/S",
+    "color": "Sage Olive",
+    "color_code": "#4D7C0F",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 122,
+  "fields": {
+    "product": 20,
+    "size": "40/M",
+    "color": "Sage Olive",
+    "color_code": "#4D7C0F",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 123,
+  "fields": {
+    "product": 20,
+    "size": "42/L",
+    "color": "Sage Olive",
+    "color_code": "#4D7C0F",
+    "additional_price": "0.00",
+    "stock_quantity": 5,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 124,
+  "fields": {
+    "product": 20,
+    "size": "44/XL",
+    "color": "Sage Olive",
+    "color_code": "#4D7C0F",
+    "additional_price": "0.00",
+    "stock_quantity": 3,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 125,
+  "fields": {
+    "product": 20,
+    "size": "38/S",
+    "color": "Sand Beige",
+    "color_code": "#D97706",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 126,
+  "fields": {
+    "product": 20,
+    "size": "40/M",
+    "color": "Sand Beige",
+    "color_code": "#D97706",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 127,
+  "fields": {
+    "product": 20,
+    "size": "42/L",
+    "color": "Sand Beige",
+    "color_code": "#D97706",
+    "additional_price": "0.00",
+    "stock_quantity": 5,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 128,
+  "fields": {
+    "product": 20,
+    "size": "44/XL",
+    "color": "Sand Beige",
+    "color_code": "#D97706",
+    "additional_price": "0.00",
+    "stock_quantity": 3,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 129,
+  "fields": {
+    "product": 21,
+    "size": "40/M",
+    "color": "Crimson Red & Black",
+    "color_code": "#991B1B",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 130,
+  "fields": {
+    "product": 21,
+    "size": "42/L",
+    "color": "Crimson Red & Black",
+    "color_code": "#991B1B",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 131,
+  "fields": {
+    "product": 21,
+    "size": "44/XL",
+    "color": "Crimson Red & Black",
+    "color_code": "#991B1B",
+    "additional_price": "0.00",
+    "stock_quantity": 5,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 132,
+  "fields": {
+    "product": 21,
+    "size": "40/M",
+    "color": "Navy & Slate Grey",
+    "color_code": "#1E3A8A",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 133,
+  "fields": {
+    "product": 21,
+    "size": "42/L",
+    "color": "Navy & Slate Grey",
+    "color_code": "#1E3A8A",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 134,
+  "fields": {
+    "product": 21,
+    "size": "44/XL",
+    "color": "Navy & Slate Grey",
+    "color_code": "#1E3A8A",
+    "additional_price": "0.00",
+    "stock_quantity": 5,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 135,
+  "fields": {
+    "product": 22,
+    "size": "30/M",
+    "color": "Midnight Black",
+    "color_code": "#0F172A",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 136,
+  "fields": {
+    "product": 22,
+    "size": "32/L",
+    "color": "Midnight Black",
+    "color_code": "#0F172A",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 137,
+  "fields": {
+    "product": 22,
+    "size": "34/XL",
+    "color": "Midnight Black",
+    "color_code": "#0F172A",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 138,
+  "fields": {
+    "product": 22,
+    "size": "36/XXL",
+    "color": "Midnight Black",
+    "color_code": "#0F172A",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 139,
+  "fields": {
+    "product": 22,
+    "size": "30/M",
+    "color": "Dark Heather Grey",
+    "color_code": "#4B5563",
+    "additional_price": "0.00",
+    "stock_quantity": 7,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 140,
+  "fields": {
+    "product": 22,
+    "size": "32/L",
+    "color": "Dark Heather Grey",
+    "color_code": "#4B5563",
+    "additional_price": "0.00",
+    "stock_quantity": 9,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 141,
+  "fields": {
+    "product": 22,
+    "size": "34/XL",
+    "color": "Dark Heather Grey",
+    "color_code": "#4B5563",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 142,
+  "fields": {
+    "product": 22,
+    "size": "36/XXL",
+    "color": "Dark Heather Grey",
+    "color_code": "#4B5563",
+    "additional_price": "0.00",
+    "stock_quantity": 3,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 143,
+  "fields": {
+    "product": 23,
+    "size": "30/M",
+    "color": "Deep Navy",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 144,
+  "fields": {
+    "product": 23,
+    "size": "32/L",
+    "color": "Deep Navy",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 10,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 145,
+  "fields": {
+    "product": 23,
+    "size": "34/XL",
+    "color": "Deep Navy",
+    "color_code": "#0B162C",
+    "additional_price": "0.00",
+    "stock_quantity": 7,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 146,
+  "fields": {
+    "product": 23,
+    "size": "30/M",
+    "color": "Oatmeal Melange",
+    "color_code": "#E5E7EB",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 147,
+  "fields": {
+    "product": 23,
+    "size": "32/L",
+    "color": "Oatmeal Melange",
+    "color_code": "#E5E7EB",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 148,
+  "fields": {
+    "product": 23,
+    "size": "34/XL",
+    "color": "Oatmeal Melange",
+    "color_code": "#E5E7EB",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 149,
+  "fields": {
+    "product": 24,
+    "size": "30/M",
+    "color": "Camo Olive",
+    "color_code": "#3F4E34",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 150,
+  "fields": {
+    "product": 24,
+    "size": "32/L",
+    "color": "Camo Olive",
+    "color_code": "#3F4E34",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 151,
+  "fields": {
+    "product": 24,
+    "size": "34/XL",
+    "color": "Camo Olive",
+    "color_code": "#3F4E34",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 152,
+  "fields": {
+    "product": 24,
+    "size": "36/XXL",
+    "color": "Camo Olive",
+    "color_code": "#3F4E34",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 153,
+  "fields": {
+    "product": 24,
+    "size": "30/M",
+    "color": "Pitch Black",
+    "color_code": "#000000",
+    "additional_price": "0.00",
+    "stock_quantity": 7,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 154,
+  "fields": {
+    "product": 24,
+    "size": "32/L",
+    "color": "Pitch Black",
+    "color_code": "#000000",
+    "additional_price": "0.00",
+    "stock_quantity": 9,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 155,
+  "fields": {
+    "product": 24,
+    "size": "34/XL",
+    "color": "Pitch Black",
+    "color_code": "#000000",
+    "additional_price": "0.00",
+    "stock_quantity": 5,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 156,
+  "fields": {
+    "product": 24,
+    "size": "36/XXL",
+    "color": "Pitch Black",
+    "color_code": "#000000",
+    "additional_price": "0.00",
+    "stock_quantity": 3,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 157,
+  "fields": {
+    "product": 25,
+    "size": "30",
+    "color": "Military Olive",
+    "color_code": "#365314",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 158,
+  "fields": {
+    "product": 25,
+    "size": "32",
+    "color": "Military Olive",
+    "color_code": "#365314",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 159,
+  "fields": {
+    "product": 25,
+    "size": "34",
+    "color": "Military Olive",
+    "color_code": "#365314",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 160,
+  "fields": {
+    "product": 25,
+    "size": "36",
+    "color": "Military Olive",
+    "color_code": "#365314",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 161,
+  "fields": {
+    "product": 25,
+    "size": "30",
+    "color": "Khaki Tan",
+    "color_code": "#B45309",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 162,
+  "fields": {
+    "product": 25,
+    "size": "32",
+    "color": "Khaki Tan",
+    "color_code": "#B45309",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 163,
+  "fields": {
+    "product": 25,
+    "size": "34",
+    "color": "Khaki Tan",
+    "color_code": "#B45309",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 164,
+  "fields": {
+    "product": 25,
+    "size": "36",
+    "color": "Khaki Tan",
+    "color_code": "#B45309",
+    "additional_price": "0.00",
+    "stock_quantity": 4,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 165,
+  "fields": {
+    "product": 26,
+    "size": "30",
+    "color": "Carbon Black",
+    "color_code": "#18181B",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 166,
+  "fields": {
+    "product": 26,
+    "size": "32",
+    "color": "Carbon Black",
+    "color_code": "#18181B",
+    "additional_price": "0.00",
+    "stock_quantity": 8,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 167,
+  "fields": {
+    "product": 26,
+    "size": "34",
+    "color": "Carbon Black",
+    "color_code": "#18181B",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 168,
+  "fields": {
+    "product": 26,
+    "size": "36",
+    "color": "Carbon Black",
+    "color_code": "#18181B",
+    "additional_price": "0.00",
+    "stock_quantity": 3,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 169,
+  "fields": {
+    "product": 26,
+    "size": "30",
+    "color": "Slate Charcoal",
+    "color_code": "#3F3F46",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 170,
+  "fields": {
+    "product": 26,
+    "size": "32",
+    "color": "Slate Charcoal",
+    "color_code": "#3F3F46",
+    "additional_price": "0.00",
+    "stock_quantity": 7,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 171,
+  "fields": {
+    "product": 26,
+    "size": "34",
+    "color": "Slate Charcoal",
+    "color_code": "#3F3F46",
+    "additional_price": "0.00",
+    "stock_quantity": 6,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productvariant",
+  "pk": 172,
+  "fields": {
+    "product": 26,
+    "size": "36",
+    "color": "Slate Charcoal",
+    "color_code": "#3F3F46",
+    "additional_price": "0.00",
+    "stock_quantity": 3,
+    "sku": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.productreview",
+  "pk": 1,
+  "fields": {
+    "product": 14,
+    "user": [
+      "admin"
+    ],
+    "rating": 5,
+    "review_text": "nice product must buy",
+    "is_verified_purchase": false,
+    "is_approved": true,
+    "created_at": "2026-11-19T09:18:38.375Z"
+  }
+},
+{
+  "model": "admin_dashboard.supplier",
+  "pk": 1,
+  "fields": {
+    "name": "Radha Krishna Tex (Surat Hub)",
+    "platform": "MANUFACTURER",
+    "contact_person": "Ramesh Bhai",
+    "phone": "+91 98251 12345",
+    "email": "rktex.surat@gmail.com",
+    "website_or_store_url": "",
+    "internal_notes": "Specialist in rayon kurtis and cotton sarees. Reliable 48h dispatch.",
+    "is_active": true,
+    "created_at": "2026-11-18T07:28:58.324Z",
+    "updated_at": "2026-11-18T07:28:58.324Z"
+  }
+},
+{
+  "model": "admin_dashboard.supplier",
+  "pk": 2,
+  "fields": {
+    "name": "TrendHub Apparel (Tirupur)",
+    "platform": "MEESHO",
+    "contact_person": "Senthil Kumar",
+    "phone": "+91 94432 98765",
+    "email": "",
+    "website_or_store_url": "",
+    "internal_notes": "100% bio-washed combed cotton t-shirts and oversized tees.",
+    "is_active": true,
+    "created_at": "2026-11-18T07:28:58.337Z",
+    "updated_at": "2026-11-18T07:28:58.337Z"
+  }
+},
+{
+  "model": "admin_dashboard.supplier",
+  "pk": 3,
+  "fields": {
+    "name": "UrbanStride Footwear (Agra)",
+    "platform": "LOCAL_DISTRIBUTOR",
+    "contact_person": "Mohit Sharma",
+    "phone": "+91 97190 54321",
+    "email": "",
+    "website_or_store_url": "",
+    "internal_notes": "Breathable mesh sneakers and everyday casual loafers.",
+    "is_active": true,
+    "created_at": "2026-11-18T07:28:58.347Z",
+    "updated_at": "2026-11-18T07:28:58.347Z"
+  }
+},
+{
+  "model": "admin_dashboard.supplier",
+  "pk": 4,
+  "fields": {
+    "name": "Classic Knitwear Works (Tirupur Cluster)",
+    "platform": "MANUFACTURER",
+    "contact_person": "V. Murugan",
+    "phone": "+91 94421 87654",
+    "email": "classicknitwear.tirupur@gmail.com",
+    "website_or_store_url": "https://www.indiamart.com/classicknitwear-tirupur/",
+    "internal_notes": "IndiaMART verified manufacturer of 220-240 GSM French Terry oversized tees and 100% cotton pique polo t-shirts. Direct wholesale factory prices for authentic knitwear.",
+    "is_active": true,
+    "created_at": "2026-11-19T07:20:14.848Z",
+    "updated_at": "2026-11-19T07:20:14.848Z"
+  }
+},
+{
+  "model": "admin_dashboard.supplier",
+  "pk": 5,
+  "fields": {
+    "name": "Shopsy Retail Hub (Surat & Tirupur)",
+    "platform": "FLIPKART",
+    "contact_person": "Rajesh Patel",
+    "phone": "+91 98250 44321",
+    "email": "shopsy.resellerhub@surattextiles.in",
+    "website_or_store_url": "https://www.flipkart.com/shopsy-seller-hub",
+    "internal_notes": "Shopsy/Flipkart reseller partner for cotton casual shirts, plaid checks, and budget lycra joggers. Single-piece factory pricing and zero inventory risk.",
+    "is_active": true,
+    "created_at": "2026-11-19T07:20:14.865Z",
+    "updated_at": "2026-11-19T07:20:14.865Z"
+  }
+},
+{
+  "model": "admin_dashboard.supplier",
+  "pk": 6,
+  "fields": {
+    "name": "Vardhman Hosiery Mills (Ludhiana)",
+    "platform": "MANUFACTURER",
+    "contact_person": "Harpreet Singh",
+    "phone": "+91 98140 22334",
+    "email": "vardhmanhosiery.ldh@gmail.com",
+    "website_or_store_url": "https://www.indiamart.com/vardhmanhosiery-ldh/",
+    "internal_notes": "Ludhiana hosiery and tracksuit manufacturing cluster. IndiaMART verified manufacturer of 4-way stretch cotton lycra gym joggers, loopback French terry pants, and athleisure bottoms.",
+    "is_active": true,
+    "created_at": "2026-11-19T07:20:14.865Z",
+    "updated_at": "2026-11-19T07:20:14.865Z"
+  }
+},
+{
+  "model": "admin_dashboard.supplier",
+  "pk": 7,
+  "fields": {
+    "name": "Apex Garment Mfg & Twill Works (Ahmedabad)",
+    "platform": "MANUFACTURER",
+    "contact_person": "Chetan Shah",
+    "phone": "+91 98790 65432",
+    "email": "apexgarments.ahd@yahoo.com",
+    "website_or_store_url": "https://www.indiamart.com/apexgarments-ahd/",
+    "internal_notes": "Ahmedabad textile and twill workwear manufacturing hub. IndiaMART verified supplier of 6-pocket tactical cargo pants and heavy-duty twill utility trousers.",
+    "is_active": true,
+    "created_at": "2026-11-19T07:20:14.880Z",
+    "updated_at": "2026-11-19T07:20:14.880Z"
+  }
+},
+{
+  "model": "admin_dashboard.supplier",
+  "pk": 8,
+  "fields": {
+    "name": "Surat Weaves & Cottons (Surat Textile Market)",
+    "platform": "MANUFACTURER",
+    "contact_person": "Dharmendra Chawla",
+    "phone": "+91 98241 78901",
+    "email": "suratweaves.mill@gmail.com",
+    "website_or_store_url": "https://www.indiamart.com/suratweaves-mill/",
+    "internal_notes": "Surat textile cluster. IndiaMART verified direct mill supplier of 100% pure cotton Oxford shirts, linen-cotton blends, and yarn-dyed checks.",
+    "is_active": true,
+    "created_at": "2026-11-19T07:20:14.882Z",
+    "updated_at": "2026-11-19T07:20:14.882Z"
+  }
+},
+{
+  "model": "admin_dashboard.supplier",
+  "pk": 9,
+  "fields": {
+    "name": "UrbanResell Fashion Network (Delhi Hub)",
+    "platform": "OTHER",
+    "contact_person": "Amit Verma",
+    "phone": "+91 98110 99887",
+    "email": "urbanresell.delhi@gmail.com",
+    "website_or_store_url": "https://meesho.com/supplier/urbanresell-delhi",
+    "internal_notes": "Gandhi Nagar wholesale apparel hub, Delhi. Multi-channel marketplace reseller supplier for graphic tees, vintage prints, and urban streetwear.",
+    "is_active": true,
+    "created_at": "2026-11-19T07:20:14.899Z",
+    "updated_at": "2026-11-19T07:20:14.899Z"
+  }
+},
+{
+  "model": "orders.wishlist",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "created_at": "2026-11-18T07:50:46.935Z",
+    "updated_at": "2026-11-18T07:50:46.935Z"
+  }
+},
+{
+  "model": "orders.wishlist",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "anirudhverma799"
+    ],
+    "created_at": "2026-11-19T05:04:59.810Z",
+    "updated_at": "2026-11-19T05:04:59.810Z"
+  }
+},
+{
+  "model": "orders.cart",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "session_key": "",
+    "created_at": "2026-11-18T07:50:46.883Z",
+    "updated_at": "2026-11-18T07:50:46.883Z"
+  }
+},
+{
+  "model": "orders.cart",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "anirudhverma799"
+    ],
+    "session_key": "",
+    "created_at": "2026-11-18T08:12:14.443Z",
+    "updated_at": "2026-11-18T08:12:14.443Z"
+  }
+},
+{
+  "model": "orders.cart",
+  "pk": 4,
+  "fields": {
+    "user": null,
+    "session_key": "j6g4tvrzswntsdpgwebyvwk1d7g8acbd",
+    "created_at": "2026-11-19T07:23:09.039Z",
+    "updated_at": "2026-11-19T07:23:09.039Z"
+  }
+},
+{
+  "model": "orders.cartitem",
+  "pk": 2,
+  "fields": {
+    "cart": 4,
+    "product": 26,
+    "variant": 165,
+    "quantity": 1,
+    "created_at": "2026-11-19T07:23:09.054Z",
+    "updated_at": "2026-11-19T07:23:09.055Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 1,
+  "fields": {
+    "order_number": "PKT-20261118-6F191",
+    "user": [
+      "anirudhverma799"
+    ],
+    "shipping_address_snapshot": {
+      "full_name": "anirudh verma",
+      "phone_number": "9302535162",
+      "alternate_phone": "",
+      "address_line_1": "35",
+      "address_line_2": "bhopal",
+      "landmark": "",
+      "city": "bhopal",
+      "state": "madhya pradesh",
+      "pincode": "462044",
+      "address_type": "HOME"
+    },
+    "subtotal": "499.00",
+    "shipping_fee": "0.00",
+    "total_amount": "499.00",
+    "status": "PAYMENT_VERIFIED",
+    "payment_status": "VERIFIED",
+    "total_supplier_cost": "220.00",
+    "actual_shipping_expense": "0.00",
+    "packaging_expense": "0.00",
+    "payment_gateway_charges": "0.00",
+    "other_expenses": "0.00",
+    "estimated_profit": "279.00",
+    "supplier": null,
+    "supplier_order_reference": "",
+    "supplier_order_date": null,
+    "internal_notes": "",
+    "customer_notes": "",
+    "created_at": "2026-11-18T08:13:55.181Z",
+    "updated_at": "2026-11-19T05:09:27.611Z"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "product": 1,
+    "variant": 3,
+    "product_name": "POCKET Classic Heavyweight 220 GSM Oversized Cotton T-Shirt",
+    "variant_details": "Size: L, Color: Navy Blue",
+    "unit_price": "499.00",
+    "supplier_unit_cost": "220.00",
+    "quantity": 1,
+    "total_price": "499.00"
+  }
+},
+{
+  "model": "orders.orderstatushistory",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "status": "PENDING_PAYMENT",
+    "changed_by": null,
+    "comment": "Order placed by customer. Awaiting UPI payment submission.",
+    "customer_visible": true,
+    "created_at": "2026-11-18T08:13:55.233Z"
+  }
+},
+{
+  "model": "orders.orderstatushistory",
+  "pk": 2,
+  "fields": {
+    "order": 1,
+    "status": "PAYMENT_VERIFICATION",
+    "changed_by": null,
+    "comment": "Customer submitted UPI transaction details (UTR: 12345678909876). Pending manual admin verification.",
+    "customer_visible": true,
+    "created_at": "2026-11-19T05:04:37.745Z"
+  }
+},
+{
+  "model": "orders.orderstatushistory",
+  "pk": 3,
+  "fields": {
+    "order": 1,
+    "status": "PAYMENT_VERIFIED",
+    "changed_by": [
+      "admin"
+    ],
+    "comment": "Payment verified via UTR 12345678909876.",
+    "customer_visible": true,
+    "created_at": "2026-11-19T05:09:27.611Z"
+  }
+},
+{
+  "model": "payments.siteconfiguration",
+  "pk": 1,
+  "fields": {
+    "site_name": "POCKET",
+    "tagline": "Fashion that fits your pocket.",
+    "upi_id": "pocketfashion@upi",
+    "account_display_name": "POCKET FASHION STORE",
+    "qr_code_image": "",
+    "payment_instructions": "1. Scan the QR code using Google Pay, PhonePe, Paytm, BHIM, or any UPI app.\r\n2. Pay the exact order amount.\r\n3. Copy the 12-digit UTR / Bank Reference Number from your payment app.\r\n4. Enter the UTR number below and click 'Submit Payment'.\r\n5. Our team verifies the transaction with our bank account before confirming your order.",
+    "free_shipping_threshold": "499.00",
+    "standard_shipping_charge": "49.00",
+    "support_phone": "+91 9302535162",
+    "support_email": "support@pocketfashion.in",
+    "support_hours": "Mon - Sat: 10:00 AM - 7:00 PM",
+    "address": "POCKET Fashion, India",
+    "updated_at": "2026-11-19T05:12:47.985Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "payment_method": "MANUAL_UPI",
+    "amount": "499.00",
+    "utr_number": "12345678909876",
+    "payer_upi_id": "",
+    "payer_name": "",
+    "payment_screenshot": "",
+    "status": "VERIFIED",
+    "admin_notes": "",
+    "verified_by": [
+      "admin"
+    ],
+    "verified_at": "2026-11-19T05:09:27.607Z",
+    "created_at": "2026-11-19T05:04:37.733Z",
+    "updated_at": "2026-11-19T05:09:27.608Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "anirudhverma799"
+    ],
+    "order": 1,
+    "title": "Order Placed Successfully",
+    "message": "Your order #PKT-20261118-6F191 for ₹499.00 has been placed. Please complete UPI payment to confirm.",
+    "notification_type": "ORDER_PLACED",
+    "is_read": false,
+    "created_at": "2026-11-18T08:13:55.249Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "anirudhverma799"
+    ],
+    "order": 1,
+    "title": "Payment Submitted for Verification",
+    "message": "UTR #12345678909876 for Order #PKT-20261118-6F191 has been submitted. Our team will verify the payment against our bank records and confirm your order.",
+    "notification_type": "PAYMENT_VERIFIED",
+    "is_read": true,
+    "created_at": "2026-11-19T05:04:37.760Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "anirudhverma799"
+    ],
+    "order": 1,
+    "title": "Payment Verified & Confirmed!",
+    "message": "Your payment of ₹499.00 for Order #PKT-20261118-6F191 has been verified and approved. Your order is now confirmed!",
+    "notification_type": "PAYMENT_VERIFIED",
+    "is_read": false,
+    "created_at": "2026-11-19T05:09:27.628Z"
+  }
+}
+]

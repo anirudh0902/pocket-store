@@ -10,12 +10,28 @@ venv/
 env/
 ENV/
 
-# Django
-*.log
-local_settings.py
+# SQLite
 db.sqlite3
 db.sqlite3-journal
+*.sqlite3
+db_backup_pre_production.sqlite3
+
+# Static files cache
+staticfiles/
+
+# Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/.env*.local
+frontend/out/
+
+# Media files (stored persistently in Cloudflare R2 / S3)
 media/
+*.jpg
+*.png
+!frontend/public/pocket_logo.jpg
+!frontend/public/categories/*.jpg
+!static/images/pocket_logo.jpg
 
 # Environment Variables
 .env

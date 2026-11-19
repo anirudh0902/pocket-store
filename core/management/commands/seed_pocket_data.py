@@ -53,51 +53,66 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS("Updated SiteConfiguration."))
 
         # 3. Suppliers (Internal)
-        s1, _ = Supplier.objects.get_or_create(
-            name="Radha Krishna Tex (Surat Hub)",
-            defaults={
-                'platform': 'MANUFACTURER',
-                'contact_person': 'Ramesh Bhai',
-                'phone': '+91 98251 12345',
-                'email': 'rktex.surat@gmail.com',
-                'internal_notes': 'Specialist in rayon kurtis and cotton sarees. Reliable 48h dispatch.'
-            }
-        )
-        s2, _ = Supplier.objects.get_or_create(
-            name="TrendHub Apparel (Tirupur)",
-            defaults={
-                'platform': 'MEESHO',
-                'contact_person': 'Senthil Kumar',
-                'phone': '+91 94432 98765',
-                'internal_notes': '100% bio-washed combed cotton t-shirts and oversized tees.'
-            }
-        )
-        s3, _ = Supplier.objects.get_or_create(
-            name="UrbanStride Footwear (Agra)",
-            defaults={
-                'platform': 'LOCAL_DISTRIBUTOR',
-                'contact_person': 'Mohit Sharma',
-                'phone': '+91 97190 54321',
-                'internal_notes': 'Breathable mesh sneakers and everyday casual loafers.'
-            }
-        )
+        suppliers_list = [
+            ("Radha Krishna Tex (Surat Hub)", "MANUFACTURER", "Ramesh Bhai", "+91 98251 12345", "rktex.surat@gmail.com", "https://surattextilemarket.com/rktex", "Specialist in rayon kurtis and cotton sarees. Reliable 48h dispatch."),
+            ("TrendHub Apparel (Tirupur)", "MEESHO", "Senthil Kumar", "+91 94432 98765", "trendhub.tirupur@reseller.in", "https://meesho.com/supplier/trendhub-apparel", "100% bio-washed combed cotton t-shirts and oversized tees. High-volume Tirupur knitwear supplier."),
+            ("UrbanStride Footwear (Agra)", "LOCAL_DISTRIBUTOR", "Mohit Sharma", "+91 97190 54321", "urbanstride.agra@gmail.com", "", "Breathable mesh sneakers and everyday casual loafers."),
+            ("Classic Knitwear Works (Tirupur Cluster)", "MANUFACTURER", "V. Murugan", "+91 94421 87654", "classicknitwear.tirupur@gmail.com", "https://www.indiamart.com/classicknitwear-tirupur/", "IndiaMART verified manufacturer of 220-240 GSM French Terry oversized tees and 100% cotton pique polo t-shirts."),
+            ("Shopsy Retail Hub (Surat & Tirupur)", "FLIPKART", "Rajesh Patel", "+91 98250 44321", "shopsy.resellerhub@surattextiles.in", "https://www.flipkart.com/shopsy-seller-hub", "Shopsy/Flipkart reseller partner for cotton casual shirts and budget lycra joggers."),
+            ("Vardhman Hosiery Mills (Ludhiana)", "MANUFACTURER", "Harpreet Singh", "+91 98140 22334", "vardhmanhosiery.ldh@gmail.com", "https://www.indiamart.com/vardhmanhosiery-ldh/", "Ludhiana hosiery cluster. IndiaMART verified supplier of 4-way stretch lycra gym joggers."),
+            ("Apex Garment Mfg & Twill Works (Ahmedabad)", "MANUFACTURER", "Chetan Shah", "+91 98790 65432", "apexgarments.ahd@yahoo.com", "https://www.indiamart.com/apexgarments-ahd/", "Ahmedabad textile hub. IndiaMART verified supplier of 6-pocket tactical cargo pants."),
+            ("Surat Weaves & Cottons (Surat Textile Market)", "MANUFACTURER", "Dharmendra Chawla", "+91 98241 78901", "suratweaves.mill@gmail.com", "https://www.indiamart.com/suratweaves-mill/", "Surat textile hub. IndiaMART verified supplier of 100% pure cotton Oxford shirts and cotton-linen checks."),
+            ("UrbanResell Fashion Network (Delhi Hub)", "OTHER", "Amit Verma", "+91 98110 99887", "urbanresell.delhi@gmail.com", "https://meesho.com/supplier/urbanresell-delhi", "Gandhi Nagar wholesale apparel hub, Delhi. Multi-channel marketplace reseller supplier."),
+        ]
+        supplier_objs = {}
+        for s_name, s_plat, s_contact, s_phone, s_email, s_url, s_notes in suppliers_list:
+            sup, _ = Supplier.objects.get_or_create(
+                name=s_name,
+                defaults={
+                    'platform': s_plat,
+                    'contact_person': s_contact,
+                    'phone': s_phone,
+                    'email': s_email,
+                    'website_or_store_url': s_url,
+                    'internal_notes': s_notes
+                }
+            )
+            supplier_objs[s_name] = sup
+        s1 = supplier_objs["Radha Krishna Tex (Surat Hub)"]
+        s2 = supplier_objs["TrendHub Apparel (Tirupur)"]
+        s3 = supplier_objs["UrbanStride Footwear (Agra)"]
         self.stdout.write(self.style.SUCCESS("Suppliers initialized."))
 
-        # 4. Categories
+        # 4. Categories (including specific clothing departments)
         categories_data = [
-            ("Men's Fashion", "Trendy shirts, casual t-shirts, jackets, and formal wear.", 1),
-            ("Women's Ethnic & Western", "Graceful kurtas, stylish tops, dresses, and co-ord sets.", 2),
-            ("Trendy T-Shirts & Tops", "Oversized graphic tees, solid polo shirts, and casual tops.", 3),
-            ("Bottoms & Denims", "Stretchable denim jeans, cargo trousers, and comfortable joggers.", 4),
-            ("Footwear & Sneakers", "Comfortable everyday sneakers, loafers, and walking shoes.", 5),
-            ("Accessories & Bags", "Backpacks, belts, wallets, and daily fashion accessories.", 6),
+            ("Oversized T-shirts", "Relaxed, dropped-shoulder heavyweight oversized tees designed for effortless streetwear style.", 1, "categories/oversized-t-shirts.jpg"),
+            ("Graphic T-shirts", "Bold graphic prints, typography, and vibrant artistic designs on premium breathable cotton.", 2, "categories/graphic-t-shirts.jpg"),
+            ("Basic T-shirts", "Everyday solid essentials in classic crew and v-neck cuts crafted from ultra-soft combed cotton.", 3, "categories/basic-t-shirts.jpg"),
+            ("Polo T-shirts", "Smart collared polos with ribbed cuffs and subtle detailing, perfect for casual and semi-formal wear.", 4, "categories/polo-t-shirts.jpg"),
+            ("Casual Shirts", "Classic Oxford, linen blend, checks, and relaxed button-down shirts tailored for versatile styling.", 5, "categories/casual-shirts.jpg"),
+            ("Joggers", "Ultra-comfortable athletic and street joggers with elastic drawstrings and tailored tapered ankles.", 6, "categories/joggers.jpg"),
+            ("Cargo Pants", "Rugged multi-pocket utility cargo trousers built with stretch twill and reinforced stitching.", 7, "categories/cargo-pants.jpg"),
+            ("Men's Fashion", "Trendy shirts, casual t-shirts, jackets, and formal wear.", 8, "categories/mens-fashion.jpg"),
+            ("Women's Ethnic & Western", "Graceful kurtas, stylish tops, dresses, and co-ord sets.", 9, "categories/womens-ethnic-western.jpg"),
+            ("Trendy T-Shirts & Tops", "Oversized graphic tees, solid polo shirts, and casual tops.", 10, "categories/trendy-t-shirts-tops.jpg"),
+            ("Bottoms & Denims", "Stretchable denim jeans, cargo trousers, and comfortable joggers.", 11, "categories/bottoms-denims.jpg"),
+            ("Footwear & Sneakers", "Comfortable everyday sneakers, loafers, and walking shoes.", 12, "categories/footwear-sneakers.jpg"),
+            ("Accessories & Bags", "Backpacks, belts, wallets, and daily fashion accessories.", 13, "categories/accessories-bags.jpg"),
         ]
         cat_objs = {}
-        for name, desc, order in categories_data:
-            cat, _ = Category.objects.get_or_create(
+        for item in categories_data:
+            name, desc, order = item[0], item[1], item[2]
+            img = item[3] if len(item) > 3 else ""
+            cat, created = Category.objects.get_or_create(
                 name=name,
-                defaults={'description': desc, 'display_order': order, 'is_active': True}
+                defaults={'description': desc, 'display_order': order, 'is_active': True, 'image': img}
             )
+            if not created:
+                cat.display_order = order
+                cat.description = desc
+                if img and not cat.image:
+                    cat.image = img
+                cat.save()
             cat_objs[name] = cat
         self.stdout.write(self.style.SUCCESS("Categories initialized."))
 
@@ -231,11 +246,15 @@ class Command(BaseCommand):
                 defaults=p_data
             )
             if created:
-                # Add default logo as placeholder image
-                if os.path.exists(logo_path):
+                # Link primary front photo if available
+                front_rel = f"products/{prod.slug}_front.jpg"
+                front_full = os.path.join('media', front_rel)
+                if os.path.exists(front_full):
+                    ProductImage.objects.create(product=prod, image=front_rel, is_primary=True, alt_text=prod.name, display_order=1)
+                elif os.path.exists(logo_path):
                     with open(logo_path, 'rb') as f:
                         from django.core.files import File
-                        p_img = ProductImage(product=prod, is_primary=True, alt_text=prod.name)
+                        p_img = ProductImage(product=prod, is_primary=True, alt_text=prod.name, display_order=1)
                         p_img.image.save(f"pocket_{prod.id}.jpg", File(f), save=True)
 
                 for v in variants:
