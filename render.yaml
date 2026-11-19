@@ -4,7 +4,7 @@ services:
     runtime: python
     region: oregon
     plan: starter
-    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+    buildCommand: "pip install -r requirements.txt && python manage.py migrate --noinput && python manage.py collectstatic --noinput"
     startCommand: "gunicorn pocket_config.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --threads 4"
     healthCheckPath: /health/
     envVars:
